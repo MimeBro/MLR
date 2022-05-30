@@ -9,16 +9,16 @@ public class PlayerController : MonoBehaviour
     //public Unit unit;
 
     public float cooldown = 0;
-
     public delegate void Command();
     public Stack<Command> commandBuffer = new Stack<Command>();
     private Stack<float> cooldownsBuffer = new Stack<float>();
 
+    public Unit unit;
     public bool canPerform;
 
     private void Awake()
     {
-        //unit = GetComponent<Unit>();
+        unit = GetComponent<Unit>();
         Instance = this;
     }
 
