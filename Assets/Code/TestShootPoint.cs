@@ -34,9 +34,10 @@ public class TestShootPoint : MonoBehaviour
             quaternion.identity);
         
         yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => GameManager.Instance.PlayerPanel() != null);
         GameManager.Instance.PlayerPanel().StartBlinking(1);
         var plyrpos = GameManager.Instance.PlayerPanel();
-        
+
         yield return new WaitForSeconds(1);
         
         Instantiate(pillar, plyrpos.transform.position,
