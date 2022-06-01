@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,18 +9,14 @@ public class Panel : MonoBehaviour
     public int number = 0;
     public Sides side;
     public PanelStatus panelStatus;
-    public Color topcolor, botColor;
     private Color _startingColor, _innerPanelStartingColor;
 
     public Unit occupier;
-    //public Image innerPanel;
-
-    private Image _img;
+    private static readonly int Blink = Animator.StringToHash("Blink");
 
 
     private void Awake()
     {
-        _img = GetComponent<Image>();
     }
 
     private void Start()
@@ -35,7 +33,11 @@ public class Panel : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>() != null)
+        if (other)
+        {
+            Debug.Log(other.gameObject.name);
+        }
+        if (other.GetComponentInParent<Unit>() != null)
         {
             occupier = other.GetComponent<Unit>();
         }
@@ -43,10 +45,23 @@ public class Panel : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>() != null)
+        if (other.GetComponentInParent<Unit>() != null)
         {
             occupier = null;
         }
+    }
+    
+    //Make the panel blink in anticipation for an incoming attack
+    public void StartBlinking(float blinktime)
+    {
+        StartCoroutine(BlinkPanel(blinktime));
+    }
+
+    public IEnumerator BlinkPanel(float blinktime)
+    {
+        GetComponent<Animator>().SetBool(Blink, true);
+        yield return new WaitForSeconds(blinktime);
+        GetComponent<Animator>().SetBool(Blink, false);
     }
 
    /* private void ChangeTeamColor()

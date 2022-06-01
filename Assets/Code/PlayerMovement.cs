@@ -27,12 +27,7 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
     }
-
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         DirectionalRaycasts();
@@ -61,12 +56,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void StartDodge()
     {
-        _collider2D.enabled = false;
+        _unit.uState = UnitState.DODGING;
     }
 
     public void EndDodge()
     {
-        _collider2D.enabled = true;
+        _unit.uState = UnitState.STANDING;
     }
 
     public void MoveForward()
@@ -93,9 +88,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (p == null) return false;
 
-        if (p.occupier == null && p.side == _unit.side || p.side == Sides.NONE)
+        if (p.occupier == null) 
         {
-            return true;
+            if (p.side == _unit.side || p.side == Sides.NONE)
+            {
+                return true;
+            }
         }
 
         return false;
@@ -126,5 +124,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _backPanel = null;
         }
+        
     }
 }

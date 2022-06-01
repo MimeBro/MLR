@@ -1,18 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+{   
+    private bool _blinking = false;
+    public List<Panel> PanelList = new List<Panel>();
+    public static GameManager Instance;
+
+    private void Start()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    //The Panel where the player is currently standing on
+    public Panel PlayerPanel()
     {
+        foreach (var panel in PanelList)
+        {
+            if (panel.occupier != null)
+            {
+                if (panel.occupier.transform.GetComponent<PlayerController>())
+                {
+                    return panel;
+                }
+            }
+        }
         
+        return null;
     }
 }

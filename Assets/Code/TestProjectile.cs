@@ -1,21 +1,18 @@
+using System;
 using UnityEngine;
 
-public class TestProjectile : MonoBehaviour
+public class TestProjectile : Attacks
 {
     public float projectileSpeed;
+
+    private void Start()
+    {
+        Destroy(gameObject,5);
+    }
+
     void Update()
     {
         transform.Translate(Vector3.right * (projectileSpeed * Time.deltaTime));
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Destroy(gameObject,3);
-        
-    }
+    
 }
