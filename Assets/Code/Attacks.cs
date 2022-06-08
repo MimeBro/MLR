@@ -1,15 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Attacks : MonoBehaviour
 {
-    public float damage;
+    public int damage;
+    public Sides side;
 
     private void Start()
     {
         Destroy(gameObject, 5);
+    }
+
+    public void SetSide(Sides s)
+    {
+        side = s;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -17,16 +20,17 @@ public class Attacks : MonoBehaviour
         if (col.GetComponent<Unit>())
         {
             Unit u;
-            
+
             u = col.GetComponent<Unit>();
-            
+            if(u.side == side) return;
+
             if (u.uState == UnitState.DODGING)
             {
-                Debug.Log("Dodged the Attack");
+                return;
             }
             else
             {
-                Debug.Log("Hit Player");
+                u.TakeDamage(damage);
                 Destroy(gameObject);
             }
         }

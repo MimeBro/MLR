@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Panel : MonoBehaviour
 {
@@ -33,10 +30,6 @@ public class Panel : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other)
-        {
-            Debug.Log(other.gameObject.name);
-        }
         if (other.GetComponentInParent<Unit>() != null)
         {
             occupier = other.GetComponent<Unit>();

@@ -27,7 +27,12 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
     }
-    
+
+    private void Start()
+    {
+        //PlayerController.Instance.playerMovement = this;
+    }
+
     void Update()
     {
         DirectionalRaycasts();

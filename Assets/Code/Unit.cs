@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public enum UnitState{STANDING, DODGING}
@@ -9,7 +8,6 @@ public class Unit : MonoBehaviour
     public int maxhp;
     public Panel currentPanel;
     public UnitStatus unitStatus;
-    public ManaBarSO manaBar;
     public UnitState uState;
     
     private void Start()
@@ -20,6 +18,7 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(int d)
     {
+        Debug.Log(d);
         hp -= d;
     }
 
@@ -31,7 +30,6 @@ public class Unit : MonoBehaviour
         {
             Die();
         }
-
     }
 
     private void Die()

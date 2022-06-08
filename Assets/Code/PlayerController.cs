@@ -6,20 +6,36 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    //public Unit unit;
-
-    public float cooldown = 0;
+    [HideInInspector]public float cooldown = 0;
     public delegate void Command();
     public Stack<Command> commandBuffer = new Stack<Command>();
     private Stack<float> cooldownsBuffer = new Stack<float>();
 
-    public Unit unit;
+    [HideInInspector]public Unit unit;
     public bool canPerform;
+    
+    public Transform shootPoint;
+    public List<MovesSO> playerMovesList = new List<MovesSO>();
 
     private void Awake()
     {
         unit = GetComponent<Unit>();
         Instance = this;
+    }
+    
+    public void AddMove(MovesSO move)
+    {
+        playerMovesList.Add(move);
+    }
+
+    public void RemoveMove(int moveindex)
+    {
+        playerMovesList.Remove(playerMovesList[moveindex]);
+    }
+
+    public void ReplaceMove(MovesSO move, int moveindex)
+    {
+        playerMovesList[moveindex] = move;
     }
 
     private void Update()
