@@ -4,11 +4,13 @@ using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform playerSprite;
+
     public Vector3 rayOrigin;
     
     public float rayDistance;
-    public float groundOffset;
     public float jumpPower;
+    public float yposition;
     
     public LayerMask layerMask;
 
@@ -19,13 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
 
-    private Collider2D _collider2D;
-
     private void Awake()
     {
         _unit = GetComponent<Unit>();
         _animator = GetComponent<Animator>();
-        _collider2D = GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -55,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            
+            //maybe a passive
         }
     }
 
@@ -73,22 +72,45 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!PanelIsOk(_frontPanel)) return;
         var panelPos = _frontPanel.transform.position;
-        var destination = new Vector2(panelPos.x, transform.position.y + groundOffset);
+        var destination = new Vector2(panelPos.x, yposition);
 
         transform.DOJump(destination, jumpPower, 1 ,movementSpeed);
         _animator.SetTrigger("DashForward");
+    }
+
+    public void KnockForward(float duration)
+    {
+        if (!PanelIsOk(_frontPanel)) return;
+        var panelPos = _frontPanel.transform.position;
+        var destination = new Vector2(panelPos.x, yposition);
+
+        transform.DOMove(destination, duration);
     }
 
     public void MoveBack()
     {
         if(!PanelIsOk(_backPanel)) return;
         var panelPos = _backPanel.transform.position;
-        var destination = new Vector2(panelPos.x, transform.position.y + groundOffset);
+        var destination = new Vector2(panelPos.x, yposition);
 
         transform.DOJump(destination, jumpPower, 1 ,movementSpeed);
         _animator.SetTrigger("DashBackward");
     }
-    
+
+    public void KnockBack(float duration)
+    {
+        if (!PanelIsOk(_backPanel)) return;
+        var panelPos = _backPanel.transform.position;
+        var destination = new Vector2(panelPos.x, yposition);
+
+        transform.DOMove(destination, duration);
+    }
+
+    public void KnockUp(int jumpPower)
+    {
+        playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);
+    }
+
     private bool PanelIsOk(Panel p)
     {
         if (p == null) return false;

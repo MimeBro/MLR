@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289436092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: -0.36, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6099999, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2115882560260982894}
-  m_RootOrder: 1
+  m_Father: {fileID: 2115882560154854167}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115882560154854161
 GameObject:
@@ -59,7 +59,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 289436093}
   m_Father: {fileID: 2115882560260982894}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,7 +151,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2115882560154854167}
-  - {fileID: 289436093}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,7 +171,6 @@ MonoBehaviour:
   maxhp: 0
   currentPanel: {fileID: 0}
   unitStatus: 0
-  manaBar: {fileID: 0}
   uState: 0
 --- !u!114 &2115882560260982892
 MonoBehaviour:
@@ -188,6 +187,7 @@ MonoBehaviour:
   cooldown: 0
   unit: {fileID: 0}
   canPerform: 1
+  shootPoint: {fileID: 0}
   playerMovesList: []
 --- !u!114 &2115882560260982893
 MonoBehaviour:
@@ -201,10 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffee1b5a6063bd7478bf820a0012ffa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
   rayOrigin: {x: 0, y: -1, z: 0}
   rayDistance: 2
-  groundOffset: 0
   jumpPower: 0.3
+  yposition: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64

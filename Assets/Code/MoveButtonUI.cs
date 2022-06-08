@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
@@ -27,14 +26,14 @@ public class MoveButtonUI : MonoBehaviour
 
     private void Update()
     {
+        GoOnCooldown();
+
         if (Input.GetKeyDown(assignedButton))
         {
             if(OnCooldown) return;
             if(PlayerController.Instance.commandBuffer.Any()) return;
             PlayerController.Instance.AddCommand(CastMove,0);
         }
-        
-        GoOnCooldown();
     }
 
     public void CastMove()
