@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1337028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337030}
+  - component: {fileID: 1337029}
+  m_Layer: 0
+  m_Name: LeafRainAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1337029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ad923ab492f44b8a0d8f0f67c5f484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  side: 0
+  destroySelf: 0
+  destroyParent: 0
+  pierceThrough: 0
+  currentPanelIndex: 0
+  projectilesSpeed: 30
+  waitTime: 0
+  leafAttack: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
+--- !u!4 &1337030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.06, y: 0.14544588, z: 0.005722587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6591340
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &176142234
 Transform:
   m_ObjectHideFlags: 0
@@ -482,17 +535,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 289436093, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
   m_PrefabInstance: {fileID: 2115882559329591187}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &349669919 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2115882560260982893, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
-  m_PrefabInstance: {fileID: 2115882559329591187}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffee1b5a6063bd7478bf820a0012ffa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &371876646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193071709632085684, guid: 2aab69086bc2444399835282d6195ba8, type: 3}
       propertyPath: assignedButton
-      value: 323
+      value: 113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aab69086bc2444399835282d6195ba8, type: 3}
@@ -1284,7 +1326,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000fbff44c769a0be2a
+  m_ApplyToSortingLayers: 00000000fbff44c769a0be2a75195c34
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1591,27 +1633,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 349669919}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: KnockBack
-        m_Mode: 4
+      - m_Target: {fileID: 1337029}
+        m_TargetAssemblyTypeName: LeafRainAttack, Assembly-CSharp
+        m_MethodName: StartLeafAttack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.7
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 349669919}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: KnockUp
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0.2
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2318,8 +2348,12 @@ PrefabInstance:
       value: 0.984
       objectReference: {fileID: 0}
     - target: {fileID: 2115882560154854167, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115882560154854167, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2115882560260982674, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
       propertyPath: m_Size.x

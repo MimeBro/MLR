@@ -4,10 +4,21 @@ public class Attacks : MonoBehaviour
 {
     public int damage;
     public Sides side;
+    public bool destroySelf,destroyParent;
+    public bool pierceThrough;
+    
 
-    private void Start()
+    public virtual void Start()
     {
-        Destroy(gameObject, 5);
+        if (destroySelf)
+        {
+            Destroy(gameObject, 5);
+        }
+
+        if (destroyParent)
+        {
+            Destroy(transform.parent.gameObject, 5);
+        }
     }
 
     public void SetSide(Sides s)
@@ -31,7 +42,7 @@ public class Attacks : MonoBehaviour
             else
             {
                 u.TakeDamage(damage);
-                Destroy(gameObject);
+                if(!pierceThrough)Destroy(gameObject);
             }
         }
     }

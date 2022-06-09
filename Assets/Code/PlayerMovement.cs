@@ -106,6 +106,11 @@ public class PlayerMovement : MonoBehaviour
         transform.DOMove(destination, duration);
     }
 
+    public void TestJumpAttack()
+    {
+        _animator.SetTrigger("JumpAttack");
+    }
+
     public void KnockUp(int jumpPower)
     {
         playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);

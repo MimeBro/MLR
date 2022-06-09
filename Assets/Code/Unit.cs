@@ -38,11 +38,14 @@ public class Unit : MonoBehaviour
         //currentPanel = null;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.GetComponent<Panel>())
         {
-            currentPanel = other.GetComponent<Panel>();
+            if (other.GetComponent<Panel>().occupier == this)
+            {
+                currentPanel = other.GetComponent<Panel>();
+            }
         }
     } 
 }

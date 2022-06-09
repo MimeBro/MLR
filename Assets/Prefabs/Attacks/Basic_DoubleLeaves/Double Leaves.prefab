@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   side: 0
+  destroySelf: 0
+  destroyParent: 0
+  pierceThrough: 0
   projectileSpeed: 30
 --- !u!1001 &4371582474560906385
 PrefabInstance:
@@ -74,19 +77,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -98,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190475, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_Name
@@ -124,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0.433
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -136,19 +139,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -160,11 +163,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190473, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 1243161904562190475, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
       propertyPath: m_Name
       value: Leaf Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964481405757852160, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964481405757852160, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af5c7df42ef14100bb25764f6a990ad, type: 3}
