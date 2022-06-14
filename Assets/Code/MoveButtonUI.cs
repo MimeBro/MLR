@@ -44,11 +44,10 @@ public class MoveButtonUI : MonoBehaviour
         var shots = castedMove.GetComponentsInChildren<Attacks>();
         foreach (var shot in shots)
         {
-            shot.side = Sides.PLAYER;
-            shot.damage = currentMove.damage;
+            shot.SetSide(Sides.PLAYER);
+            shot.SetDamage(currentMove.damage);
         }
 
-        
         _cooldown += currentMove.moveCooldown;
     }
 

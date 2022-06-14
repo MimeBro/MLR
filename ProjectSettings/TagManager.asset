@@ -50,3 +50,9 @@ TagManager:
   - name: Attacks
     uniqueID: 878451061
     locked: 0
+  - name: Notifications
+    uniqueID: 2896531181
+    locked: 0
+  - name: UI
+    uniqueID: 2291414691
+    locked: 0

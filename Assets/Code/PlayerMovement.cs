@@ -9,12 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 rayOrigin;
     
     public float rayDistance;
-    public float jumpPower;
     public float yposition;
     
     public LayerMask layerMask;
-
     public float movementSpeed;
+    public Ease movementEase;
     
     private Panel _frontPanel, _backPanel;
     private Unit _unit;
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //PlayerController.Instance.playerMovement = this;
+        PlayerController.Instance.playerMovement = this;
     }
 
     void Update()
@@ -74,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         var panelPos = _frontPanel.transform.position;
         var destination = new Vector2(panelPos.x, yposition);
 
-        transform.DOJump(destination, jumpPower, 1 ,movementSpeed);
+        transform.DOMove(destination ,movementSpeed).SetEase(movementEase);
         _animator.SetTrigger("DashForward");
     }
 
@@ -93,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         var panelPos = _backPanel.transform.position;
         var destination = new Vector2(panelPos.x, yposition);
 
-        transform.DOJump(destination, jumpPower, 1 ,movementSpeed);
+        transform.DOMove(destination ,movementSpeed).SetEase(movementEase);
         _animator.SetTrigger("DashBackward");
     }
 
@@ -105,12 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.DOMove(destination, duration);
     }
-
-    public void TestJumpAttack()
-    {
-        _animator.SetTrigger("JumpAttack");
-    }
-
+    
     public void KnockUp(int jumpPower)
     {
         playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);

@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GuidedProjectile : MonoBehaviour
+public class GuidedProjectile : Attacks
 {
     public Transform target;
     public Vector3 destination;
@@ -11,8 +11,9 @@ public class GuidedProjectile : MonoBehaviour
 
     private float xOffset;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         xOffset = Random.Range(-0.20f, 0.20f);
 
         var position = target.position;
@@ -24,7 +25,7 @@ public class GuidedProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (Math.Abs(transform.position.y - destination.y) > 0.3f)
+        if (Math.Abs(transform.position.y - destination.y) > 0.5f)
         {
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
         }

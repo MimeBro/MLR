@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f82ed6efda574a33a9f5299e75eb5c6, type: 3}
+  m_Name: LeafRain_Attack
+  m_EditorClassIdentifier: 
+  moveName: Leaf Rain
+  damage: 10
+  moveDescription: 
+  moveType: 2
+  moveCooldown: 1
+  moveIcon: {fileID: 21300000, guid: cb6827596885a4da3a8f2a19d801d897, type: 3}
+  moveGameObject: {fileID: 4292133114318376885, guid: a3446e75625c2416296b19fb5420a33e, type: 3}

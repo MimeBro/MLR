@@ -26,24 +26,25 @@ public class Attacks : MonoBehaviour
         side = s;
     }
 
+    public void SetDamage(int dmg)
+    {
+        damage = dmg;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.GetComponent<Unit>())
+        var unit = col.GetComponent<Unit>();
+        if (unit != null)
         {
-            Unit u;
+            if(unit.side == side) return;
 
-            u = col.GetComponent<Unit>();
-            if(u.side == side) return;
-
-            if (u.uState == UnitState.DODGING)
+            if (unit.uState == UnitState.DODGING)
             {
                 return;
             }
-            else
-            {
-                u.TakeDamage(damage);
-                if(!pierceThrough)Destroy(gameObject);
-            }
+
+            unit.TakeDamage(damage);
+            if(!pierceThrough)Destroy(gameObject);
         }
     }
 }

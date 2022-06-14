@@ -17,9 +17,13 @@ public class PlayerController : MonoBehaviour
     public Transform shootPoint;
     public List<MovesSO> playerMovesList = new List<MovesSO>();
 
+    public Animator animator;
+    public PlayerMovement playerMovement;
+
     private void Awake()
     {
         unit = GetComponent<Unit>();
+        animator = GetComponent<Animator>();
         Instance = this;
     }
     
