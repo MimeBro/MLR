@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class AttackSequenceTemplate : MonoBehaviour
@@ -14,7 +13,7 @@ public class AttackSequenceTemplate : MonoBehaviour
         if (Time.time >= _nextfire)
         {
             //StartPillarAttack();
-            Instantiate(projectile, transform.position, quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
             _nextfire = Time.time + firerate;
         }
     }
@@ -31,7 +30,7 @@ public class AttackSequenceTemplate : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         Instantiate(pillar, GameManager.Instance.PanelList[0].transform.position,
-            quaternion.identity);
+            Quaternion.identity);
         
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => GameManager.Instance.PlayerPanel() != null);
@@ -41,10 +40,10 @@ public class AttackSequenceTemplate : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         Instantiate(pillar, plyrpos.transform.position,
- quaternion.identity);
+ Quaternion.identity);
         
         yield return new WaitForSeconds(1);
         
-        Instantiate(projectile, transform.position, quaternion.identity);
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 }
