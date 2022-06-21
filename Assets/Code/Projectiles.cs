@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class TestProjectile : Attacks
+public class Projectiles : Attacks
 {
     public float projectileSpeed;
 

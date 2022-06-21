@@ -67,7 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cb95de1b0394541983a5c3beaf33ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
+  side: 1
+  destroySelf: 0
+  destroyParent: 0
+  pierceThrough: 0
 --- !u!50 &3525877230746067140
 Rigidbody2D:
   serializedVersion: 4
@@ -216,7 +220,13 @@ MonoBehaviour:
   side: 0
   hp: 0
   maxhp: 0
+  shield: 0
+  maxShield: 0
   currentPanel: {fileID: 0}
   unitStatus: 0
-  manaBar: {fileID: 0}
   uState: 0
+  DamageFeedback: {fileID: 0}
+  boxSize: {x: 0, y: 0}
+  panelLayerMask:
+    serializedVersion: 2
+    m_Bits: 0

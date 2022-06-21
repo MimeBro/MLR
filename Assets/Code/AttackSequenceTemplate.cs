@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class TestShootPoint : MonoBehaviour
+public class AttackSequenceTemplate : MonoBehaviour
 {
     public float firerate;
     private float _nextfire;
@@ -14,7 +13,8 @@ public class TestShootPoint : MonoBehaviour
     {
         if (Time.time >= _nextfire)
         {
-            //Instantiate(projectile, transform.position, quaternion.identity);
+            //StartPillarAttack();
+            Instantiate(projectile, transform.position, quaternion.identity);
             _nextfire = Time.time + firerate;
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public enum UnitState{STANDING, DODGING}
 public class Unit : MonoBehaviour
 {
+    
     [Header("Stats")]
     public Sides side;
     public int hp;
@@ -21,6 +22,10 @@ public class Unit : MonoBehaviour
 
     public Vector2 boxSize;
     public LayerMask panelLayerMask;
+
+    [Header("Test")] 
+    public bool refillHP;
+    public bool infiniteEnergy;
     
     private void Start()
     {
@@ -67,6 +72,7 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
+        if (refillHP) hp = maxhp;
         Debug.Log("Died");
         //currentPanel = null;
     }

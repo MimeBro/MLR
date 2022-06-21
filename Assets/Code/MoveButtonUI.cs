@@ -64,6 +64,6 @@ public class MoveButtonUI : MonoBehaviour
             OnCooldown = false;
         }
 
-        buttonCooldownEffect.fillAmount = _cooldown / currentMove.moveCooldown;
+        //buttonCooldownEffect.fillAmount = _cooldown / currentMove.moveCooldown;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.Feedbacks;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
 
+    public MMFeedbacks DodgeForward;
+    public MMFeedbacks DodgeBackward;
+
     private void Awake()
     {
         _unit = GetComponent<Unit>();
@@ -29,9 +33,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         PlayerController.Instance.playerMovement = this;
+        yposition = transform.position.y;
     }
 
-    void Update()
+    private void Update()
     {
         DirectionalRaycasts();
         MovementInput();
@@ -74,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         var destination = new Vector2(panelPos.x, yposition);
 
         transform.DOMove(destination ,movementSpeed).SetEase(movementEase);
+        DodgeForward?.PlayFeedbacks();
         _animator.SetTrigger("DashForward");
     }
 
@@ -93,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         var destination = new Vector2(panelPos.x, yposition);
 
         transform.DOMove(destination ,movementSpeed).SetEase(movementEase);
+        DodgeBackward?.PlayFeedbacks();
         _animator.SetTrigger("DashBackward");
     }
 
@@ -151,5 +158,7 @@ public class PlayerMovement : MonoBehaviour
             _backPanel = null;
         }
         
+        Debug.DrawRay(transform.position + rayOrigin, Vector3.right * rayDistance, Color.green);
+        Debug.DrawRay(transform.position + rayOrigin, -Vector3.right * rayDistance, Color.green);
     }
 }
