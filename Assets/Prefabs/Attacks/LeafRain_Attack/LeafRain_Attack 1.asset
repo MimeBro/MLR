@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Leaf Rain
   damage: 10
+  energyCost: 3
   moveDescription: 
   moveType: 2
   moveCooldown: 1

@@ -1,24 +1,73 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MoveDraw : MonoBehaviour
 {
-    public GameObject moveToDraw;
-    public MovesSlotsUI slots;
+    public MoveButton moveButtonPrefab;
+    public MoveSlotsManager slots;
     
     public List<RectTransform> availableSlots = new List<RectTransform>();
 
+    public MoveSet DrawnMoves;
+    public MoveSet UsedMoves;
 
-    public void DrawAMove()
+    private MoveSet playerSet;
+
+    private void Start()
+    {
+        playerSet = GameManager.Instance.playerMoveSet;
+        ShuffleSet();
+        DrawnMoves.Moves.Clear();
+        UsedMoves.Moves.Clear();
+    }
+
+    public void ShuffleSet()
+    {
+        foreach (var move in playerSet.Moves)
+        {
+            DrawnMoves.AddMove(move);
+        }
+        DrawnMoves.Moves.Shuffle();
+        FillSlots();
+    }
+
+    public void FillSlots()
     {
         CheckForAvailableSlot();
+        for (int i = 0; i < availableSlots.Count; i++)
+        {
+            var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
+            dm.move = DrawnMoves.Moves[0];
+            dm.usedMovesSet = UsedMoves;
+            DrawnMoves.RemoveMove(0);
+            dm.transform.SetParent(availableSlots[i]);
+        }
+    }
+    
+    public async void DrawAMove()
+    {
+        var end = Time.time + 1f;
+        while (Time.time < end)
+        {
+            await Task.Yield();
+        }
+        
+        CheckForAvailableSlot();
+        
+        if (DrawnMoves.Moves.Count == 0)
+        {
+            RefillMoves();
+        }
+        
         if (availableSlots.Any())
         {
-            var drawnMove = Instantiate(moveToDraw, transform.position, quaternion.identity);
-            drawnMove.transform.SetParent(availableSlots[0]);
+            var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
+            dm.move = DrawnMoves.Moves[0];
+            dm.usedMovesSet = UsedMoves;
+            DrawnMoves.RemoveMove(0);
+            dm.transform.SetParent(availableSlots[0]);
         }
     }
 
@@ -33,6 +82,17 @@ public class MoveDraw : MonoBehaviour
                 availableSlots.Add(slots.moveSlots[i]);
             }
         }
-
     }
+
+    public void RefillMoves()
+    {
+        for (int i = 0; i < UsedMoves.Moves.Count; i++)
+        {
+            DrawnMoves.AddMove(UsedMoves.Moves[i]);
+            UsedMoves.RemoveMove(i);
+        }
+        DrawnMoves.Moves.Shuffle();
+    }
+    
+    
 }

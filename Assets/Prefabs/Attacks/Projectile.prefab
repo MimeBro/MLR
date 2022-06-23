@@ -118,5 +118,6 @@ MonoBehaviour:
   side: 1
   destroySelf: 1
   destroyParent: 0
-  pierceThrough: 0
+  pierceThrough: 1
+  dodgeable: 1
   projectileSpeed: -25

@@ -4,9 +4,7 @@ public class Attacks : MonoBehaviour
 {
     public int damage;
     public Sides side;
-    public bool destroySelf,destroyParent;
-    public bool pierceThrough;
-    
+    public bool destroySelf,destroyParent,pierceThrough,dodgeable;
 
     public virtual void Start()
     {
@@ -38,7 +36,7 @@ public class Attacks : MonoBehaviour
         {
             if(unit.side == side) return;
 
-            if (unit.uState == UnitState.DODGING)
+            if (unit.uState == UnitState.DODGING && dodgeable)
             {
                 return;
             }

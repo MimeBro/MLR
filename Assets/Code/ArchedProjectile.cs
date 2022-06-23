@@ -20,6 +20,7 @@ public class ArchedProjectile : MonoBehaviour
         if (Time.time >= _nextfire)
         {
             target = GameManager.Instance.PlayerPanel();
+            if(target == null) return;
             target.StartBlinking(1);
             var shot = Instantiate(projectile, transform.position, Quaternion.identity);
             shot.projectileSpeed = 0;

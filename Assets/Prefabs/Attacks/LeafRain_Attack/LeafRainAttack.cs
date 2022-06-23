@@ -66,5 +66,7 @@ public class LeafRainAttack : Attacks
                 clone.pierceThrough = pierceThrough;
             }
         }
+        
+        Destroy(gameObject);
     }
 }

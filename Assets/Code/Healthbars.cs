@@ -14,6 +14,6 @@ public class Healthbars : MonoBehaviour
     private void Update()
     {
         //hpNumber.text = target.hp.ToString();
-        ProgressBar.UpdateBar(target.hp, 0 , target.maxhp);
+        ProgressBar?.UpdateBar(target.hp, 0 , target.maxhp);
     }
 }

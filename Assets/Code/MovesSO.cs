@@ -7,6 +7,7 @@ public class MovesSO : ScriptableObject
 {
     public string moveName;
     public int damage;
+    public int energyCost;
 
     public string moveDescription;
     public MoveType moveType;
