@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool canPerform;
     
     public Transform shootPoint;
-    public List<MovesSO> playerMovesList = new List<MovesSO>();
 
     public Animator animator;
     public PlayerMovement playerMovement;
@@ -25,21 +24,6 @@ public class PlayerController : MonoBehaviour
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
         Instance = this;
-    }
-    
-    public void AddMove(MovesSO move)
-    {
-        playerMovesList.Add(move);
-    }
-
-    public void RemoveMove(int moveindex)
-    {
-        playerMovesList.Remove(playerMovesList[moveindex]);
-    }
-
-    public void ReplaceMove(MovesSO move, int moveindex)
-    {
-        playerMovesList[moveindex] = move;
     }
 
     private void Update()
@@ -53,6 +37,13 @@ public class PlayerController : MonoBehaviour
 
         commandBuffer.Push(command);
         cooldownsBuffer.Push(duration);
+    }
+    
+    public void AddCommand(Command command)
+    {
+        if (!canPerform) return;
+
+        commandBuffer.Push(command);
     }
 
     private void CommandCooldown()

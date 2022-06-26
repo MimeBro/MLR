@@ -12,7 +12,7 @@ public class MovesSO : ScriptableObject
     public string moveDescription;
     public MoveType moveType;
 
-    public float moveCooldown;
+    public float moveDuration;
     
     public Sprite moveIcon;
     

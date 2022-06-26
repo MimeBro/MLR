@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveButtonUI : MonoBehaviour
+public class MonsterButton : MonoBehaviour
 {
     public KeyCode assignedButton;
     public MovesSO currentMove;
@@ -38,17 +38,9 @@ public class MoveButtonUI : MonoBehaviour
 
     public void CastMove()
     {
-        var castedMove = Instantiate(currentMove.moveGameObject, 
-            PlayerController.Instance.shootPoint.position, quaternion.identity);
-        
-        var shots = castedMove.GetComponentsInChildren<Attacks>();
-        foreach (var shot in shots)
-        {
-            shot.SetSide(Sides.PLAYER);
-            shot.SetDamage(currentMove.damage);
-        }
 
-        _cooldown += currentMove.moveCooldown;
+
+        //_cooldown += currentMove.moveCooldown;
     }
 
     public void GoOnCooldown()

@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        EnergyCharge();
         energy = Mathf.Clamp(energy, 0, maxEnergy);
+        EnergyCharge();
     }
 
     public void UseEnergy(float cost)

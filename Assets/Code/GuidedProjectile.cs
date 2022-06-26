@@ -6,9 +6,9 @@ using Random = UnityEngine.Random;
 public class GuidedProjectile : Attacks
 {
     public Transform target;
-    public Vector3 destination;
     public float speed;
 
+    private Vector3 destination;
     private float xOffset;
 
     public override void Start()

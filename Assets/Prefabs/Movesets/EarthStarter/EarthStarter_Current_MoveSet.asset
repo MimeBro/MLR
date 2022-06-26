@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: EarthStarter_Current_MoveSet
   m_EditorClassIdentifier: 
   Moves:
+  - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
+  - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
+  - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
-  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
-  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
-  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
-  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
+  - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   defaultMoveSet: {fileID: 11400000, guid: bfd429d030d2e41fb8ccfe6c6ac5d59c, type: 2}

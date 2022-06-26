@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newDeck.asset", menuName = ("Moves/Deck"))]
+[CreateAssetMenu(fileName = "newSet.asset", menuName = ("Moves/Set"))]
 public class MoveSet : ScriptableObject
 {
-    public List<MovesSO> Moves = new List<MovesSO>();
+    public List<MovesSO> Moves;
     public MoveSet defaultMoveSet;
 
     public void AddMove(MovesSO move)

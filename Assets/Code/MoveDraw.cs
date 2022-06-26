@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,10 +18,10 @@ public class MoveDraw : MonoBehaviour
 
     private void Start()
     {
-        playerSet = GameManager.Instance.playerMoveSet;
-        ShuffleSet();
         DrawnMoves.Moves.Clear();
         UsedMoves.Moves.Clear();
+        playerSet = GameManager.Instance.playerMoveSet;
+        ShuffleSet();
     }
 
     public void ShuffleSet()
@@ -39,7 +40,7 @@ public class MoveDraw : MonoBehaviour
         for (int i = 0; i < availableSlots.Count; i++)
         {
             var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
-            dm.move = DrawnMoves.Moves[0];
+            dm.SetMove(DrawnMoves.Moves[0]);
             dm.usedMovesSet = UsedMoves;
             DrawnMoves.RemoveMove(0);
             dm.transform.SetParent(availableSlots[i]);
@@ -56,15 +57,11 @@ public class MoveDraw : MonoBehaviour
         
         CheckForAvailableSlot();
         
-        if (DrawnMoves.Moves.Count == 0)
-        {
-            RefillMoves();
-        }
         
         if (availableSlots.Any())
         {
             var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
-            dm.move = DrawnMoves.Moves[0];
+            dm.SetMove(DrawnMoves.Moves[0]);
             dm.usedMovesSet = UsedMoves;
             DrawnMoves.RemoveMove(0);
             dm.transform.SetParent(availableSlots[0]);
@@ -84,8 +81,17 @@ public class MoveDraw : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (DrawnMoves.Moves.Count == 0)
+        {
+            RefillMoves();
+        }
+    }
+
     public void RefillMoves()
     {
+        
         for (int i = 0; i < UsedMoves.Moves.Count; i++)
         {
             DrawnMoves.AddMove(UsedMoves.Moves[i]);
