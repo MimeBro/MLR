@@ -16,6 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed;
     public Ease movementEase;
     
+    
+    public float leavingDuration;
+    public float leavingJumpPower;
+    public Ease leavingEasing;
+
+    private Panel lastPanel;
+    private bool playerLeft;
+
     private Panel _frontPanel, _backPanel;
     private Unit _unit;
 
@@ -115,6 +123,33 @@ public class PlayerMovement : MonoBehaviour
     public void KnockUp(int jumpPower)
     {
         playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);
+    }
+    
+    public void TestTheLeaving()
+    {
+        if (playerLeft)
+        {
+            PlayerComesBack();
+            return;
+        }
+        PlayerLeaves();
+    }
+    public void PlayerLeaves()
+    {
+        lastPanel = GetComponent<Unit>().currentPanel;
+        playerLeft = true;
+        transform.DOJump(GameManager.Instance.MonsterSpawnPoint.position, leavingJumpPower,1 , leavingDuration)
+            .SetEase(leavingEasing).SetUpdate(true);
+    }
+
+    public void PlayerComesBack()
+    {
+        var panelPos = lastPanel.transform.position;
+        var destination = new Vector2(panelPos.x, yposition);
+
+        transform.DOJump(destination, leavingJumpPower,1 , leavingDuration)
+            .SetEase(leavingEasing).SetUpdate(true);
+        playerLeft = false;
     }
 
     private bool PanelIsOk(Panel p)

@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public float energy;
     public float maxEnergy = 5;
     public float energyRegenerationRate;
-    
+
+    public Transform MonsterSpawnPoint;
     private void Start()
     {
         Instance = this;

@@ -1,5 +1,4 @@
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +9,8 @@ public class MonsterButton : MonoBehaviour
     public Image buttonIcon;
     public Image buttonCooldownEffect;
 
+    public MonsterSO monsterToSummon;
+    
     public bool OnCooldown;
     public float _cooldown;
     
@@ -38,8 +39,6 @@ public class MonsterButton : MonoBehaviour
 
     public void CastMove()
     {
-
-
         //_cooldown += currentMove.moveCooldown;
     }
 

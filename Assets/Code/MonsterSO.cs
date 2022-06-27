@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterSO : MonoBehaviour
@@ -7,12 +5,13 @@ public class MonsterSO : MonoBehaviour
     public string MonsterName;
     public string MonsterDescription;
     
-    public float MonsterMaxHealth;
+    public float maxHp;
+    public float currentHp;
     
-    public ElementalTypes type;
+    public ElementalTypes type1;
+    public ElementalTypes type2;
     
     public GameObject WildPrefab;
     public GameObject TrainedPrefab;
-    public GameObject OwnedPrefab;
-    public float SummonedAttackCooldown;
+    public MonsterAttack AttackPrefab;
 }

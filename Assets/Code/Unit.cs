@@ -5,15 +5,11 @@ using UnityEngine;
 public enum UnitState{STANDING, DODGING}
 public class Unit : MonoBehaviour
 {
-    
     [Header("Stats")]
     public Sides side;
     public int hp;
     public int maxhp;
-    public int shield;
-    public int maxShield;
-    
-    
+
     [Header("Other")]
     public Panel currentPanel;
     public UnitStatus unitStatus;
@@ -30,21 +26,14 @@ public class Unit : MonoBehaviour
     private void Start()
     {
         hp = maxhp;
-        shield = maxShield;
     }
 
     public void TakeDamage(int damage)
     {
         DamageFeedback?.PlayFeedbacks(transform.position, damage);
-        
-        /*if (shield > 0)
-        {
-            shield -= damage;
-        }
-        else
-        {*/
+
             hp -= damage;
-        //}
+            
     }
 
     public void Update()
