@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float energyRegenerationRate;
 
     public Transform MonsterSpawnPoint;
+    public MoveSlotsManager MoveSlotsManager;
+    public bool controlsStopped;
     private void Start()
     {
         Instance = this;
@@ -60,5 +62,23 @@ public class GameManager : MonoBehaviour
         {
             energy += energyRegenerationRate * Time.deltaTime;
         }
+    }
+    
+    public void StopPlayerControls()
+    {
+        PlayerController.Instance.CloseBuffer();
+        MoveSlotsManager.DisableAllSlots();
+    }
+
+    public async void StopPlayerControls(float duration)
+    {
+        PlayerController.Instance.CloseBuffer(duration);
+        MoveSlotsManager.DisableAllSlots(duration);
+    }
+
+    public void ResumePlayerControls()
+    {
+        PlayerController.Instance.OpenBuffer();
+        MoveSlotsManager.EnableallSlots();
     }
 }

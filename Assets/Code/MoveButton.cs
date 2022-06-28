@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
@@ -9,13 +10,14 @@ public class MoveButton : MonoBehaviour
     private RectTransform _rectTransform;
     public MovesSO move;
     public Image buttonIcon;
-    public MoveSet usedMovesSet;
-    public GameEvent spellUsedEvent;
+    public GameEvent moveUsed;
     public GameEvent notEnoughEnergyEvent;
 
     public MovesSO previousMove;
 
     private PlayerController player;
+    private bool waitingForMove;
+    private bool waitForPosition;
     
     // Start is called before the first frame update
     private void Start()
@@ -28,8 +30,23 @@ public class MoveButton : MonoBehaviour
         move = newMove;
         buttonIcon.sprite = move.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
+        if(move.castOnDraw) PerformMove();
+        
+
     }
 
+    public async void CastOnDraw()
+    {
+        var end = Time.time + 0.5f;
+        
+        while (Time.time < end)
+        {
+            Task.Yield();
+        }
+        
+        PerformMove();
+    }
+    
     public void ChangeMove(MovesSO newMove)
     {
         if (move != null)
@@ -43,21 +60,47 @@ public class MoveButton : MonoBehaviour
 
     public void CastMove()
     {
+        if(move.castOnDraw) return;
         if (GameManager.Instance.energy < move.energyCost)
         {
             notEnoughEnergyEvent?.Raise();
             return;
         }
         player.AddCommand(PerformMove, move.moveDuration);
-       
     }
 
     public void PerformMove()
     {
         GameManager.Instance.UseEnergy(move.energyCost);
-        Instantiate(move.moveGameObject, player.shootPoint.position, Quaternion.identity);
-        spellUsedEvent?.Raise();
-        usedMovesSet?.AddMove(move);
+        var mov = Instantiate(move.moveGameObject);
+        mov.callerButton = this;
+        mov.CastAttack();
+        if (move.waitTillAttackEnds)
+        {
+            waitingForMove = true;
+            return;
+        }
+        
+        DiscardSelf();
+    }
+
+    public void WaitingForMoveToFinish()
+    {
+
+        //play Animation or whatever but don't get discarded yet
+
+    }
+
+    public void DiscardSelf()
+    {
+        moveUsed?.Raise();
         Destroy(gameObject);
+    }
+
+    public void ConditionsMet()
+    {
+        Debug.Log("Conditions Met");
+        waitingForMove = false;
+        DiscardSelf();
     }
 }

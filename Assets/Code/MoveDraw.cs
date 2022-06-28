@@ -9,7 +9,7 @@ public class MoveDraw : MonoBehaviour
     public MoveButton moveButtonPrefab;
     public MoveSlotsManager slots;
     
-    public List<RectTransform> availableSlots = new List<RectTransform>();
+    public List<MoveSlots> availableSlots = new List<MoveSlots>();
 
     public MoveSet DrawnMoves;
     public MoveSet UsedMoves;
@@ -26,29 +26,34 @@ public class MoveDraw : MonoBehaviour
 
     public void ShuffleSet()
     {
-        foreach (var move in playerSet.Moves)
+        for (int i = 0; i < playerSet.Moves.Count; i++)
         {
-            DrawnMoves.AddMove(move);
+            DrawnMoves.AddMove(playerSet.Moves[i]);
         }
+        
         DrawnMoves.Moves.Shuffle();
         FillSlots();
     }
-
+    
     public void FillSlots()
     {
         CheckForAvailableSlot();
         for (int i = 0; i < availableSlots.Count; i++)
         {
-            var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
-            dm.SetMove(DrawnMoves.Moves[0]);
-            dm.usedMovesSet = UsedMoves;
+            var mb = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
+            mb.transform.SetParent(availableSlots[i].transform);
+            mb.SetMove(DrawnMoves.Moves[0]);
+            UsedMoves.AddMove(DrawnMoves.Moves[0]);
             DrawnMoves.RemoveMove(0);
-            dm.transform.SetParent(availableSlots[i]);
         }
     }
     
     public async void DrawAMove()
     {
+        if (DrawnMoves.Moves.Count < availableSlots.Count)
+        {
+            RefillMoves();
+        }
         var end = Time.time + 1f;
         while (Time.time < end)
         {
@@ -57,14 +62,13 @@ public class MoveDraw : MonoBehaviour
         
         CheckForAvailableSlot();
         
-        
         if (availableSlots.Any())
         {
-            var dm = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
-            dm.SetMove(DrawnMoves.Moves[0]);
-            dm.usedMovesSet = UsedMoves;
+            var mb = Instantiate(moveButtonPrefab, transform.position, Quaternion.identity);
+            mb.SetMove(DrawnMoves.Moves[0]);
+            UsedMoves.Moves.Add(DrawnMoves.Moves[0]);
             DrawnMoves.RemoveMove(0);
-            dm.transform.SetParent(availableSlots[0]);
+            mb.transform.SetParent(availableSlots[0].transform);
         }
     }
 
@@ -74,30 +78,29 @@ public class MoveDraw : MonoBehaviour
         
         for (int i = 0; i < slots.moveSlots.Count; i++)
         {
-            if (slots.moveSlots[i].childCount <= 0)
+            if (slots.moveSlots[i].transform.childCount <= 0)
             {
+                Debug.Log(slots.moveSlots[i]);
                 availableSlots.Add(slots.moveSlots[i]);
             }
+            
+            //await Task.Yield();
         }
     }
 
     private void Update()
     {
-        if (DrawnMoves.Moves.Count == 0)
-        {
-            RefillMoves();
-        }
+        
     }
 
     public void RefillMoves()
     {
-        
         for (int i = 0; i < UsedMoves.Moves.Count; i++)
         {
-            DrawnMoves.AddMove(UsedMoves.Moves[i]);
-            UsedMoves.RemoveMove(i);
+            DrawnMoves.AddMove(UsedMoves.Moves[0]);
         }
         DrawnMoves.Moves.Shuffle();
+        UsedMoves.Moves.Clear();
     }
     
     

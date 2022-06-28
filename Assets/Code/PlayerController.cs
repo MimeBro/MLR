@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -20,12 +21,33 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public PlayerMovement playerMovement;
 
-    
     private void Awake()
     {
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
         Instance = this;
+    }
+
+    public void CloseBuffer()
+    {
+        canPerform = false;
+    }
+
+    public async void CloseBuffer(float duration)
+    {
+        canPerform = false;
+        
+        var end = Time.time + duration;
+        while (Time.time < end)
+        {
+            Task.Yield();
+        }
+        OpenBuffer();
+    }
+    
+    public void OpenBuffer()
+    {
+        canPerform = true;
     }
 
     private void Update()

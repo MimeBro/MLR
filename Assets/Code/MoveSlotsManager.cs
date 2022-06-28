@@ -1,13 +1,41 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveSlotsManager : MonoBehaviour
 {
-    public List<RectTransform> moveSlots;
-    public Transform basicAttackSlot;
+    public List<MoveSlots> moveSlots;
 
-    private void Start()
+    public void DisableAllSlots()
     {
+        foreach (var slot in moveSlots)
+        {
+            slot.disabled = true;
+        }
+    }
+
+    public async void DisableAllSlots(float duration)
+    {
+        foreach (var slot in moveSlots)
+        {
+            slot.disabled = true;
+        }
+
+        var end = Time.time + duration;
         
+        while (Time.time < end)
+        {
+            Task.Yield();
+        }
+        EnableallSlots();
+    }
+
+    public void EnableallSlots()
+    {
+        foreach (var slot in moveSlots)
+        {
+            slot.disabled = false;
+        }
     }
 }

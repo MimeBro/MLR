@@ -168,5 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   buttonIcon: {fileID: 193071708237504524}
-  usedMovesSet: {fileID: 0}
-  spellUsedEvent: {fileID: 11400000, guid: 2316179abd2e049a09ba67828b292198, type: 2}
+  moveUsed: {fileID: 11400000, guid: 2316179abd2e049a09ba67828b292198, type: 2}
+  notEnoughEnergyEvent: {fileID: 0}
+  previousMove: {fileID: 0}

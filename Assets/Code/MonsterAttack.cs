@@ -13,13 +13,24 @@ public class MonsterAttack : MonoBehaviour
 
    public AAttack moveToCast;
    
+   public async void StartAttack(float seconds)
+   {
+      var end = Time.time + seconds;
+      while (Time.time < end)
+      {
+         await Task.Yield();
+      }
+      
+      moveToCast.CastAttack();
+
+   }
    public void StartAttack()
    {
-      if (playerHasToLeave)
-         PlayerController.Instance.playerMovement.PlayerLeaves();
-
       if (stopTimeToCast)
+      {
          StartCoroutine(StopTime());
+      }
+      moveToCast.CastAttack();
    }
 
    public virtual void EnterScene()

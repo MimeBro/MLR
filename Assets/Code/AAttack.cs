@@ -1,29 +1,58 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;using UnityEngine.Rendering.Universal.Internal;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 public enum AttackDirection{Forward, Backward, Both}
-public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile }
+public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,Passive,Summon}
 public class AAttack : MonoBehaviour
 {
-    public TypeOfAttack TypeOfAttack;
+    [Title("General Attributes")]
+    [EnumToggleButtons]
     public AttackDirection AttackDirection;
+    
+    
+    [EnumToggleButtons]
+    public Sides AttackersSide;
+    
+    [EnumToggleButtons]
+    public TypeOfAttack TypeOfAttack;
+
+    [Title("Guided Projectiles")]
+    public GuidedProjectile guidedProjectile;
+
+    public float guidedProjectileSpeed;
+    public int guidedProjectileDamage;
+    public float startDelay;
+    public float gapBetweenSpawn;
+
+    [Title("Area Attack")]
+    public AreaAttack areaAttack;
+    public int damagePerHit;
+    public float hitsPerSecond;
+    public float areaDuration;
+
+    [Title("Passive")] 
+    public PassiveMove passiveMove;
+    public MoveButton callerButton;
+
+    [Title("Summon")]
+    public MonsterAttack monsterToSummon;
+    public float summonAttackDuration;
 
     [Range(1,5)] public int howManyPanelsInFront;
     public bool hitAllPanelsInTheWay;
 
-    [Header("Guided Projectile")]
-    public GuidedProjectile guidedProjectile;
-    public float guidedProjectileSpeed;
-    public float startDelay;
-    public float gapBetweenSpawn;
+    private List<Panel> panels;
     
-    public List<Panel> panels;
+    [Space]
     public Transform[] shootPositions;
+
+    public bool stopTimeToAttack;
+    public float timeStopDuration;
     
-    private int guidedProjectileDamage;
-    private Sides guidedProjectileside;
 
     public async void CastAttack()
     {
@@ -38,7 +67,38 @@ public class AAttack : MonoBehaviour
           case  TypeOfAttack.GuidedProjectile:
               GuidedProjectile();
               break;
+          case TypeOfAttack.AreaAttack:
+              AreaAttack();
+              break;
+          case TypeOfAttack.Summon:
+              Summon();
+              break;
+          case TypeOfAttack.Passive:
+              PassiveMove();
+              break;
         }
+    }
+
+    public void Summon()
+    {
+        var mon = Instantiate(monsterToSummon);
+        mon.StartAttack();
+    }
+
+    public void PassiveMove()
+    {
+        var pas = Instantiate(passiveMove);
+        pas.callerButton = callerButton;
+        Destroy(gameObject);
+    }
+
+    public async void AreaAttack()
+    {
+        var aatk = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
+        aatk.damagePerHit = damagePerHit;
+        aatk.secondsPerHit = hitsPerSecond;
+        aatk.side = AttackersSide; 
+        Destroy(aatk.gameObject,areaDuration);
     }
 
     public async void GuidedProjectile()
@@ -69,7 +129,8 @@ public class AAttack : MonoBehaviour
         gp.target = panels[panelIndex].transform;
         gp.speed = guidedProjectileSpeed;
         gp.damage = guidedProjectileDamage;
-        gp.side = guidedProjectileside;
+        gp.side = AttackersSide;
+        
         while (Time.time < end)
         {
             await Task.Yield();
@@ -157,5 +218,12 @@ public class AAttack : MonoBehaviour
                 }
                 break;
         }
+    }
+    
+    public IEnumerator StopTime()
+    {
+        DOVirtual.Float(1, 0, 0.3f, t => { Time.timeScale = t; }).SetUpdate(true);
+        yield return new WaitForSecondsRealtime(timeStopDuration);
+        DOVirtual.Float(0, 1, 0.3f, t => { Time.timeScale = t; }).SetUpdate(true);
     }
 }

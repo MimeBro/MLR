@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveSlots : MonoBehaviour
 {
     public MoveButton setButton;
     public KeyCode assignedKey;
-
+    public bool disabled;
     
     private void Update()
     {
@@ -16,9 +13,14 @@ public class MoveSlots : MonoBehaviour
         if(setButton == null)
             setButton = GetComponentInChildren<MoveButton>();
 
-        if (Input.GetKeyDown(assignedKey))
+        if (Input.GetKeyDown(assignedKey) && !disabled)
         {
             setButton?.CastMove();
         }
+    }
+
+    public void ForceToDiscard()
+    {
+        setButton?.DiscardSelf();
     }
 }

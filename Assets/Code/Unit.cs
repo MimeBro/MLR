@@ -1,5 +1,6 @@
 using System;
 using MoreMountains.Feedbacks;
+using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 
 public enum UnitState{STANDING, DODGING}
@@ -15,6 +16,7 @@ public class Unit : MonoBehaviour
     public UnitStatus unitStatus;
     public UnitState uState;
     public MMFeedbacks DamageFeedback;
+    public GameEvent takeDamageEvent;
 
     public Vector2 boxSize;
     public LayerMask panelLayerMask;
@@ -33,7 +35,12 @@ public class Unit : MonoBehaviour
         DamageFeedback?.PlayFeedbacks(transform.position, damage);
 
             hp -= damage;
-            
+            takeDamageEvent.Raise();
+    }
+
+    public void Heal(int healAmount)
+    {
+        hp += healAmount;
     }
 
     public void Update()
