@@ -231,22 +231,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDirection: 0
   AttackersSide: 2
-  TypeOfAttack: 5
+  TypeOfAttack: 3
   guidedProjectile: {fileID: 0}
   guidedProjectileSpeed: 0
   guidedProjectileDamage: 0
   startDelay: 0
   gapBetweenSpawn: 0
+  usePlayerShootPoint: 0
   areaAttack: {fileID: 7231415823676168065, guid: b999db127505849999e89c03503615c2, type: 3}
   damagePerHit: 5
   hitsPerSecond: 0.3
-  areaDuration: 5
+  areaDuration: 2
   passiveMove: {fileID: 0}
   callerButton: {fileID: 0}
   monsterToSummon: {fileID: 0}
   summonAttackDuration: 0
   howManyPanelsInFront: 1
   hitAllPanelsInTheWay: 0
+  panels: []
   shootPositions:
   - {fileID: 1606280473668711419}
   stopTimeToAttack: 0

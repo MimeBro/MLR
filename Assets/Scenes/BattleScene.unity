@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -844,7 +844,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!61 &176142237
@@ -2926,7 +2926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781598404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.62, y: -1.06, z: -0.059577264}
+  m_LocalPosition: {x: -8.29, y: -1.06, z: -0.059577264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3969,7 +3969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215620517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7efcc97d813142f468e4928434b99e42, type: 3}
   m_Name: 
@@ -4001,6 +4001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1240052939}
   - component: {fileID: 1240052940}
+  - component: {fileID: 1240052941}
   m_Layer: 0
   m_Name: AllAttacksTester
   m_TagString: Untagged
@@ -4039,26 +4040,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDirection: 0
   AttackersSide: 2
-  TypeOfAttack: 3
-  guidedProjectile: {fileID: 0}
-  guidedProjectileSpeed: 20
-  guidedProjectileDamage: 0
-  startDelay: 0
-  gapBetweenSpawn: 0
-  areaAttack: {fileID: 7231415823676168065, guid: b999db127505849999e89c03503615c2, type: 3}
-  damagePerHit: 5
-  hitsPerSecond: 0.3
-  areaDuration: 2
+  TypeOfAttack: 5
+  guidedProjectile: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
+  guidedProjectileSpeed: 30
+  guidedProjectileDamage: 10
+  startDelay: 0.3
+  gapBetweenSpawn: 0.01
+  usePlayerShootPoint: 1
+  areaAttack: {fileID: 0}
+  damagePerHit: 0
+  hitsPerSecond: 0
+  areaDuration: 0
   passiveMove: {fileID: 0}
   callerButton: {fileID: 0}
-  monsterToSummon: {fileID: 0}
+  monsterToSummon: {fileID: 1606280475110460031, guid: ab0244a9adc6243c9aa1dd9542f6be72, type: 3}
   summonAttackDuration: 0
-  howManyPanelsInFront: 1
-  hitAllPanelsInTheWay: 0
-  shootPositions:
-  - {fileID: 598747587}
+  howManyPanelsInFront: 3
+  hitAllPanelsInTheWay: 1
+  panels: []
+  shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
+--- !u!114 &1240052941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240052938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a454f69bbfe59d41afa8477f4950863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveBackDuration: 1
+  jumpDuration: 0.6
+  jumpPower: 5
+  ease: 1
 --- !u!1 &1297121216
 GameObject:
   m_ObjectHideFlags: 0
@@ -5618,7 +5636,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 119
 --- !u!114 &2076047904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,6 +5729,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115882560154854167, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115882560260982673, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}
+      propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2115882560260982674, guid: 9321ea5ae43164889a4da7ac29b502ae, type: 3}

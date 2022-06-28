@@ -119,7 +119,23 @@ public class PlayerMovement : MonoBehaviour
 
         transform.DOMove(destination, duration);
     }
-    
+
+    public void KnockBack(float duration, float jumpPower, Ease ease)
+    {
+        if (PanelIsOk(_backPanel))
+        {
+            var panelPos = _backPanel.transform.position;
+            var destination = new Vector2(panelPos.x, yposition);
+            transform.DOJump(destination, jumpPower, 1, duration).SetEase(ease);
+        }
+        else
+        {
+            var panelPos = PlayerController.Instance.unit.currentPanel.transform.position;
+            var destination = new Vector2(panelPos.x, yposition);
+            transform.DOJump(destination, jumpPower, 1, duration).SetEase(ease);
+        }
+    }
+
     public void KnockUp(int jumpPower)
     {
         playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);

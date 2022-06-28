@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         var end = Time.time + duration;
         while (Time.time < end)
         {
-            Task.Yield();
+            await Task.Yield();
         }
         OpenBuffer();
     }

@@ -41,7 +41,7 @@ public class MoveButton : MonoBehaviour
         
         while (Time.time < end)
         {
-            Task.Yield();
+           await Task.Yield();
         }
         
         PerformMove();

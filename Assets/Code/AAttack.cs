@@ -27,8 +27,9 @@ public class AAttack : MonoBehaviour
     public int guidedProjectileDamage;
     public float startDelay;
     public float gapBetweenSpawn;
+    public bool usePlayerShootPoint;
 
-    [Title("Area Attack")]
+    [Title("Area Attack")]  
     public AreaAttack areaAttack;
     public int damagePerHit;
     public float hitsPerSecond;
@@ -45,10 +46,10 @@ public class AAttack : MonoBehaviour
     [Range(1,5)] public int howManyPanelsInFront;
     public bool hitAllPanelsInTheWay;
 
-    private List<Panel> panels;
-    
+    public List<Panel> panels;
+
     [Space]
-    public Transform[] shootPositions;
+    public List<Transform> shootPositions = new List<Transform>();
 
     public bool stopTimeToAttack;
     public float timeStopDuration;
@@ -57,6 +58,7 @@ public class AAttack : MonoBehaviour
     public async void CastAttack()
     {
         var end = Time.time + startDelay;
+        GetPanels();
         while (Time.time < end)
         {
             await Task.Yield();
@@ -92,7 +94,7 @@ public class AAttack : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public async void AreaAttack()
+    public void AreaAttack()
     {
         var aatk = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
         aatk.damagePerHit = damagePerHit;
@@ -103,7 +105,6 @@ public class AAttack : MonoBehaviour
 
     public async void GuidedProjectile()
     {
-        GetPanels();
         
         if (hitAllPanelsInTheWay)
         {
@@ -125,7 +126,16 @@ public class AAttack : MonoBehaviour
     public async Task InstantiateGuidedProjectile(int panelIndex,int ShootPositionIndex,float duration)
     {
         var end = Time.time + duration;
-        var gp = Instantiate(guidedProjectile, shootPositions[ShootPositionIndex].position, Quaternion.identity);
+        GuidedProjectile gp;
+
+        if (usePlayerShootPoint)
+        {
+             gp = Instantiate(guidedProjectile, PlayerController.Instance.shootPoint.position, Quaternion.identity);
+        }
+        else
+        {
+             gp = Instantiate(guidedProjectile, shootPositions[ShootPositionIndex].position, Quaternion.identity);
+        }
         gp.target = panels[panelIndex].transform;
         gp.speed = guidedProjectileSpeed;
         gp.damage = guidedProjectileDamage;
@@ -149,7 +159,6 @@ public class AAttack : MonoBehaviour
         var playerpanelF = playerPanelIndex + 1;
         var playerpanelB = playerPanelIndex - 1;
         var lastPanel = GameManager.Instance.PanelList.Count;
-        
         
         switch (AttackDirection)
         {

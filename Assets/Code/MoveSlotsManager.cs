@@ -26,7 +26,7 @@ public class MoveSlotsManager : MonoBehaviour
         
         while (Time.time < end)
         {
-            Task.Yield();
+           await Task.Yield();
         }
         EnableallSlots();
     }

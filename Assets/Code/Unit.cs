@@ -35,7 +35,7 @@ public class Unit : MonoBehaviour
         DamageFeedback?.PlayFeedbacks(transform.position, damage);
 
             hp -= damage;
-            takeDamageEvent.Raise();
+            takeDamageEvent?.Raise();
     }
 
     public void Heal(int healAmount)

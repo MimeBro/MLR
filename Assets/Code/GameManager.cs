@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         MoveSlotsManager.DisableAllSlots();
     }
 
-    public async void StopPlayerControls(float duration)
+    public void StopPlayerControls(float duration)
     {
         PlayerController.Instance.CloseBuffer(duration);
         MoveSlotsManager.DisableAllSlots(duration);

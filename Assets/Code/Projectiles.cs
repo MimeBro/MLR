@@ -5,7 +5,7 @@ public class Projectiles : Attacks
 {
     public float projectileSpeed;
 
-    private void Start()
+    private new void Start()
     {
         Destroy(gameObject,5);
     }

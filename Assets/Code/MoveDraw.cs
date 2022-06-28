@@ -80,7 +80,6 @@ public class MoveDraw : MonoBehaviour
         {
             if (slots.moveSlots[i].transform.childCount <= 0)
             {
-                Debug.Log(slots.moveSlots[i]);
                 availableSlots.Add(slots.moveSlots[i]);
             }
             
