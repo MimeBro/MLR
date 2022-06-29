@@ -1,19 +1,20 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpBack : MonoBehaviour
 {
-    public float moveBackDuration;
     public float jumpDuration;
     public float jumpPower;
     public Ease ease;
 
+    private void OnEnable()
+    {
+        JumpBack();
+    }
+
     public void JumpBack()
     {
-        PlayerMovement playerMovement = PlayerController.Instance.playerMovement;
-        Transform playerTransform = PlayerController.Instance.transform;
+        var playerMovement = PlayerController.Instance.playerMovement;
         playerMovement.KnockBack(jumpDuration,jumpPower,ease);
     }
 }

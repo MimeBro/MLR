@@ -81,20 +81,21 @@ public class AAttack : MonoBehaviour
         }
     }
 
-    public void Summon()
+    private void Summon()
     {
         var mon = Instantiate(monsterToSummon);
         mon.StartAttack();
+        Destroy(gameObject);
     }
 
-    public void PassiveMove()
+    private void PassiveMove()
     {
         var pas = Instantiate(passiveMove);
         pas.callerButton = callerButton;
         Destroy(gameObject);
     }
 
-    public void AreaAttack()
+    private void AreaAttack()
     {
         var aatk = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
         aatk.damagePerHit = damagePerHit;
@@ -103,7 +104,7 @@ public class AAttack : MonoBehaviour
         Destroy(aatk.gameObject,areaDuration);
     }
 
-    public async void GuidedProjectile()
+    private async void GuidedProjectile()
     {
         
         if (hitAllPanelsInTheWay)
@@ -123,7 +124,7 @@ public class AAttack : MonoBehaviour
         }
     }
 
-    public async Task InstantiateGuidedProjectile(int panelIndex,int ShootPositionIndex,float duration)
+    private async Task InstantiateGuidedProjectile(int panelIndex,int ShootPositionIndex,float duration)
     {
         var end = Time.time + duration;
         GuidedProjectile gp;
@@ -152,7 +153,7 @@ public class AAttack : MonoBehaviour
         
     }
 
-    public void GetPanels()
+    private void GetPanels()
     {
         panels.Clear();
         var playerPanelIndex = GameManager.Instance.PanelList.IndexOf(PlayerController.Instance.unit.currentPanel);

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f82ed6efda574a33a9f5299e75eb5c6, type: 3}
-  m_Name: HealAfterHitPassive
+  m_Name: Moves_Attack_LeafRain
   m_EditorClassIdentifier: 
-  moveName: 
-  damage: 0
-  energyCost: 0
+  moveName: Leaf Rain
+  damage: 10
+  energyCost: 3
   moveDescription: 
-  moveType: 4
-  waitTillAttackEnds: 1
-  castOnDraw: 1
+  moveType: 2
+  waitTillAttackEnds: 0
+  castOnDraw: 0
   moveDuration: 0
-  moveIcon: {fileID: 21300002, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
-  moveGameObject: {fileID: 6410813421507737724, guid: d1f8cfc1af8be4ac3824241306783a64, type: 3}
+  moveIcon: {fileID: 21300000, guid: cb6827596885a4da3a8f2a19d801d897, type: 3}
+  moveGameObject: {fileID: 48950639012875886, guid: d50549aad6038844198db6ec74340949, type: 3}

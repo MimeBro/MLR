@@ -153,9 +153,9 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerLeaves()
     {
         lastPanel = GetComponent<Unit>().currentPanel;
-        playerLeft = true;
         transform.DOJump(GameManager.Instance.MonsterSpawnPoint.position, leavingJumpPower,1 , leavingDuration)
             .SetEase(leavingEasing).SetUpdate(true);
+        playerLeft = true;
     }
 
     public void PlayerComesBack()

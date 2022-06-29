@@ -996,7 +996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238929948}
   m_Layer: 0
-  m_Name: Actors---------------------------
+  m_Name: Actors----------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,7 +1657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421772099}
   m_Layer: 0
-  m_Name: Lights-----------------------------
+  m_Name: Lights----------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2191,7 +2191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559866600}
   m_Layer: 0
-  m_Name: Level----------------------------
+  m_Name: Level-----------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3287,6 +3287,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerJumpBack, Assembly-CSharp
+        m_MethodName: JumpBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &839404356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,7 +4013,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1240052939}
   - component: {fileID: 1240052940}
-  - component: {fileID: 1240052941}
   m_Layer: 0
   m_Name: AllAttacksTester
   m_TagString: Untagged
@@ -4040,7 +4051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDirection: 0
   AttackersSide: 2
-  TypeOfAttack: 5
+  TypeOfAttack: 1
   guidedProjectile: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
   guidedProjectileSpeed: 30
   guidedProjectileDamage: 10
@@ -4061,22 +4072,6 @@ MonoBehaviour:
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
---- !u!114 &1240052941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240052938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a454f69bbfe59d41afa8477f4950863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveBackDuration: 1
-  jumpDuration: 0.6
-  jumpPower: 5
-  ease: 1
 --- !u!1 &1297121216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +4732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439680806}
   m_Layer: 0
-  m_Name: HUD----------------------------
+  m_Name: HUD-----------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -18,26 +16,27 @@ public class MonsterAttack : MonoBehaviour
         StartCoroutine(EnterScene());
    }
 
-   public virtual IEnumerator EnterScene()
+   private IEnumerator EnterScene()
    {
-        PlayerMovement playerMovement = PlayerController.Instance.playerMovement;
+        var playerMovement = PlayerController.Instance.playerMovement;
         var ypos = playerMovement.yposition;
         var cpanel = PlayerController.Instance.unit.currentPanel.transform.position;
         
         var destination = new Vector2(cpanel.x, ypos);
-
+        Debug.Log(destination);
         playerMovement.PlayerLeaves();
         transform.DOMove(destination, 0.2f);
         yield return new WaitForSecondsRealtime(0.5f);
         CastAttack();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(attackDuration);
         playerMovement.PlayerComesBack();
         Destroy(gameObject);
    }
 
-   public virtual void CastAttack()
+   private void CastAttack()
    {
         moveToCast.CastAttack();
+        Debug.Log("Attack Casted");
    }
 
    public virtual void LeaveScene()

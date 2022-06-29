@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class MonsterSO : MonoBehaviour
+[CreateAssetMenu(fileName = "monster.asset", menuName = "Monsters/New Monster")]
+public class MonsterSO : ScriptableObject
 {
     public string MonsterName;
     public string MonsterDescription;
@@ -13,5 +14,12 @@ public class MonsterSO : MonoBehaviour
     
     public GameObject WildPrefab;
     public GameObject TrainedPrefab;
-    public MonsterAttack AttackPrefab;
+    public MovesSO MonsterAttackMove;
+
+    public MovesSO Capture()
+    {
+        return MonsterAttackMove;
+    }
+        
+    
 }
