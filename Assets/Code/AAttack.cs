@@ -19,6 +19,18 @@ public class AAttack : MonoBehaviour
     
     [EnumToggleButtons]
     public TypeOfAttack TypeOfAttack;
+    
+    [Range(1,5)] public int howManyPanelsInFront;
+    public bool hitAllPanelsInTheWay;
+
+    public List<Panel> panels;
+
+    [Space]
+    public List<Transform> shootPositions = new List<Transform>();
+
+    public bool stopTimeToAttack;
+    public float timeStopDuration;
+    public float moveDuration;
 
     [Title("Guided Projectiles")]
     public GuidedProjectile guidedProjectile;
@@ -43,16 +55,6 @@ public class AAttack : MonoBehaviour
     public MonsterAttack monsterToSummon;
     public float summonAttackDuration;
 
-    [Range(1,5)] public int howManyPanelsInFront;
-    public bool hitAllPanelsInTheWay;
-
-    public List<Panel> panels;
-
-    [Space]
-    public List<Transform> shootPositions = new List<Transform>();
-
-    public bool stopTimeToAttack;
-    public float timeStopDuration;
     
 
     public async void CastAttack()

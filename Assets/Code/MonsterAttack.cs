@@ -23,7 +23,6 @@ public class MonsterAttack : MonoBehaviour
         var cpanel = PlayerController.Instance.unit.currentPanel.transform.position;
         
         var destination = new Vector2(cpanel.x, ypos);
-        Debug.Log(destination);
         playerMovement.PlayerLeaves();
         transform.DOMove(destination, 0.2f);
         yield return new WaitForSecondsRealtime(0.5f);
@@ -36,7 +35,6 @@ public class MonsterAttack : MonoBehaviour
    private void CastAttack()
    {
         moveToCast.CastAttack();
-        Debug.Log("Attack Casted");
    }
 
    public virtual void LeaveScene()

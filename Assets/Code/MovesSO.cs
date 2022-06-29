@@ -14,10 +14,13 @@ public class MovesSO : ScriptableObject
 
     public bool waitTillAttackEnds;
     public bool castOnDraw;
-
-    public float moveDuration;
     
     public Sprite moveIcon;
     
     public AAttack moveGameObject;
+
+    public float MoveDuration()
+    {
+        return moveGameObject.moveDuration;
+    }
 }

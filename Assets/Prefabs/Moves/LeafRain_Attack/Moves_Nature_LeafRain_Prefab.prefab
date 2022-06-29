@@ -132,6 +132,7 @@ MonoBehaviour:
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
+  moveDuration: 1
 --- !u!114 &48950639012875885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a454f69bbfe59d41afa8477f4950863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveBackDuration: 1
   jumpDuration: 0.6
   jumpPower: 5
   ease: 1

@@ -1,10 +1,13 @@
 using UnityEngine;
 
+public enum MonsterBehaviour{WILD, TRAINED}
 [CreateAssetMenu(fileName = "monster.asset", menuName = "Monsters/New Monster")]
 public class MonsterSO : ScriptableObject
 {
+    public MonsterBehaviour Behaviour;
     public string MonsterName;
     public string MonsterDescription;
+    public Sprite MonsterImage;
     
     public float maxHp;
     public float currentHp;
@@ -15,11 +18,7 @@ public class MonsterSO : ScriptableObject
     public GameObject WildPrefab;
     public GameObject TrainedPrefab;
     public MovesSO MonsterAttackMove;
-
-    public MovesSO Capture()
-    {
-        return MonsterAttackMove;
-    }
+    
         
     
 }

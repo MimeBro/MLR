@@ -11,6 +11,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Code/EnergyBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/GuidedProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/MonsterButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/MonsterCapture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/MoveButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/MoveSlotsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/PlayerChaser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +88,7 @@
       <workItem from="1655864212268" duration="23459000" />
       <workItem from="1656024413775" duration="92400000" />
       <workItem from="1656525509941" duration="319000" />
-      <workItem from="1656525857409" duration="8137000" />
+      <workItem from="1656525857409" duration="12160000" />
     </task>
     <servers />
   </component>

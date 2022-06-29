@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7577357775036270765}
   - component: {fileID: 7577357775036270766}
   m_Layer: 0
-  m_Name: Monster_Summon_Test
+  m_Name: Moves_Summon_Test_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,13 @@ MonoBehaviour:
   AttackDirection: 0
   AttackersSide: 2
   TypeOfAttack: 5
+  howManyPanelsInFront: 3
+  hitAllPanelsInTheWay: 1
+  panels: []
+  shootPositions: []
+  stopTimeToAttack: 0
+  timeStopDuration: 0
+  moveDuration: 5
   guidedProjectile: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
   guidedProjectileSpeed: 30
   guidedProjectileDamage: 10
@@ -125,9 +132,3 @@ MonoBehaviour:
   callerButton: {fileID: 0}
   monsterToSummon: {fileID: 1606280475110460031, guid: ab0244a9adc6243c9aa1dd9542f6be72, type: 3}
   summonAttackDuration: 0
-  howManyPanelsInFront: 3
-  hitAllPanelsInTheWay: 1
-  panels: []
-  shootPositions: []
-  stopTimeToAttack: 0
-  timeStopDuration: 0

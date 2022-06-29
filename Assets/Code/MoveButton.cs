@@ -66,7 +66,7 @@ public class MoveButton : MonoBehaviour
             notEnoughEnergyEvent?.Raise();
             return;
         }
-        player.AddCommand(PerformMove, move.moveDuration);
+        player.AddCommand(PerformMove, move.MoveDuration());
     }
 
     public void PerformMove()
