@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public enum MoveRarity{}
-public enum MoveType{BASICATTACK, SKILL, ATTACK, SUMMON, PASSIVE}
+public enum MoveRarity{COMMON, RARE, EPIC, LEGENDARY}
+public enum MoveType{SKILL, ATTACK, SUMMON, PASSIVE}
 [CreateAssetMenu(fileName = "Move.asset", menuName = "Moves/New Move")]
 public class MovesSO : ScriptableObject
 {

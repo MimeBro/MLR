@@ -24,6 +24,8 @@ public class Unit : MonoBehaviour
     [Header("Test")] 
     public bool refillHP;
     public bool infiniteEnergy;
+
+    public GameEvent diedEvent;
     
     private void Start()
     {
@@ -50,6 +52,7 @@ public class Unit : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+            diedEvent?.Raise();
         }
         CheckPanel();
     }
