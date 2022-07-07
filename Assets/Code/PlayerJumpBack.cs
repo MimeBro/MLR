@@ -12,9 +12,9 @@ public class PlayerJumpBack : MonoBehaviour
         JumpBack();
     }
 
-    public void JumpBack()
+    private void JumpBack()
     {
-        var playerMovement = PlayerController.Instance.playerMovement;
-        playerMovement.KnockBack(jumpDuration,jumpPower,ease);
+        // var playerMovement = PlayerController.Instance.playerMovement;
+        // playerMovement.KnockBack(jumpDuration,jumpPower,ease);
     }
 }

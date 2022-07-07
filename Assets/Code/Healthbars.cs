@@ -1,19 +1,27 @@
-
+using System;
 using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
 
-public enum HealthorShield{HEALTH, SHIELD}
 public class Healthbars : MonoBehaviour
 {
-    public HealthorShield HealthorShield;
     public MMProgressBar ProgressBar;
     public Unit target;
     public TextMeshProUGUI hpNumber;
 
+    private void Start()
+    {
+        target = TeamManager.Instance.GetPlayer();
+    }
+
     private void Update()
     {
-        //hpNumber.text = target.hp.ToString();
+        if(target == null) return;
         ProgressBar?.UpdateBar(target.hp, 0 , target.maxhp);
+    }
+
+    public void SwitchTarget()
+    {
+        target = TeamManager.Instance.currentTeam[TeamManager.Instance.memberOnTheField];
     }
 }

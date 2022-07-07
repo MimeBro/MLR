@@ -9,7 +9,7 @@ public class ArchedProjectile : MonoBehaviour
     private float _nextfire;
 
     public Projectiles projectile;
-    public Panel target;
+    public Panel targetPanel;
 
     public Ease easing;
     public float jumpPower = 5;
@@ -19,13 +19,13 @@ public class ArchedProjectile : MonoBehaviour
     {
         if (Time.time >= _nextfire)
         {
-            target = GameManager.Instance.PlayerPanel();
-            if(target == null) return;
-            target.StartBlinking(1);
+            targetPanel = PanelsManager.Instance.PlayerPanel();
+            if(targetPanel == null) return;
+            targetPanel.StartBlinking(1);
             var shot = Instantiate(projectile, transform.position, Quaternion.identity);
             shot.projectileSpeed = 0;
             shot.damage = 5;
-            shot.transform.DOJump(target.transform.position, jumpPower, 1, duration).SetEase(easing);
+            shot.transform.DOJump(targetPanel.transform.position, jumpPower, 1, duration).SetEase(easing);
             _nextfire = Time.time + firerate;
         }
     }

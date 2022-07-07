@@ -13,18 +13,14 @@ public class PlayerController : MonoBehaviour
     public Stack<Command> commandBuffer = new Stack<Command>();
     private Stack<float> cooldownsBuffer = new Stack<float>();
 
-    [HideInInspector]public Unit unit;
+    public Unit unit;
     public bool canPerform;
     
-    public Transform shootPoint;
-
     public Animator animator;
     public PlayerMovement playerMovement;
 
     private void Awake()
     {
-        unit = GetComponent<Unit>();
-        animator = GetComponent<Animator>();
         Instance = this;
     }
 
@@ -58,7 +54,6 @@ public class PlayerController : MonoBehaviour
     public void AddCommand(Command command, float duration)
     {
         if (!canPerform) return;
-
         commandBuffer.Push(command);
         cooldownsBuffer.Push(duration);
     }

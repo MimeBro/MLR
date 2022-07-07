@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Moves:
   - {fileID: 11400000, guid: 1d3aeae77e08d6d49be3b824f16060e5, type: 2}
-  - {fileID: 11400000, guid: 02e017fdb0d08428c8d79d0c158c2ade, type: 2}
-  - {fileID: 11400000, guid: 02e017fdb0d08428c8d79d0c158c2ade, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: 1d3aeae77e08d6d49be3b824f16060e5, type: 2}
-  - {fileID: 11400000, guid: 02e017fdb0d08428c8d79d0c158c2ade, type: 2}
-  - {fileID: 11400000, guid: 02e017fdb0d08428c8d79d0c158c2ade, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: 1d3aeae77e08d6d49be3b824f16060e5, type: 2}
-  - {fileID: 11400000, guid: 02e017fdb0d08428c8d79d0c158c2ade, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   defaultMoveSet: {fileID: 11400000, guid: bfd429d030d2e41fb8ccfe6c6ac5d59c, type: 2}

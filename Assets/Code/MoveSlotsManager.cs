@@ -1,11 +1,30 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveSlotsManager : MonoBehaviour
 {
     public List<MoveSlots> moveSlots;
+
+    private void Start()
+    {
+        
+    }
+
+    public void SetMoves()
+    {
+        foreach (var slot in moveSlots)
+        {
+            slot.setButton.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < TeamManager.Instance.GetPlayerMoves().Moves.Count; i++)
+        {
+            moveSlots[i].setButton.gameObject.SetActive(true);
+            moveSlots[i].setButton.SetMove(TeamManager.Instance.GetPlayerMoves().Moves[i]);
+        }
+    }
 
     public void DisableAllSlots()
     {

@@ -6,9 +6,9 @@ public class MonsterController : MonoBehaviour
 {
     public MonsterSO monsterStats;
 
-    public MovesSO Capture()
-    {
-        Debug.Log(monsterStats.MonsterName + " has been captured");
-        return monsterStats.MonsterAttackMove;
-    }
+    // public MovesSO Capture()
+    // {
+    //     Debug.Log(monsterStats.MonsterName + " has been captured");
+    //     return monsterStats.MonsterAttackMove;
+    // }
 }

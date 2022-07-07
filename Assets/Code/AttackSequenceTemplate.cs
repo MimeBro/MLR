@@ -25,21 +25,20 @@ public class AttackSequenceTemplate : MonoBehaviour
 
     private IEnumerator PillarAttack()
     {
-        GameManager.Instance.PanelList[0].StartBlinking(1);
+        PanelsManager.Instance.PanelList[0].StartBlinking(1);
         
         yield return new WaitForSeconds(1);
         
-        Instantiate(pillar, GameManager.Instance.PanelList[0].transform.position,
+        Instantiate(pillar, PanelsManager.Instance.PanelList[0].transform.position,
             Quaternion.identity);
         
         yield return new WaitForSeconds(0.5f);
-        yield return new WaitUntil(() => GameManager.Instance.PlayerPanel() != null);
-        GameManager.Instance.PlayerPanel().StartBlinking(1);
-        var plyrpos = GameManager.Instance.PlayerPanel();
+        var playerPanel = PanelsManager.Instance.PlayerPanel();
+        playerPanel.StartBlinking(1);
 
         yield return new WaitForSeconds(1);
         
-        Instantiate(pillar, plyrpos.transform.position,
+        Instantiate(pillar, playerPanel.transform.position,
  Quaternion.identity);
         
         yield return new WaitForSeconds(1);

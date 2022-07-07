@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c708a92c5b3a8446c98be8ed60a82e16, type: 3}
   m_Name: Test_Monster
   m_EditorClassIdentifier: 
-  Behaviour: 0
   MonsterName: Testy
+  nickname: 0
+  MonsterNickname: 
   MonsterDescription: For testing
   MonsterImage: {fileID: 0}
-  maxHp: 0
-  currentHp: 0
-  type1: 0
-  type2: 0
-  WildPrefab: {fileID: 0}
-  TrainedPrefab: {fileID: 0}
-  MonsterAttackMove: {fileID: 11400000, guid: 1d3aeae77e08d6d49be3b824f16060e5, type: 2}
+  evolves: 0
+  evolutionLevel: 0
+  evolution: {fileID: 0}
+  Behaviour: 1
+  primaryType: 3
+  secondaryType: 0
+  currentHp: 100
+  maxHp: 100
+  maxEnergy: 5
+  energyRegen: 0
+  level: 0
+  exp: 0
+  expToNextLevel: 0
+  MonsterPrefab: {fileID: 0}

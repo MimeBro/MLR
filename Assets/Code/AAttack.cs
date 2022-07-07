@@ -55,8 +55,6 @@ public class AAttack : MonoBehaviour
     public MonsterAttack monsterToSummon;
     public float summonAttackDuration;
 
-    
-
     public async void CastAttack()
     {
         var end = Time.time + startDelay;
@@ -108,7 +106,6 @@ public class AAttack : MonoBehaviour
 
     private async void GuidedProjectile()
     {
-        
         if (hitAllPanelsInTheWay)
         {
             for (int i = 0; i < panels.Count; i++)
@@ -133,7 +130,7 @@ public class AAttack : MonoBehaviour
 
         if (usePlayerShootPoint)
         {
-             gp = Instantiate(guidedProjectile, PlayerController.Instance.shootPoint.position, Quaternion.identity);
+             gp = Instantiate(guidedProjectile, TeamManager.Instance.GetPlayer().shootPoint.position, Quaternion.identity);
         }
         else
         {
@@ -158,10 +155,10 @@ public class AAttack : MonoBehaviour
     private void GetPanels()
     {
         panels.Clear();
-        var playerPanelIndex = GameManager.Instance.PanelList.IndexOf(PlayerController.Instance.unit.currentPanel);
+        var playerPanelIndex = PanelsManager.Instance.PanelList.IndexOf(TeamManager.Instance.GetPlayerPanel());
         var playerpanelF = playerPanelIndex + 1;
         var playerpanelB = playerPanelIndex - 1;
-        var lastPanel = GameManager.Instance.PanelList.Count;
+        var lastPanel = PanelsManager.Instance.PanelList.Count;
         
         switch (AttackDirection)
         {
@@ -170,14 +167,14 @@ public class AAttack : MonoBehaviour
                 {
                     for (int i = 0; i < howManyPanelsInFront; i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelF + i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < (GameManager.Instance.PanelList.Count - playerpanelF); i++)
+                    for (int i = 0; i < (PanelsManager.Instance.PanelList.Count - playerpanelF); i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelF + i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
                     }
                 }
                 break;
@@ -187,14 +184,14 @@ public class AAttack : MonoBehaviour
                 {
                     for (int i = 0; i < howManyPanelsInFront; i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelB - i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelB - i]);
                     }
                 }
                 else
                 {
                     for (int i = 0; i <  playerPanelIndex; i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelB - i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelB - i]);
                     }
                 }
                 break;
@@ -203,14 +200,14 @@ public class AAttack : MonoBehaviour
                 {
                     for (int i = 0; i < howManyPanelsInFront; i++)
                     {
-                        panels.Insert(0,GameManager.Instance.PanelList[playerpanelB - i]);
+                        panels.Insert(0,PanelsManager.Instance.PanelList[playerpanelB - i]);
                     }
                 }
                 else
                 {
                     for (int i = 0; i <  playerPanelIndex; i++)
                     {
-                        panels.Insert(0,GameManager.Instance.PanelList[playerpanelB - i]);
+                        panels.Insert(0,PanelsManager.Instance.PanelList[playerpanelB - i]);
                     }
                 }
                 
@@ -218,14 +215,14 @@ public class AAttack : MonoBehaviour
                 {
                     for (int i = 0; i < howManyPanelsInFront; i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelF + i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < (GameManager.Instance.PanelList.Count - playerpanelF); i++)
+                    for (int i = 0; i < (PanelsManager.Instance.PanelList.Count - playerpanelF); i++)
                     {
-                        panels.Add(GameManager.Instance.PanelList[playerpanelF + i]);
+                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
                     }
                 }
                 break;

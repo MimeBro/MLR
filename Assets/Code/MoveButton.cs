@@ -28,11 +28,10 @@ public class MoveButton : MonoBehaviour
     public void SetMove(MovesSO newMove)
     {
         move = newMove;
-        buttonIcon.sprite = move.moveIcon;
+        buttonIcon.sprite = newMove.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
         if(move.castOnDraw) PerformMove();
-        
-
+        Debug.Log("setting moves");
     }
 
     public async void CastOnDraw()
@@ -61,7 +60,7 @@ public class MoveButton : MonoBehaviour
     public void CastMove()
     {
         if(move.castOnDraw) return;
-        if (GameManager.Instance.energy < move.energyCost)
+        if (TeamManager.Instance.GetPlayer().energy < move.energyCost)
         {
             notEnoughEnergyEvent?.Raise();
             return;
@@ -71,7 +70,7 @@ public class MoveButton : MonoBehaviour
 
     public void PerformMove()
     {
-        GameManager.Instance.UseEnergy(move.energyCost);
+        TeamManager.Instance.GetPlayer().UseEnergy(move.energyCost);
         var mov = Instantiate(move.moveGameObject);
         mov.callerButton = this;
         mov.CastAttack();
@@ -81,7 +80,7 @@ public class MoveButton : MonoBehaviour
             return;
         }
         
-        DiscardSelf();
+        GoOnCooldown();
     }
 
     public void WaitingForMoveToFinish()
@@ -91,16 +90,15 @@ public class MoveButton : MonoBehaviour
 
     }
 
-    public void DiscardSelf()
+    public void GoOnCooldown()
     {
         moveUsed?.Raise();
-        Destroy(gameObject);
     }
 
     public void ConditionsMet()
     {
         Debug.Log("Conditions Met");
         waitingForMove = false;
-        DiscardSelf();
+        GoOnCooldown();
     }
 }

@@ -18,9 +18,4 @@ public class MoveSlots : MonoBehaviour
             setButton?.CastMove();
         }
     }
-
-    public void ForceToDiscard()
-    {
-        setButton?.DiscardSelf();
-    }
 }

@@ -5,6 +5,4 @@ using UnityEngine;
 public class PassiveMove : MonoBehaviour
 {
     public MoveButton callerButton;
-    
-    
 }

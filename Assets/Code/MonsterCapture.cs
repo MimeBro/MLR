@@ -13,10 +13,10 @@ public class MonsterCapture : MonoBehaviour
         playerSet = GameManager.Instance.playerMoveSet;
     }
 
-    public void CaptureMonster()
-    {
-        playerSet.AddMove(monsterToCapture.Capture());
-    }
+    // public void CaptureMonster()
+    // {
+    //     playerSet.AddMove(monsterToCapture.Capture());
+    // }
     
     
 }
