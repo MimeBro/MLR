@@ -110,8 +110,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDirection: 0
-  AttackersSide: 2
+  attacker: {fileID: 0}
   TypeOfAttack: 1
+  howManyPanelsInFront: 3
+  hitAllPanelsInTheWay: 1
+  panels: []
+  shootPositions: []
+  stopTimeToAttack: 0
+  timeStopDuration: 0
+  moveDuration: 0.7
   guidedProjectile: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
   guidedProjectileSpeed: 30
   guidedProjectileDamage: 10
@@ -126,13 +133,6 @@ MonoBehaviour:
   callerButton: {fileID: 0}
   monsterToSummon: {fileID: 1606280475110460031, guid: ab0244a9adc6243c9aa1dd9542f6be72, type: 3}
   summonAttackDuration: 0
-  howManyPanelsInFront: 3
-  hitAllPanelsInTheWay: 1
-  panels: []
-  shootPositions: []
-  stopTimeToAttack: 0
-  timeStopDuration: 0
-  moveDuration: 1
 --- !u!114 &48950639012875885
 MonoBehaviour:
   m_ObjectHideFlags: 0

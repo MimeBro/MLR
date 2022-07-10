@@ -14,17 +14,19 @@ public class ArchedProjectile : MonoBehaviour
     public Ease easing;
     public float jumpPower = 5;
     public float duration;
+    public Unit attacker;
 
     void Update()
     {
         if (Time.time >= _nextfire)
         {
-            targetPanel = PanelsManager.Instance.PlayerPanel();
+            targetPanel = TeamManager.Instance.GetPlayerPanel();
             if(targetPanel == null) return;
             targetPanel.StartBlinking(1);
             var shot = Instantiate(projectile, transform.position, Quaternion.identity);
             shot.projectileSpeed = 0;
-            shot.damage = 5;
+            shot.baseDamage = 5;
+            shot.attacker = attacker;
             shot.transform.DOJump(targetPanel.transform.position, jumpPower, 1, duration).SetEase(easing);
             _nextfire = Time.time + firerate;
         }

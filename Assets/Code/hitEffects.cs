@@ -1,4 +1,4 @@
-public enum OnHitEffects
+public enum hitEffects
 {
     HEAT,
     WET,

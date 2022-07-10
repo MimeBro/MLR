@@ -31,7 +31,6 @@ public class MoveButton : MonoBehaviour
         buttonIcon.sprite = newMove.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
         if(move.castOnDraw) PerformMove();
-        Debug.Log("setting moves");
     }
 
     public async void CastOnDraw()
@@ -72,7 +71,8 @@ public class MoveButton : MonoBehaviour
     {
         TeamManager.Instance.GetPlayer().UseEnergy(move.energyCost);
         var mov = Instantiate(move.moveGameObject);
-        mov.callerButton = this;
+        mov.attacker = TeamManager.Instance.GetPlayer();
+        mov.moveType = move.moveType;
         mov.CastAttack();
         if (move.waitTillAttackEnds)
         {

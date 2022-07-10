@@ -16,7 +16,6 @@ public class TeamManager : MonoBehaviour
     [Title("Switch In and Out")] 
     public int memberOnTheField;
     public Transform MonsterSpawnPoint;
-    public Transform playerController;
     
     private void Start()
     {
@@ -31,11 +30,12 @@ public class TeamManager : MonoBehaviour
         {
             var member = Instantiate(mon, MonsterSpawnPoint.position, Quaternion.identity);
             currentTeam.Add(member);
-            member.transform.SetParent(playerController);
+            member.transform.SetParent(PlayerController.Instance.transform);
             member.gameObject.SetActive(false);
             member.SwitchedIn(LastPanel());
         }
-        
+
+        PlayerController.Instance.unit = currentTeam[0];
         currentTeam[0].gameObject.SetActive(true);
         memberOnTheField = currentTeam.IndexOf(currentTeam[0]);
     }
@@ -63,14 +63,17 @@ public class TeamManager : MonoBehaviour
     public void SwitchMember(int index)
     {
         if(index == memberOnTheField) return;
+        
+        var lp = LastPanel();
         foreach (var member in currentTeam)
         {
             member.gameObject.SetActive(false);
         }
         memberOnTheField = index;
+        PlayerController.Instance.unit = currentTeam[index];
         currentTeam[index].gameObject.SetActive(true);
         currentTeam[index].transform.position = MonsterSpawnPoint.position;
-        currentTeam[index].SwitchedIn(LastPanel());
+        currentTeam[index].SwitchedIn(lp);
     }
 
     public Panel LastPanel()

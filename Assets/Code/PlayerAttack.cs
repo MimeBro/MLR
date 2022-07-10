@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
         foreach (var shot in shots)
         {
             shot.side = _unit.side;
-            shot.damage = damagePerShot;
+            shot.baseDamage = damagePerShot;
         }
     }
 

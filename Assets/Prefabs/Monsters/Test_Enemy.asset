@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c708a92c5b3a8446c98be8ed60a82e16, type: 3}
-  m_Name: Test_Monster
+  m_Name: Test_Enemy
   m_EditorClassIdentifier: 
   MonsterName: Testy
   nickname: 0
@@ -18,16 +18,23 @@ MonoBehaviour:
   MonsterDescription: For testing
   MonsterImage: {fileID: 0}
   evolves: 0
+  evolutionStage: 0
   evolutionLevel: 0
   evolution: {fileID: 0}
   Behaviour: 1
-  primaryType: 3
-  secondaryType: 0
+  primaryType: 2
   currentHp: 100
   maxHp: 100
   maxEnergy: 5
-  energyRegen: 0
-  level: 0
-  exp: 0
-  expToNextLevel: 0
+  energyRegenerationRate: 0
+  attack: 23
+  specialAttack: 45
+  defense: 45
+  specialDefense: 23
+  speed: 0
+  level: 20
+  maxLevel: 20
+  baseExp: 1000
+  currentExp: 0
+  expToNextLevel: 00000000e80300004c040000ba04000033050000b80500004a060000eb0600009c0700005e080000340900001f0a0000220b00003f0c0000780d0000d00e00004b100000ec110000b6130000ae150000
   MonsterPrefab: {fileID: 0}

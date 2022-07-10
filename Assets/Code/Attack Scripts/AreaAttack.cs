@@ -1,21 +1,25 @@
 using UnityEngine;
 
-public class AreaAttack : MonoBehaviour
+public class AreaAttack : Attacks
 {
     public int damagePerHit;
     public float secondsPerHit;
-    private float firerate;
-    private float _nextfire;
+    
+    private float fireRate;
+    private float nextFire;
 
     public bool singleHit;
     private bool alreadyHit = false;
 
-    public Sides side;
+    public override void OnTriggerEnter2D(Collider2D col)
+    {
+        //do Nothing
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         var unit = other.GetComponent<Unit>();
-        firerate = secondsPerHit / 1;
+        fireRate = secondsPerHit / 1;
         if (unit != null)
         {
             if (unit.side == side) return;
@@ -31,10 +35,10 @@ public class AreaAttack : MonoBehaviour
 
     public void MultiHit(Unit unit)
     {
-        if (Time.time >= _nextfire)
+        if (Time.time >= nextFire)
         {
             unit.TakeDamage(damagePerHit);
-            _nextfire = Time.time + firerate;
+            nextFire = Time.time + fireRate;
         }
     }
 

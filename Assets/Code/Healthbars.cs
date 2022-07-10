@@ -8,8 +8,8 @@ public class Healthbars : MonoBehaviour
     public MMProgressBar ProgressBar;
     public Unit target;
     public TextMeshProUGUI hpNumber;
-
-    private void Start()
+    
+    public void SetTarget()
     {
         target = TeamManager.Instance.GetPlayer();
     }

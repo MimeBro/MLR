@@ -6,16 +6,15 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 public enum AttackDirection{Forward, Backward, Both}
-public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,Passive,Summon}
+public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,Dash,Summon}
 public class AAttack : MonoBehaviour
 {
     [Title("General Attributes")]
     [EnumToggleButtons]
     public AttackDirection AttackDirection;
-    
-    
-    [EnumToggleButtons]
-    public Sides AttackersSide;
+    public Unit attacker;
+    [HideInInspector]
+    public ElementalTypes moveType;
     
     [EnumToggleButtons]
     public TypeOfAttack TypeOfAttack;
@@ -46,11 +45,7 @@ public class AAttack : MonoBehaviour
     public int damagePerHit;
     public float hitsPerSecond;
     public float areaDuration;
-
-    [Title("Passive")] 
-    public PassiveMove passiveMove;
-    public MoveButton callerButton;
-
+    
     [Title("Summon")]
     public MonsterAttack monsterToSummon;
     public float summonAttackDuration;
@@ -63,21 +58,21 @@ public class AAttack : MonoBehaviour
         {
             await Task.Yield();
         }
-        
+
         switch (TypeOfAttack)
         {
-          case  TypeOfAttack.GuidedProjectile:
-              GuidedProjectile();
-              break;
-          case TypeOfAttack.AreaAttack:
-              AreaAttack();
-              break;
-          case TypeOfAttack.Summon:
-              Summon();
-              break;
-          case TypeOfAttack.Passive:
-              PassiveMove();
-              break;
+            case TypeOfAttack.GuidedProjectile:
+                GuidedProjectile();
+                break;
+            case TypeOfAttack.AreaAttack:
+                AreaAttack();
+                break;
+            case TypeOfAttack.Summon:
+                Summon();
+                break;
+            case TypeOfAttack.Dash:
+                
+                break;
         }
     }
 
@@ -87,20 +82,15 @@ public class AAttack : MonoBehaviour
         mon.StartAttack();
         Destroy(gameObject);
     }
-
-    private void PassiveMove()
-    {
-        var pas = Instantiate(passiveMove);
-        pas.callerButton = callerButton;
-        Destroy(gameObject);
-    }
+    
 
     private void AreaAttack()
     {
         var aatk = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
         aatk.damagePerHit = damagePerHit;
         aatk.secondsPerHit = hitsPerSecond;
-        aatk.side = AttackersSide; 
+        aatk.attacker = attacker;
+        aatk.side = attacker.side;
         Destroy(aatk.gameObject,areaDuration);
     }
 
@@ -132,15 +122,17 @@ public class AAttack : MonoBehaviour
         {
              gp = Instantiate(guidedProjectile, TeamManager.Instance.GetPlayer().shootPoint.position, Quaternion.identity);
         }
-        else
+        else 
         {
              gp = Instantiate(guidedProjectile, shootPositions[ShootPositionIndex].position, Quaternion.identity);
         }
         gp.target = panels[panelIndex].transform;
         gp.speed = guidedProjectileSpeed;
-        gp.damage = guidedProjectileDamage;
-        gp.side = AttackersSide;
-        
+        gp.baseDamage = guidedProjectileDamage;
+        gp.attacker = attacker;
+        gp.side = attacker.side;
+        gp.element = moveType;
+
         while (Time.time < end)
         {
             await Task.Yield();

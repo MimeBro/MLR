@@ -132,13 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febccf7f0c5824462a0ef4ebf3abe6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   side: 0
+  element: 1
+  contactType: 0
+  attacker: {fileID: 0}
+  baseDamage: 0
   destroySelf: 1
   destroyParent: 0
   pierceThrough: 1
+  dodgeable: 0
   target: {fileID: 0}
-  destination: {x: 0, y: 0, z: 0}
   speed: 0
 --- !u!50 &7359165563783567914
 Rigidbody2D:

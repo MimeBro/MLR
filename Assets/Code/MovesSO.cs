@@ -1,22 +1,32 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public enum MoveRarity{COMMON, RARE, EPIC, LEGENDARY}
-public enum MoveType{SKILL, ATTACK, SUMMON, PASSIVE}
+public enum MoveCategory{SKILL, ATTACK}
 [CreateAssetMenu(fileName = "Move.asset", menuName = "Moves/New Move")]
 public class MovesSO : ScriptableObject
 {
-    public string moveName;
-    public int damage;
-    public int energyCost;
-    public float cooldown;
-    public string moveDescription;
-    public MoveType moveType;
+    [Title("Attack Info")] 
+    [EnumToggleButtons]
+    public MoveRarity rarity;
 
-    public bool waitTillAttackEnds;
-    public bool castOnDraw;
-    
+    public string moveName;
     public Sprite moveIcon;
     
+    [EnumToggleButtons]
+    public MoveCategory moveCategory;
+    
+    public string moveDescription;
+
+    [Title("Attack Stats")] 
+    public ElementalTypes moveType;
+    public int baseDamage;
+    public int energyCost;
+    public float cooldown;
+
+    [Title("Setup")]
+    public bool waitTillAttackEnds;
+    public bool castOnDraw;
     public AAttack moveGameObject;
 
     public float MoveDuration()

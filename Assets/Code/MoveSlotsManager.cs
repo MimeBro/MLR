@@ -17,11 +17,13 @@ public class MoveSlotsManager : MonoBehaviour
         foreach (var slot in moveSlots)
         {
             slot.setButton.gameObject.SetActive(false);
+            slot.disabled = true;
         }
 
         for (int i = 0; i < TeamManager.Instance.GetPlayerMoves().Moves.Count; i++)
         {
             moveSlots[i].setButton.gameObject.SetActive(true);
+            moveSlots[i].disabled = false;
             moveSlots[i].setButton.SetMove(TeamManager.Instance.GetPlayerMoves().Moves[i]);
         }
     }

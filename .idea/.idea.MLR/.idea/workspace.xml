@@ -8,9 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Code/GuidedProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/MoveSlotsManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/MonsterButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Monster Scripts/MonsterButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/MoveButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/PlayerChaser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/EnergyBar.cs" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +86,8 @@
       <workItem from="1656544411937" duration="914000" />
       <workItem from="1656698436758" duration="2760000" />
       <workItem from="1657075812050" duration="26196000" />
-      <workItem from="1657139352473" duration="14382000" />
+      <workItem from="1657139352473" duration="80806000" />
+      <workItem from="1657405088080" duration="10713000" />
     </task>
     <servers />
   </component>

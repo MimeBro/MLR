@@ -18,17 +18,17 @@ public class MonsterAttack : MonoBehaviour
 
    private IEnumerator EnterScene()
    {
-        var playerMovement = PlayerController.Instance.playerMovement;
+        var playerMovement = PlayerController.Instance.unitMovement;
         var ypos = playerMovement.yposition;
         var cpanel = PlayerController.Instance.unit.currentPanel.transform.position;
         
         var destination = new Vector2(cpanel.x, ypos);
-        playerMovement.PlayerLeaves();
+        playerMovement.UnitLeaves();
         transform.DOMove(destination, 0.2f);
         yield return new WaitForSecondsRealtime(0.5f);
         CastAttack();
         yield return new WaitForSeconds(attackDuration);
-        playerMovement.PlayerComesBack();
+        playerMovement.UnitComesBack();
         Destroy(gameObject);
    }
 

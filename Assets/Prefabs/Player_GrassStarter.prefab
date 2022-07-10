@@ -585,12 +585,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b452235294ddb4c0fafd430e0f20754e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 998eb75d4df88df4c87de716b32cfb8d, type: 2}
+  stats: {fileID: 11400000, guid: 4b0b958b547c846f19c7f80eefcec59f, type: 2}
   side: 2
-  hp: 0
+  level: 0
+  hp: 100
   maxhp: 100
-  energy: 0
+  energy: 5
   maxEnergy: 5
+  currentExp: 0
+  expToNextLevel: 0
   moveSet: {fileID: 11400000, guid: 927fe85a6719a445696ff667b6ab7cf2, type: 2}
   currentPanel: {fileID: 0}
   unitStatus: 0
@@ -627,7 +630,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movementSpeed: 0.2
-  movementEase: 1
+  movementEase: 0
   leavingDuration: 0.6
   leavingJumpPower: 1
   leavingEasing: 1

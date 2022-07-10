@@ -585,12 +585,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b452235294ddb4c0fafd430e0f20754e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 998eb75d4df88df4c87de716b32cfb8d, type: 2}
+  stats: {fileID: 11400000, guid: cf01ad34114da4d029cf70d6bf6682c8, type: 2}
   side: 2
+  level: 0
   hp: 0
   maxhp: 100
   energy: 0
   maxEnergy: 5
+  currentExp: 0
+  expToNextLevel: 0
   moveSet: {fileID: 11400000, guid: 5fbe17f0a9a824049982a7128b2b4a4f, type: 2}
   currentPanel: {fileID: 0}
   unitStatus: 0

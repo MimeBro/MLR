@@ -1,10 +1,21 @@
+using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
+public enum ContactType{Physical, Special}
 public class Attacks : MonoBehaviour
 {
-    public int damage;
+    [EnumToggleButtons]
     public Sides side;
+
+    public ElementalTypes element;
+    public ContactType contactType;
+    public Unit attacker;
+    
+    public int baseDamage;
+    
     public bool destroySelf,destroyParent,pierceThrough,dodgeable;
+
 
     public virtual void Start()
     {
@@ -19,17 +30,17 @@ public class Attacks : MonoBehaviour
         }
     }
 
-    public void SetSide(Sides s)
+    public int FinalDamage()
     {
-        side = s;
+        return contactType switch
+        {
+            ContactType.Physical => baseDamage + attacker.stats.attack,
+            ContactType.Special => baseDamage + attacker.stats.specialAttack,
+            _ => baseDamage
+        };
     }
-
-    public void SetDamage(int dmg)
-    {
-        damage = dmg;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
         var unit = col.GetComponent<Unit>();
         if (unit != null)
@@ -41,7 +52,7 @@ public class Attacks : MonoBehaviour
                 return;
             }
 
-            unit.TakeDamage(damage);
+            unit.TakeDamage(FinalDamage(), contactType, element);
             if(!pierceThrough)Destroy(gameObject);
         }
     }

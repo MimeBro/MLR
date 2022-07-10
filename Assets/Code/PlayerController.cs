@@ -16,9 +16,7 @@ public class PlayerController : MonoBehaviour
     public Unit unit;
     public bool canPerform;
     
-    public Animator animator;
-    public PlayerMovement playerMovement;
-
+    public UnitMovement unitMovement;
     private void Awake()
     {
         Instance = this;
@@ -49,6 +47,36 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         CommandCooldown();
+        MovementInput();
+    }
+    
+    public void MovementInput()
+    {
+        if (unitMovement == null)
+        {
+            unitMovement = unit.transform.GetComponent<UnitMovement>();
+        }
+        
+        else
+        {
+            //Move Forward
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                AddCommand(unitMovement.MoveForward, unitMovement.movementSpeed);
+
+            }
+
+            //Move Backwards
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                AddCommand(unitMovement.MoveBack, unitMovement.movementSpeed);
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                //maybe a passive
+            }
+        }
     }
 
     public void AddCommand(Command command, float duration)

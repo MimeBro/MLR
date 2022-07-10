@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f82ed6efda574a33a9f5299e75eb5c6, type: 3}
   m_Name: Basic_DoubleLeaves
   m_EditorClassIdentifier: Assembly-CSharp::MovesSo
+  rarity: 0
   moveName: Double Leaves
-  damage: 1
-  moveDescription: Throw 2 leave knives forward, each dealing 2 damage
-  moveType: 0
-  moveCooldown: 0.5
   moveIcon: {fileID: 21300000, guid: ec7adc204dab2492b990b6c16b5e2fb2, type: 3}
+  moveCategory: 0
+  moveDescription: Throw 2 leave knives forward
+  moveType: 4
+  baseDamage: 0
+  energyCost: 0
+  cooldown: 0
+  waitTillAttackEnds: 0
+  castOnDraw: 0
   moveGameObject: {fileID: 6210480034881431748, guid: 2108e5dd98dfe40adb3f65eaf5d28ea8, type: 3}

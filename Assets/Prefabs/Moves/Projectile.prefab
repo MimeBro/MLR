@@ -114,8 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5e15800c836418ea77b2b20b7dbe06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   side: 1
+  element: 2
+  contactType: 1
+  attacker: {fileID: 0}
+  baseDamage: 0
   destroySelf: 1
   destroyParent: 0
   pierceThrough: 1
