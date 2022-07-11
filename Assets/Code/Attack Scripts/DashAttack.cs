@@ -6,27 +6,26 @@ using UnityEngine;
 public class DashAttack : Attacks
 {
     [Title("Setup")]
-    public Vector3 startPanel;
-    public Panel endPanel;
+    public Vector3 startPosition;
+    public Panel targetPanel;
 
     [Title("Values")]
     [EnumToggleButtons]
     public AttackDirection direction;
 
+    public bool backAndForth;
     public float dashSpeed;
     public float dashDuration;
-    private float dashDur;
     
-    public bool pierce;
+    private float dashDur;
 
-    public void Dash()
+
+    public void StartDash()
     {
-        attacker = TeamManager.Instance.GetPlayer();//FOR TESTING, THE PARENT SCRIPT SHOULD GIVE IT THE CORRECT ATTACKER
-        
-        startPanel = attacker.transform.position;
+        startPosition = attacker.transform.position;
         transform.parent = attacker.transform;
         transform.localPosition = Vector3.zero;
-        attacker.transform.DOMoveX(endPanel.transform.position.x, dashSpeed).OnComplete(ReturnBack);
+        attacker.transform.DOMoveX(targetPanel.transform.position.x, dashSpeed).OnComplete(ReturnBack);
     }
     
 
@@ -49,7 +48,21 @@ public class DashAttack : Attacks
             dashDur -= 1 * Time.deltaTime;
             await Task.Yield();
         }
-
-        attacker.transform.position = startPanel;
+        
+        if (backAndForth)
+        {
+            attacker.transform.DOMoveX(startPosition.x, dashSpeed).OnComplete(
+                () =>
+                {
+                    Destroy(gameObject);
+                });
+            
+        }
+        
+        else
+        {
+            attacker.transform.position = startPosition;
+            Destroy(gameObject);
+        }
     }
 }

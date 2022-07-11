@@ -119,6 +119,4 @@ public class PlayerController : MonoBehaviour
         commandBuffer.Clear();
         cooldownsBuffer.Clear();
     }
-
-
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,12 +7,12 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 public enum AttackDirection{Forward, Backward, Both}
-public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,Dash,Summon}
+public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,DashAttack,Summon}
 public class AAttack : MonoBehaviour
 {
     [Title("General Attributes")]
     [EnumToggleButtons]
-    public AttackDirection AttackDirection;
+    public AttackDirection attackDirection;
     public Unit attacker;
     [HideInInspector]
     public ElementalTypes moveType;
@@ -30,13 +31,12 @@ public class AAttack : MonoBehaviour
     public bool stopTimeToAttack;
     public float timeStopDuration;
     public float moveDuration;
+    public float startDelay;
 
     [Title("Guided Projectiles")]
     public GuidedProjectile guidedProjectile;
-
     public float guidedProjectileSpeed;
     public int guidedProjectileDamage;
-    public float startDelay;
     public float gapBetweenSpawn;
     public bool usePlayerShootPoint;
 
@@ -50,10 +50,19 @@ public class AAttack : MonoBehaviour
     public MonsterAttack monsterToSummon;
     public float summonAttackDuration;
 
+    [Title("Dash Attack")] 
+    public DashAttack dashAttack;
+    public bool backAndForth;
+    public float dashSpeed;
+    public float dashDuration;
+
     public async void CastAttack()
     {
+        //If there's no attacker, assume the attacker is the player
+        panels = UnitTools.GetPanels(attacker != null ? attacker : TeamManager.Instance.GetPlayer(),
+            howManyPanelsInFront, attackDirection);
+
         var end = Time.time + startDelay;
-        GetPanels();
         while (Time.time < end)
         {
             await Task.Yield();
@@ -70,10 +79,25 @@ public class AAttack : MonoBehaviour
             case TypeOfAttack.Summon:
                 Summon();
                 break;
-            case TypeOfAttack.Dash:
-                
+            case TypeOfAttack.DashAttack:
+                DashAttack();
                 break;
+            default:
+                return;
         }
+    }
+
+    private void DashAttack()
+    {
+        var dash = Instantiate(dashAttack);
+        dash.attacker = attacker;
+        dash.targetPanel = panels[panels.Count - 1];
+        dash.backAndForth = backAndForth;
+        dash.direction = attackDirection;
+        dash.dashSpeed = dashSpeed;
+        dash.dashDuration = dashDuration;
+        dash.side = attacker.side;
+        dash.StartDash();
     }
 
     private void Summon()
@@ -107,7 +131,7 @@ public class AAttack : MonoBehaviour
 
         await InstantiateGuidedProjectile(panels.Count - 1, 0,gapBetweenSpawn);
         
-        if (AttackDirection == AttackDirection.Both)
+        if (attackDirection == AttackDirection.Both)
         {
             await InstantiateGuidedProjectile(0, 0, 0);
         }
@@ -150,9 +174,9 @@ public class AAttack : MonoBehaviour
         var playerPanelIndex = PanelsManager.Instance.PanelList.IndexOf(TeamManager.Instance.GetPlayerPanel());
         var playerpanelF = playerPanelIndex + 1;
         var playerpanelB = playerPanelIndex - 1;
-        var lastPanel = PanelsManager.Instance.PanelList.Count;
+        var lastPanel = PanelsManager.Instance.PanelList.Count; 
         
-        switch (AttackDirection)
+        switch (attackDirection)
         {
             case AttackDirection.Forward:
                 if (playerPanelIndex + howManyPanelsInFront < lastPanel)

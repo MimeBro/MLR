@@ -23,12 +23,12 @@ public class MonsterAttack : MonoBehaviour
         var cpanel = PlayerController.Instance.unit.currentPanel.transform.position;
         
         var destination = new Vector2(cpanel.x, ypos);
-        playerMovement.UnitLeaves();
+        playerMovement.UnitSummoned();
         transform.DOMove(destination, 0.2f);
         yield return new WaitForSecondsRealtime(0.5f);
         CastAttack();
         yield return new WaitForSeconds(attackDuration);
-        playerMovement.UnitComesBack();
+        playerMovement.UnitRecalled();
         Destroy(gameObject);
    }
 

@@ -11,11 +11,14 @@ public class MovesSO : ScriptableObject
     public MoveRarity rarity;
 
     public string moveName;
-    public Sprite moveIcon;
-    
+
     [EnumToggleButtons]
     public MoveCategory moveCategory;
+
+    [PreviewField]
+    public Sprite moveIcon;
     
+    [TextArea]
     public string moveDescription;
 
     [Title("Attack Stats")] 

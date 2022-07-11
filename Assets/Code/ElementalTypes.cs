@@ -11,9 +11,9 @@ public enum ElementalTypes
     Earth,//Beats Thunder and Fire        | Resists Thunder,Fire and itself              | Weak to Water,Nature and Metal
     Wind,//Beats Neutral and Nature       | Resists Nature,Earth and itself              | Weak to Thunder and Dark
     Thunder,//Beats Water, Wind and Metal | Resists Metal and itself                     | Weak to Earth
-    Dark,//Beats Magic and Wind,          | Resists Magic and itself                     | Weak to Fire
+    Dark,//Beats Magic and Wind,          | Resists Magic                                | Weak to Fire
     Magic,//Beats Neutral and itself      | Resists Water,Fire,Wind                      | Weak to Dark and Itself
-    Metal,//Beats Earth and Nature         | Resists Neutral,Magic,Nature,Wind, itself    | Weak to Fire and Thunder
+    Metal,//Beats Earth and Nature        | Resists Neutral,Magic,Nature,Wind, itself    | Weak to Fire and Thunder
     None
 }
 
@@ -114,8 +114,7 @@ public class ElementalInteractions
                 {
                     //Beats Magic
                     ElementalTypes.Magic or ElementalTypes.Wind => 2f,
-                    //Resisted by Dark, Thunder and Fire
-                    ElementalTypes.Dark => 0.5f,
+                    //Nothing Resists Dark
                     _ => 1f
                 };
             //If received a Magic Attack

@@ -82,28 +82,23 @@ public class UnitMovement : MonoBehaviour
         animator?.SetTrigger("DashBackward");
     }
     
-    public void KnockBack(float duration, float jumpPower, Ease ease)
+    public void JumpBack(float duration, float jumpPower)
     {
         if (UnitTools.PanelIsOk(backPanel, unit.side))
         {
             var panelPos = backPanel.transform.position;
             var destination = new Vector2(panelPos.x, panelPos.y -yposition);
-            transform.DOJump(destination, jumpPower, 1, duration).SetEase(ease);
+            transform.DOJump(destination, jumpPower, 1, duration).SetEase(Ease.Linear);
         }
         else
         {
             var panelPos = unit.currentPanel.transform.position;
             var destination = new Vector2(panelPos.x, panelPos.y -yposition);
-            transform.DOJump(destination, jumpPower, 1, duration).SetEase(ease);
+            transform.DOJump(destination, jumpPower, 1, duration).SetEase(Ease.Linear);
         }
     }
-
-    public void KnockUp(int jumpPower)
-    {
-        playerSprite.DOLocalJump(Vector2.zero, jumpPower, 1, 0.7f);
-    }
-
-    public void UnitLeaves()
+    
+    public void UnitSummoned ()
     {
         lastPanel = GetComponent<Unit>().currentPanel;
         transform.DOJump(TeamManager.Instance.MonsterSpawnPoint.position, leavingJumpPower,1 , leavingDuration)
@@ -111,7 +106,7 @@ public class UnitMovement : MonoBehaviour
         playerLeft = true;
     }
 
-    public void UnitComesBack()
+    public void UnitRecalled()
     {
         var panelPos = lastPanel.transform.position;
         var destination = new Vector2(panelPos.x, panelPos.y - yposition);

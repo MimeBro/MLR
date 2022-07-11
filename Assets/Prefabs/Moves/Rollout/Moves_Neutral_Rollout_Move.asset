@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f82ed6efda574a33a9f5299e75eb5c6, type: 3}
+  m_Name: Moves_Neutral_Rollout_Move
+  m_EditorClassIdentifier: 
+  rarity: 1
+  moveName: Rollout
+  moveCategory: 1
+  moveIcon: {fileID: -1927911570766903740, guid: fe42c8b526e77e54ab91d0590272d9e8, type: 3}
+  moveDescription: Rolls Damaging and knocking up everything in its path, the turns
+    back
+  moveType: 0
+  baseDamage: 20
+  energyCost: 2
+  cooldown: 0
+  waitTillAttackEnds: 0
+  castOnDraw: 0
+  moveGameObject: {fileID: 3546014615321107089, guid: 4c158bdc3f614468da24b9a0daf2e7e9, type: 3}

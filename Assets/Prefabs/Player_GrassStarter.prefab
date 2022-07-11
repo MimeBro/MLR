@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 6530212053121793299}
   - component: {fileID: 6530212053121793296}
   - component: {fileID: 5170949007253742210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_GrassStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ MonoBehaviour:
   diedEvent: {fileID: 0}
   monsterEntered: {fileID: 11400000, guid: 45e544bce334147b99218728cb1d908f, type: 2}
   refillHP: 1
-  infiniteEnergy: 0
+  infiniteEnergy: 1
 --- !u!114 &6530212053121790700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,9 +626,6 @@ MonoBehaviour:
   rayOrigin: {x: 0, y: -0.75, z: 0}
   rayDistance: 2
   yposition: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
   movementSpeed: 0.2
   movementEase: 0
   leavingDuration: 0.6
