@@ -30,10 +30,5 @@ public class MovesSO : ScriptableObject
     [Title("Setup")]
     public bool waitTillAttackEnds;
     public bool castOnDraw;
-    public AAttack moveGameObject;
-
-    public float MoveDuration()
-    {
-        return moveGameObject.moveDuration;
-    }
+    public AttackController attackController;
 }

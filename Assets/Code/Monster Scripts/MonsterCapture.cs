@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonsterCapture : MonoBehaviour
 {
     public MoveSet playerSet;
-    public MonsterController monsterToCapture;
+    public TeamSlotsManager monsterToCapture;
 
     private void Start()
     {

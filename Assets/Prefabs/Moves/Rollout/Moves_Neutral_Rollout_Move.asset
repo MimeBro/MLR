@@ -24,4 +24,4 @@ MonoBehaviour:
   cooldown: 0
   waitTillAttackEnds: 0
   castOnDraw: 0
-  moveGameObject: {fileID: 3546014615321107089, guid: 4c158bdc3f614468da24b9a0daf2e7e9, type: 3}
+  attackController: {fileID: 3546014615321107089, guid: 4c158bdc3f614468da24b9a0daf2e7e9, type: 3}

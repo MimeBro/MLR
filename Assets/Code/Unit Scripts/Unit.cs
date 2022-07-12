@@ -76,11 +76,6 @@ public class Unit : MonoBehaviour
         Die();
         CheckPanel();
         EnergyCharge();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GainExp(1000);
-        }
     }
 
     public void UseEnergy(int amount)

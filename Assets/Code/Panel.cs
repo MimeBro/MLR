@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,42 +9,32 @@ public class Panel : MonoBehaviour
     public PanelStatus panelStatus;
     private Color _startingColor, _innerPanelStartingColor;
 
+    public Vector2 boxSize;
     public Unit occupier;
     private static readonly int Blink = Animator.StringToHash("Blink");
-
-
-    private void Awake()
-    {
-    }
-
-    private void Start()
-    {
-        //ChangeTeamColor();
-        //_startingColor = _img.color;
-        //_innerPanelStartingColor = innerPanel.color;
-    }
-
+    
     public void ChangeStatus(PanelStatus status)
     {
         panelStatus = status;
     }
-    
-    private void OnTriggerStay2D(Collider2D other)
+
+    private void Update()
     {
-        if (other.GetComponentInParent<Unit>() != null)
-        {
-            occupier = other.GetComponent<Unit>();
-        }
+        CheckOccupier();
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void CheckOccupier()
     {
-        if (other.GetComponentInParent<Unit>() != null)
-        {
-            occupier = null;
-        }
+        var box = Physics2D.OverlapBox(transform.position, boxSize, 0, LayerMask.GetMask("Units"));
+        occupier = box?.GetComponent<Unit>();
     }
     
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, boxSize);
+    }
+
     //Make the panel blink in anticipation for an incoming attack
     public void StartBlinking(float blinktime)
     {

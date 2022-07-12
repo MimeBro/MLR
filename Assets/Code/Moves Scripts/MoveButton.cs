@@ -15,32 +15,28 @@ public class MoveButton : MonoBehaviour
 
     public MovesSO previousMove;
 
-    private PlayerController player;
     private bool waitingForMove;
     private bool waitForPosition;
+    private AttackController activeMove;
     
-    // Start is called before the first frame update
-    private void Start()
-    {
-        player = PlayerController.Instance;
-    }
-
     public void SetMove(MovesSO newMove)
     {
+        if (activeMove != null) Destroy(activeMove.gameObject);
+
         move = newMove;
         buttonIcon.sprite = newMove.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
-        if(move.castOnDraw) PerformMove();
+        activeMove = (Instantiate(move.attackController));
+        activeMove.attacker = TeamManager.Instance.GetPlayer();
+        activeMove.moveType = move.moveType;
+        activeMove.gameObject.SetActive(false);
     }
 
     public async void CastOnDraw()
     {
         var end = Time.time + 0.5f;
         
-        while (Time.time < end)
-        {
-           await Task.Yield();
-        }
+        while (Time.time < end) await Task.Yield();
         
         PerformMove();
     }
@@ -51,35 +47,28 @@ public class MoveButton : MonoBehaviour
         {
             previousMove = move;
         }
-
-        move = newMove;
-        buttonIcon.sprite = move.moveIcon;
+        SetMove(newMove);
     }
 
     public void CastMove()
     {
         if(move.castOnDraw) return;
+        
+        //If there's no energy, return
         if (TeamManager.Instance.GetPlayer().energy < move.energyCost)
         {
             notEnoughEnergyEvent?.Raise();
             return;
         }
-        player.AddCommand(PerformMove, move.MoveDuration());
+        
+        PlayerController.Instance.AddCommand(PerformMove, activeMove.moveDuration);
     }
 
     public void PerformMove()
     {
         TeamManager.Instance.GetPlayer().UseEnergy(move.energyCost);
-        var mov = Instantiate(move.moveGameObject);
-        mov.attacker = TeamManager.Instance.GetPlayer();
-        mov.moveType = move.moveType;
-        mov.CastAttack();
-        if (move.waitTillAttackEnds)
-        {
-            waitingForMove = true;
-            return;
-        }
-        
+        activeMove.gameObject.SetActive(true);
+        activeMove.CastAttack();
         GoOnCooldown();
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3019640516278726597}
   - component: {fileID: 3019640516278726598}
   - component: {fileID: 3799618578096025684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_WaterStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,18 +63,15 @@ MonoBehaviour:
   expToNextLevel: 0
   moveSet: {fileID: 11400000, guid: 1faf0bd53c75e499c99a5c99a25eee37, type: 2}
   currentPanel: {fileID: 0}
-  unitStatus: 0
+  lastPanel: {fileID: 0}
   uState: 0
-  DamageFeedback: {fileID: 3799618578887325750}
-  takeDamageEvent: {fileID: 11400000, guid: 860c5240ab6094a9bb4e54ffaec64e1e, type: 2}
   boxSize: {x: 1.76, y: 2.24}
-  panelLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
   yposition: -0.6
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 3799618579308419562}
   diedEvent: {fileID: 0}
   monsterEntered: {fileID: 11400000, guid: 45e544bce334147b99218728cb1d908f, type: 2}
+  DamageFeedback: {fileID: 3799618578887325750}
+  takeDamageEvent: {fileID: 11400000, guid: 860c5240ab6094a9bb4e54ffaec64e1e, type: 2}
   refillHP: 1
   infiniteEnergy: 0
 --- !u!114 &3019640516278722618
@@ -93,9 +90,6 @@ MonoBehaviour:
   rayOrigin: {x: 0, y: -0.75, z: 0}
   rayDistance: 2
   yposition: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
   movementSpeed: 0.2
   movementEase: 1
   leavingDuration: 0.6
@@ -180,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3019640516319775552}
   - component: {fileID: 3019640516319775559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +260,7 @@ GameObject:
   - component: {fileID: 3799618578251427389}
   - component: {fileID: 3799618578251427387}
   - component: {fileID: 3799618578251427388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DodgeForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +390,7 @@ GameObject:
   - component: {fileID: 3799618578774130360}
   - component: {fileID: 3799618578774130342}
   - component: {fileID: 3799618578774130343}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DodgeBackward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +520,7 @@ GameObject:
   - component: {fileID: 3799618578887325704}
   - component: {fileID: 3799618578887325750}
   - component: {fileID: 3799618578887325751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TakeDamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3799618579308419562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

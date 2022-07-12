@@ -7,11 +7,6 @@ public class MoveSlotsManager : MonoBehaviour
 {
     public List<MoveSlots> moveSlots;
 
-    private void Start()
-    {
-        
-    }
-
     public void SetMoves()
     {
         foreach (var slot in moveSlots)

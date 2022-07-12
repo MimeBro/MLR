@@ -9,7 +9,8 @@ public class TeamManager : MonoBehaviour
     
     [Title("Team Management")]
     public MonsterTeam playersTeam;
-
+    public TeamSlotsManager teamSlotsManager;
+    
     [HideInInspector]public MonsterTeam enemyTeam;
     public List<Unit> currentTeam;
     
@@ -26,18 +27,21 @@ public class TeamManager : MonoBehaviour
     public void SetTeam()
     {
         if(currentTeam.Any()) return;
-        foreach (var mon in playersTeam.Monsters)
+        for (var index = 0; index < playersTeam.Monsters.Count; index++)
         {
+            var mon = playersTeam.Monsters[index];
             var member = Instantiate(mon, MonsterSpawnPoint.position, Quaternion.identity);
             currentTeam.Add(member);
             member.transform.SetParent(PlayerController.Instance.transform);
             member.gameObject.SetActive(false);
-            member.SwitchedIn(LastPanel());
+            teamSlotsManager.Team[index].SetButton(member, index);
         }
-
+        
+        teamSlotsManager.SetSlots();
         PlayerController.Instance.unit = currentTeam[0];
-        currentTeam[0].gameObject.SetActive(true);
         memberOnTheField = currentTeam.IndexOf(currentTeam[0]);
+        currentTeam[0].gameObject.SetActive(true);
+        currentTeam[0].SwitchedIn(LastPanel());
     }
 
     public Unit GetPlayer()

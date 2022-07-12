@@ -9,16 +9,16 @@ public enum EvolutionStage{Last,Middle,First}
 public class MonsterSO : ScriptableObject
 {
     [Title("Monster Info")]
-    public string MonsterName;
+    public string monsterName;
 
     public bool nickname;
     [ShowIf("nickname")] 
-    public string MonsterNickname;
+    public string monsterNickname;
     
     public string MonsterDescription;
     
     [PreviewField]
-    public Sprite MonsterImage;
+    public Sprite monsterImage;
 
     public bool evolves;
     [ShowIf("evolves")] 

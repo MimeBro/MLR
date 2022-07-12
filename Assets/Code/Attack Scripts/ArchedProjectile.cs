@@ -20,7 +20,7 @@ public class ArchedProjectile : MonoBehaviour
     {
         if (Time.time >= _nextfire)
         {
-            targetPanel = TeamManager.Instance.GetPlayerPanel();
+             targetPanel = TeamManager.Instance.GetPlayerPanel();
             if(targetPanel == null) return;
             targetPanel.StartBlinking(1);
             var shot = Instantiate(projectile, transform.position, Quaternion.identity);

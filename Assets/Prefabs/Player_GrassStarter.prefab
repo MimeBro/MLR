@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5170949007417113835}
   - component: {fileID: 5170949007417113837}
   - component: {fileID: 5170949007417113834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DodgeForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5170949007935646830}
   - component: {fileID: 5170949007935646832}
   - component: {fileID: 5170949007935646833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DodgeBackward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 5170949008057330398}
   - component: {fileID: 5170949008057330400}
   - component: {fileID: 5170949008057330401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TakeDamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5170949008474032956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6530212053032491414}
   - component: {fileID: 6530212053032491409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,18 +596,15 @@ MonoBehaviour:
   expToNextLevel: 0
   moveSet: {fileID: 11400000, guid: 927fe85a6719a445696ff667b6ab7cf2, type: 2}
   currentPanel: {fileID: 0}
-  unitStatus: 0
+  lastPanel: {fileID: 0}
   uState: 0
-  DamageFeedback: {fileID: 5170949008057330400}
-  takeDamageEvent: {fileID: 11400000, guid: 860c5240ab6094a9bb4e54ffaec64e1e, type: 2}
   boxSize: {x: 1.76, y: 2.24}
-  panelLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
   yposition: -0.6
   shootPoint: {fileID: 5170949008474032956}
   diedEvent: {fileID: 0}
   monsterEntered: {fileID: 11400000, guid: 45e544bce334147b99218728cb1d908f, type: 2}
+  DamageFeedback: {fileID: 5170949008057330400}
+  takeDamageEvent: {fileID: 11400000, guid: 860c5240ab6094a9bb4e54ffaec64e1e, type: 2}
   refillHP: 1
   infiniteEnergy: 1
 --- !u!114 &6530212053121790700

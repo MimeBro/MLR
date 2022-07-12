@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3205627362578586584}
   - component: {fileID: 3205627362578586585}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 3205627363686582755}
   - component: {fileID: 3205627363686582752}
   - component: {fileID: 3205627363686582753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_TestDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3205627363686582759}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.13, y: -0.32999998, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   expToNextLevel: 0
   moveSet: {fileID: 0}
   currentPanel: {fileID: 0}
+  lastPanel: {fileID: 0}
   uState: 0
   boxSize: {x: 1.48, y: 2.21}
   yposition: -0.9
@@ -182,7 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afe06d3dea7cec4e800c60ad86d6b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterStats: {fileID: 11400000, guid: 998eb75d4df88df4c87de716b32cfb8d, type: 2}
+  Team: []
+  activeMembers: []
 --- !u!114 &3205627363686582753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3205627363787582739}
   - component: {fileID: 3205627363787582736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +303,7 @@ GameObject:
   - component: {fileID: 3205627363902531420}
   - component: {fileID: 3205627363902531418}
   - component: {fileID: 3205627363902531421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TakeDamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}

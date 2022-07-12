@@ -9,7 +9,7 @@ public class MonsterAttack : MonoBehaviour
    public float attackDuration;
    public float timeStopDuration;
 
-   public AAttack moveToCast;
+   public AttackController moveToCast;
 
    public void StartAttack()
    {

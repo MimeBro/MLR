@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rarity: 0
   moveName: Leaf Rain
-  moveIcon: {fileID: 21300000, guid: cb6827596885a4da3a8f2a19d801d897, type: 3}
   moveCategory: 0
+  moveIcon: {fileID: 21300000, guid: cb6827596885a4da3a8f2a19d801d897, type: 3}
   moveDescription: 
   moveType: 0
   baseDamage: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   cooldown: 0
   waitTillAttackEnds: 0
   castOnDraw: 0
-  moveGameObject: {fileID: 48950639012875886, guid: d50549aad6038844198db6ec74340949, type: 3}
+  attackController: {fileID: 48950639012875886, guid: d50549aad6038844198db6ec74340949, type: 3}

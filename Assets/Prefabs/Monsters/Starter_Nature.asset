@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c708a92c5b3a8446c98be8ed60a82e16, type: 3}
   m_Name: Starter_Nature
   m_EditorClassIdentifier: 
-  MonsterName: Testy
+  monsterName: Nature
   nickname: 0
-  MonsterNickname: 
+  monsterNickname: 
   MonsterDescription: For testing
-  MonsterImage: {fileID: 21300000, guid: 54f0b541e971f49ef87ba0714dc2c1cc, type: 3}
+  monsterImage: {fileID: 21300000, guid: bdd6c77f3b6358b4797992581e75bd64, type: 3}
   evolves: 0
   evolutionStage: 0
   evolutionLevel: 0

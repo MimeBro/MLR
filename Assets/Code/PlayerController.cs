@@ -52,30 +52,27 @@ public class PlayerController : MonoBehaviour
     
     public void MovementInput()
     {
-        if (unitMovement == null)
+        if (unit == null) return;
+
+        if (unit.gameObject.TryGetComponent(out UnitMovement um))
         {
-            unitMovement = unit.transform.GetComponent<UnitMovement>();
+            unitMovement = um;
         }
-        
-        else
+        //Move Forward
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            //Move Forward
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-            {
-                AddCommand(unitMovement.MoveForward, unitMovement.movementSpeed);
+            AddCommand(unitMovement.MoveForward, unitMovement.movementSpeed);
+        }
 
-            }
+        //Move Backwards
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            AddCommand(unitMovement.MoveBack, unitMovement.movementSpeed);
+        }
 
-            //Move Backwards
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-            {
-                AddCommand(unitMovement.MoveBack, unitMovement.movementSpeed);
-            }
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-            {
-                //maybe a passive
-            }
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            //maybe a passive
         }
     }
 

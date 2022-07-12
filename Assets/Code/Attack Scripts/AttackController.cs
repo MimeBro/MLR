@@ -8,7 +8,7 @@ using UnityEngine;
 
 public enum AttackDirection{Forward, Backward, Both}
 public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,DashAttack,Summon}
-public class AAttack : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
     [Title("General Attributes")]
     [EnumToggleButtons]
@@ -63,6 +63,7 @@ public class AAttack : MonoBehaviour
             howManyPanelsInFront, attackDirection);
 
         var end = Time.time + startDelay;
+        
         while (Time.time < end)
         {
             await Task.Yield();
@@ -71,23 +72,24 @@ public class AAttack : MonoBehaviour
         switch (TypeOfAttack)
         {
             case TypeOfAttack.GuidedProjectile:
-                GuidedProjectile();
+                await GuidedProjectile();
                 break;
             case TypeOfAttack.AreaAttack:
-                AreaAttack();
+                await AreaAttack();
                 break;
             case TypeOfAttack.Summon:
                 Summon();
                 break;
             case TypeOfAttack.DashAttack:
-                DashAttack();
+                await DashAttack();
                 break;
             default:
                 return;
         }
+        gameObject.SetActive(false);
     }
 
-    private void DashAttack()
+    private Task DashAttack()
     {
         var dash = Instantiate(dashAttack);
         dash.attacker = attacker;
@@ -98,6 +100,7 @@ public class AAttack : MonoBehaviour
         dash.dashDuration = dashDuration;
         dash.side = attacker.side;
         dash.StartDash();
+        return Task.CompletedTask;
     }
 
     private void Summon()
@@ -108,7 +111,7 @@ public class AAttack : MonoBehaviour
     }
     
 
-    private void AreaAttack()
+    private Task AreaAttack()
     {
         var aatk = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
         aatk.damagePerHit = damagePerHit;
@@ -116,9 +119,10 @@ public class AAttack : MonoBehaviour
         aatk.attacker = attacker;
         aatk.side = attacker.side;
         Destroy(aatk.gameObject,areaDuration);
+        return Task.CompletedTask;
     }
 
-    private async void GuidedProjectile()
+    private async Task GuidedProjectile()
     {
         if (hitAllPanelsInTheWay)
         {
@@ -157,92 +161,12 @@ public class AAttack : MonoBehaviour
         gp.side = attacker.side;
         gp.element = moveType;
 
-        while (Time.time < end)
-        {
-            await Task.Yield();
-        }
+        while (Time.time < end) await Task.Yield();
     }
 
     public void ArchedProjectile()
     {
         
-    }
-
-    private void GetPanels()
-    {
-        panels.Clear();
-        var playerPanelIndex = PanelsManager.Instance.PanelList.IndexOf(TeamManager.Instance.GetPlayerPanel());
-        var playerpanelF = playerPanelIndex + 1;
-        var playerpanelB = playerPanelIndex - 1;
-        var lastPanel = PanelsManager.Instance.PanelList.Count; 
-        
-        switch (attackDirection)
-        {
-            case AttackDirection.Forward:
-                if (playerPanelIndex + howManyPanelsInFront < lastPanel)
-                {
-                    for (int i = 0; i < howManyPanelsInFront; i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < (PanelsManager.Instance.PanelList.Count - playerpanelF); i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
-                    }
-                }
-                break;
-            
-            case AttackDirection.Backward:
-                if (playerPanelIndex - howManyPanelsInFront >= 0)
-                {
-                    for (int i = 0; i < howManyPanelsInFront; i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelB - i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i <  playerPanelIndex; i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelB - i]);
-                    }
-                }
-                break;
-            case AttackDirection.Both:
-                if (playerPanelIndex - howManyPanelsInFront >= 0)
-                {
-                    for (int i = 0; i < howManyPanelsInFront; i++)
-                    {
-                        panels.Insert(0,PanelsManager.Instance.PanelList[playerpanelB - i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i <  playerPanelIndex; i++)
-                    {
-                        panels.Insert(0,PanelsManager.Instance.PanelList[playerpanelB - i]);
-                    }
-                }
-                
-                if (playerPanelIndex + howManyPanelsInFront < lastPanel)
-                {
-                    for (int i = 0; i < howManyPanelsInFront; i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < (PanelsManager.Instance.PanelList.Count - playerpanelF); i++)
-                    {
-                        panels.Add(PanelsManager.Instance.PanelList[playerpanelF + i]);
-                    }
-                }
-                break;
-        }
     }
     
     public IEnumerator StopTime()

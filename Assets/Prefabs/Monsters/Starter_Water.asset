@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c708a92c5b3a8446c98be8ed60a82e16, type: 3}
   m_Name: Starter_Water
   m_EditorClassIdentifier: 
-  MonsterName: Testy
+  monsterName: Water
   nickname: 0
-  MonsterNickname: 
+  monsterNickname: 
   MonsterDescription: For testing
-  MonsterImage: {fileID: 0}
+  monsterImage: {fileID: 21300000, guid: bdd6c77f3b6358b4797992581e75bd64, type: 3}
   evolves: 0
   evolutionStage: 0
   evolutionLevel: 0
   evolution: {fileID: 0}
   Behaviour: 1
   primaryType: 1
-  currentHp: 100
+  currentHp: 25
   maxHp: 100
   maxEnergy: 5
   energyRegenerationRate: 0
