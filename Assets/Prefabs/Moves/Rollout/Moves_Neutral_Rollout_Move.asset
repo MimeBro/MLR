@@ -15,7 +15,7 @@ MonoBehaviour:
   rarity: 1
   moveName: Rollout
   moveCategory: 1
-  moveIcon: {fileID: -1927911570766903740, guid: fe42c8b526e77e54ab91d0590272d9e8, type: 3}
+  moveIcon: {fileID: 21300000, guid: ec7adc204dab2492b990b6c16b5e2fb2, type: 3}
   moveDescription: Rolls Damaging and knocking up everything in its path, the turns
     back
   moveType: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   cooldown: 0
   waitTillAttackEnds: 0
   castOnDraw: 0
-  attackController: {fileID: 3546014615321107089, guid: 4c158bdc3f614468da24b9a0daf2e7e9, type: 3}
+  attackController: {fileID: -1333450296525750507, guid: 4c158bdc3f614468da24b9a0daf2e7e9, type: 3}

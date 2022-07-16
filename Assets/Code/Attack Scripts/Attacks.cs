@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ContactType{Physical, Special}
 public class Attacks : MonoBehaviour
 {
+    [Title("General Attack Properties")]
     [EnumToggleButtons]
     public Sides side;
 
@@ -53,7 +54,7 @@ public class Attacks : MonoBehaviour
             }
 
             unit.TakeDamage(FinalDamage(), contactType, element);
-            if(!pierceThrough)Destroy(gameObject);
+            if(!pierceThrough) Destroy(gameObject);
         }
     }
 }

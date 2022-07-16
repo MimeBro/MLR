@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DashAttack : Attacks
 {
-    [Title("Setup")]
+    [Title("Dash Attack")]
     public Vector3 startPosition;
     public Panel targetPanel;
 

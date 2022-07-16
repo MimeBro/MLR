@@ -1,20 +1,21 @@
 using System;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GuidedProjectile : Attacks
 {
+    [Title("Guided Projectile")]
     public Transform target;
     public float speed;
 
     private Vector3 destination;
-    private float xOffset;
 
     public override void Start()
     {
         base.Start();
-        xOffset = Random.Range(-0.20f, 0.20f);
+        var xOffset = Random.Range(-0.20f, 0.20f);
 
         var position = target.position;
         destination = new Vector3(position.x + xOffset, position.y);

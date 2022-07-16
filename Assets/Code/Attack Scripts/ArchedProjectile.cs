@@ -8,7 +8,7 @@ public class ArchedProjectile : MonoBehaviour
     public float firerate;
     private float _nextfire;
 
-    public Projectiles projectile;
+    public SimpleProjectile simpleProjectile;
     public Panel targetPanel;
 
     public Ease easing;
@@ -23,7 +23,8 @@ public class ArchedProjectile : MonoBehaviour
              targetPanel = TeamManager.Instance.GetPlayerPanel();
             if(targetPanel == null) return;
             targetPanel.StartBlinking(1);
-            var shot = Instantiate(projectile, transform.position, Quaternion.identity);
+            var shot = Instantiate(simpleProjectile, transform.position, Quaternion.identity);
+            shot.shootPoint = transform;
             shot.projectileSpeed = 0;
             shot.baseDamage = 5;
             shot.attacker = attacker;

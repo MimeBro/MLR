@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   side: 0
-  element: 1
+  element: 3
   contactType: 0
   attacker: {fileID: 0}
   baseDamage: 0

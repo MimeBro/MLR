@@ -1,7 +1,9 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class AreaAttack : Attacks
 {
+    [Title("Area Attack")]
     public int damagePerHit;
     public float secondsPerHit;
     

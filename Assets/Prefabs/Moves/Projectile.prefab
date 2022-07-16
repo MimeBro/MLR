@@ -118,9 +118,11 @@ MonoBehaviour:
   element: 2
   contactType: 1
   attacker: {fileID: 0}
-  baseDamage: 0
+  baseDamage: 10
   destroySelf: 1
   destroyParent: 0
   pierceThrough: 0
-  dodgeable: 1
+  dodgeable: 0
+  attackDirection: 0
   projectileSpeed: -25
+  shootPoint: {fileID: 0}

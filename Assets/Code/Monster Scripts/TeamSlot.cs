@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -12,15 +13,18 @@ public class TeamSlot : MonoBehaviour
     
     [Title("Setup")]
     public Image monsterImage;
-    public Image healthBar;
+    public MMProgressBar healthBar;
     public TextMeshProUGUI monsterName;
-    
+
+    public Unit setUnit;
     public bool setup;
     public bool disabled;
     
     public void SetButton(Unit unit, int index)
     {
         teamIndex = index;
+        setUnit = unit;
+        
         if (unit.stats.nickname)
         {
             monsterName.text = unit.stats.monsterNickname;
@@ -45,5 +49,7 @@ public class TeamSlot : MonoBehaviour
                 TeamManager.Instance.teamSlotsManager.SwitchCooldown();
             }
         }
+
+        if (setUnit != null) healthBar?.UpdateBar(setUnit.hp, 0, setUnit.maxhp);
     }
 }
