@@ -28,5 +28,4 @@ public class SimpleProjectile : Attacks
             transform.Translate(-Vector3.right * (projectileSpeed * Time.deltaTime));
         }
     }
-    
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {   
-    private bool _blinking = false;
     public MoveSet playerMoveSet;
     public static GameManager Instance;
     public MoveSlotsManager MoveSlotsManager;

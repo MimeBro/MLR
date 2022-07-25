@@ -599,7 +599,7 @@ MonoBehaviour:
   lastPanel: {fileID: 0}
   uState: 0
   boxSize: {x: 1.76, y: 2.24}
-  yposition: -0.6
+  yposition: -0.7
   shootPoint: {fileID: 2984742260957094782}
   diedEvent: {fileID: 0}
   monsterEntered: {fileID: 11400000, guid: 45e544bce334147b99218728cb1d908f, type: 2}

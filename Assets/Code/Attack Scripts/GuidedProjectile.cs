@@ -37,7 +37,8 @@ public class GuidedProjectile : Attacks
         
         if (other.TryGetComponent(out Panel panel))
         {
-            other.enabled = false;
+            var component = GetComponent<Collider2D>();
+            component.enabled = false;
         }
     }
 }

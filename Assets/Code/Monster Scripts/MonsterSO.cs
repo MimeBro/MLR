@@ -18,8 +18,8 @@ public class MonsterSO : ScriptableObject
     public string MonsterDescription;
     
     [PreviewField]
-    public Sprite monsterImage;
-
+    public Sprite monsterProfile,monsterIcon;
+    
     public bool evolves;
     [ShowIf("evolves")] 
     public EvolutionStage evolutionStage;

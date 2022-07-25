@@ -15,7 +15,7 @@ MonoBehaviour:
   rarity: 0
   moveName: Double Leaves
   moveCategory: 0
-  moveIcon: {fileID: 21300000, guid: ec7adc204dab2492b990b6c16b5e2fb2, type: 3}
+  moveIcon: {fileID: 21300000, guid: a45684739311e4affb3bd29efa551ca1, type: 3}
   moveDescription: Throw 2 leave knives forward
   moveType: 3
   baseDamage: 10

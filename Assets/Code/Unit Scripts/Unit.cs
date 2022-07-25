@@ -176,7 +176,8 @@ public class Unit : MonoBehaviour
     {
         var panelPos = panel.transform.position;
         var destination = new Vector2(panelPos.x, panelPos.y - yposition);
-        transform.DOJump(destination, 5, 1, 1).SetEase(Ease.Linear);
+        //transform.DOJump(destination, 5, 1, 1).SetEase(Ease.Linear);
+        transform.position = destination;
         monsterEntered?.Raise();
     }
 

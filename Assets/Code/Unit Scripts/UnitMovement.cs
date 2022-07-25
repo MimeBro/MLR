@@ -37,11 +37,11 @@ public class UnitMovement : MonoBehaviour
     {
         unit = GetComponent<Unit>();
         animator = GetComponent<Animator>();
-        yposition = unit.yposition;
     }
     
     private void Update()
     {
+        yposition = unit.yposition;
         frontPanel = UnitTools.GetPanel(transform.position + rayOrigin, Vector3.right, 
             rayDistance,unit.side);
         backPanel = UnitTools.GetPanel(transform.position + rayOrigin, -Vector3.right, 
@@ -87,13 +87,13 @@ public class UnitMovement : MonoBehaviour
         if (UnitTools.PanelIsOk(backPanel, unit.side))
         {
             var panelPos = backPanel.transform.position;
-            var destination = new Vector2(panelPos.x, panelPos.y -yposition);
+            var destination = new Vector2(panelPos.x, panelPos.y - yposition);
             transform.DOJump(destination, jumpPower, 1, duration).SetEase(Ease.Linear);
         }
         else
         {
             var panelPos = unit.currentPanel.transform.position;
-            var destination = new Vector2(panelPos.x, panelPos.y -yposition);
+            var destination = new Vector2(panelPos.x, panelPos.y - yposition);
             transform.DOJump(destination, jumpPower, 1, duration).SetEase(Ease.Linear);
         }
     }
