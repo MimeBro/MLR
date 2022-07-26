@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 6530212053121793296}
   - component: {fileID: 5170949007253742210}
   m_Layer: 8
-  m_Name: Player_GrassStarter
+  m_Name: Monsters_Dobat_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -585,16 +585,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b452235294ddb4c0fafd430e0f20754e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4b0b958b547c846f19c7f80eefcec59f, type: 2}
+  stats: {fileID: 11400000, guid: c23142ab5c2a7bd4bb1b3c548de2d1fc, type: 2}
   side: 2
   level: 0
   hp: 100
   maxhp: 100
   energy: 5
   maxEnergy: 5
-  currentExp: 0
-  expToNextLevel: 0
-  moveSet: {fileID: 11400000, guid: 927fe85a6719a445696ff667b6ab7cf2, type: 2}
+  moveSet: {fileID: 0}
   currentPanel: {fileID: 0}
   lastPanel: {fileID: 0}
   uState: 0
@@ -602,7 +600,6 @@ MonoBehaviour:
   yposition: -0.7
   shootPoint: {fileID: 5170949008474032956}
   diedEvent: {fileID: 0}
-  monsterEntered: {fileID: 11400000, guid: 45e544bce334147b99218728cb1d908f, type: 2}
   DamageFeedback: {fileID: 5170949008057330400}
   takeDamageEvent: {fileID: 11400000, guid: 860c5240ab6094a9bb4e54ffaec64e1e, type: 2}
   refillHP: 1

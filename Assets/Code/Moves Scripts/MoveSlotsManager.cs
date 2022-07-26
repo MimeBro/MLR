@@ -15,11 +15,11 @@ public class MoveSlotsManager : MonoBehaviour
             slot.disabled = true;
         }
 
-        for (int i = 0; i < TeamManager.Instance.GetPlayerMoves().Moves.Count; i++)
+        for (int i = 0; i < TeamManager.Instance.GetPlayerMoves().Count; i++)
         {
             moveSlots[i].setButton.gameObject.SetActive(true);
             moveSlots[i].disabled = false;
-            moveSlots[i].setButton.SetMove(TeamManager.Instance.GetPlayerMoves().Moves[i]);
+            moveSlots[i].setButton.SetMove(TeamManager.Instance.GetPlayerMoves()[i]);
         }
     }
 
@@ -44,10 +44,10 @@ public class MoveSlotsManager : MonoBehaviour
         {
            await Task.Yield();
         }
-        EnableallSlots();
+        EnableAllSlots();
     }
 
-    public void EnableallSlots()
+    public void EnableAllSlots()
     {
         foreach (var slot in moveSlots)
         {

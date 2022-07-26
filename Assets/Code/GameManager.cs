@@ -34,6 +34,6 @@ public class GameManager : MonoBehaviour
     public void ResumePlayerControls()
     {
         PlayerController.Instance.OpenBuffer();
-        MoveSlotsManager.EnableallSlots();
+        MoveSlotsManager.EnableAllSlots();
     }
 }

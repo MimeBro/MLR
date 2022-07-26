@@ -47,6 +47,9 @@ TagManager:
   - name: Characters
     uniqueID: 717135977
     locked: 0
+  - name: Environment
+    uniqueID: 3078182397
+    locked: 0
   - name: Attacks
     uniqueID: 878451061
     locked: 0

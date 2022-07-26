@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using RoboRyanTron.Unite2017.Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class TeamManager : MonoBehaviour
     [Title("Switch In and Out")] 
     public int memberOnTheField;
     public Transform MonsterSpawnPoint;
+    public GameEvent PlayerSwitchEvent;
     
     private void Start()
     {
@@ -42,6 +44,7 @@ public class TeamManager : MonoBehaviour
         memberOnTheField = currentTeam.IndexOf(currentTeam[0]);
         currentTeam[0].gameObject.SetActive(true);
         currentTeam[0].SwitchedIn(LastPanel());
+        PlayerSwitchEvent?.Raise();
     }
 
     public Unit GetPlayer()
@@ -54,9 +57,9 @@ public class TeamManager : MonoBehaviour
         return currentTeam[memberOnTheField].currentPanel;
     }
 
-    public MoveSet GetPlayerMoves()
+    public List<MovesSO> GetPlayerMoves()
     {
-        return currentTeam[memberOnTheField].moveSet;
+        return currentTeam[memberOnTheField].stats.LearnedMoves;
     }
 
     public Unit GetEnemy()

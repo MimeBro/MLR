@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c708a92c5b3a8446c98be8ed60a82e16, type: 3}
-  m_Name: Starter_Nature
+  m_Name: Monsters_Dobat
   m_EditorClassIdentifier: 
-  monsterName: Nature
+  monsterName: Dobat
   nickname: 0
   monsterNickname: 
-  MonsterDescription: For testing
-  monsterPortrait: {fileID: 21300000, guid: 08b668d53a02340fda574d8129c14a6e, type: 3}
+  MonsterDescription: Friendly Bat
+  monsterPortrait: {fileID: -1370047700, guid: 45e788794427749d8b1c11fa24b5c30b, type: 3}
   monsterIcon: {fileID: 0}
-  evolves: 0
-  evolutionStage: 0
+  evolves: 1
+  evolutionStage: 2
   evolutionLevel: 0
   evolution: {fileID: 0}
   Behaviour: 1
   primaryType: 3
-  currentHp: 20
+  currentHp: 0
   maxHp: 20
   maxEnergy: 5
   energyRegenerationRate: 0
@@ -34,3 +34,6 @@ MonoBehaviour:
   specialDefense: 0
   speed: 0
   MonsterPrefab: {fileID: 0}
+  LearnedMoves:
+  - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
+  CompatibleMoves: []

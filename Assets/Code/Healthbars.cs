@@ -1,31 +1,30 @@
 using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HealthBars : MonoBehaviour
 {
-    public MMProgressBar ProgressBar;
+    public MMProgressBar progressBar;
     public Unit target;
     public TextMeshProUGUI hpNumber;
     public TextMeshProUGUI targetName;
-    public TextMeshProUGUI level;
     public Image monsterPortrait;
     public Sides side;
     
-    public void SetTarget()
-    {
-        target = TeamManager.Instance.GetPlayer();
-    }
-
     private void Update()
     {
         if(target == null) return;
-        hpNumber.text = target.hp + " / " + target.maxhp;
+        if (hpNumber != null) hpNumber.text = target.hp + " / " + target.maxhp;
+        
         targetName.text = target.stats.monsterName; 
-        level.text = "Lvl. " + target.level;
-        if (target.stats.monsterProfile != null) monsterPortrait.sprite = target.stats.monsterProfile;
-        ProgressBar?.UpdateBar(target.hp, 0 , target.maxhp);
+        
+        if (monsterPortrait != null)
+            if (target.stats.monsterPortrait != null)
+                monsterPortrait.sprite = target.stats.monsterPortrait;
+        
+        progressBar?.UpdateBar(target.hp, 0 , target.maxhp);
     }
 
     public void SwitchTarget()

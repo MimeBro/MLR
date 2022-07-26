@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
   attackDirection: 0
-  baseDamage: 10
+  baseDamage: 1
   moveType: 0
   howManyPanelsInFront: 1
   hitAllPanelsInTheWay: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   amountOfShots: 2
   gapBetweenShot: 0.1
   useAttackersShootPoint: 1
-  projectileSpeed: 25
+  projectileSpeed: 40
 --- !u!1 &5466720059499296658
 GameObject:
   m_ObjectHideFlags: 0

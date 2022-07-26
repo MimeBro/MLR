@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
   attackDirection: 0
-  baseDamage: 0
+  baseDamage: 1
   moveType: 0
   howManyPanelsInFront: 3
   hitAllPanelsInTheWay: 1

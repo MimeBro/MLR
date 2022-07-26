@@ -24,13 +24,7 @@ public class Unit : MonoBehaviour
     public float energy;
 
     [HideInInspector] public int maxEnergy;
-
-    [ProgressBar(0, "expToNextLevel")] public int currentExp;
-    public int expToNextLevel;
     
-    [Title("Moves")] 
-    public MoveSet moveSet;
-
     [Title("Other")] 
     public Panel currentPanel;
     public Panel lastPanel;
@@ -40,8 +34,6 @@ public class Unit : MonoBehaviour
     
     [Title("Setup")] public float yposition;
     public Transform shootPoint;
-    public GameEvent diedEvent;
-    public GameEvent monsterEntered;
 
     public MMFeedbacks DamageFeedback;
     public GameEvent takeDamageEvent;
@@ -69,10 +61,6 @@ public class Unit : MonoBehaviour
     {
         hp = Mathf.Clamp(hp, 0, maxhp);
         hp = stats.currentHp;
-        level = stats.level;
-        currentExp = stats.currentExp;
-        expToNextLevel = stats.expToNextLevel[stats.level - 1];
-
         Die();
         CheckPanel();
         EnergyCharge();
@@ -156,11 +144,6 @@ public class Unit : MonoBehaviour
         hp += healAmount;
     }
 
-    public void GainExp(int expAmount)
-    {
-        stats.AddExp(expAmount);
-    }
-
     public void CheckPanel()
     {
         var box = Physics2D.OverlapBox(transform.position, boxSize, 0, LayerMask.GetMask("Panels"));
@@ -178,7 +161,6 @@ public class Unit : MonoBehaviour
         var destination = new Vector2(panelPos.x, panelPos.y - yposition);
         //transform.DOJump(destination, 5, 1, 1).SetEase(Ease.Linear);
         transform.position = destination;
-        monsterEntered?.Raise();
     }
 
     public void SwitchedOut()
@@ -191,7 +173,6 @@ public class Unit : MonoBehaviour
     {
         if (hp > 0) return;
         if (refillHP) stats.currentHp = stats.maxHp;
-        diedEvent?.Raise();
         //currentPanel = null;
     }
 

@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum MonsterBehaviour{WILD, TRAINED}
 public enum EvolutionStage{Last,Middle,First}
@@ -17,9 +19,12 @@ public class MonsterSO : ScriptableObject
     
     public string MonsterDescription;
     
+    [FormerlySerializedAs("monsterProfile")] [PreviewField]
+    public Sprite monsterPortrait;
+
     [PreviewField]
-    public Sprite monsterProfile,monsterIcon;
-    
+    public Sprite monsterIcon;
+
     public bool evolves;
     [ShowIf("evolves")] 
     public EvolutionStage evolutionStage;
@@ -50,58 +55,26 @@ public class MonsterSO : ScriptableObject
     [PropertySpace]
     public int defense;
     public int specialDefense;
+    
     [PropertySpace]
     public int speed;
-    
-    [Title("Leveling Up")]
-    [PropertyRange(1,"maxLevel")]
-    [OnValueChanged("UpdateLevel")]
-    public int level = 1;
-    public int maxLevel;
-    public int baseExp;
-    public int currentExp;
-    public int[] expToNextLevel;
 
+    [Title("Capture Prefab")]
     //Monster to add when captured;
-    public PlayerController MonsterPrefab;
+    public Unit monsterPrefab;
+    
+[Title("Moves")]
+    public List<MovesSO> LearnedMoves = new List<MovesSO>(4);
+    public List<MovesSO> CompatibleMoves = new List<MovesSO>();
 
-    public void AddExp(int amount)
+    public void LearnMove(MovesSO move)
     {
-        if (level < maxLevel)
-        {
-            currentExp += amount;
-
-            if (currentExp >= expToNextLevel[level])
-            {
-                currentExp -= expToNextLevel[level];
-                level++;
-            }
-        }
-        else
-        {
-            currentExp = 0;
-        }
-    }
-        
-    private void OnEnable()
-    {
-        expToNextLevel = new int[maxLevel];
-        expToNextLevel[1] = baseExp;
-
-        for (var i = 2; i < expToNextLevel.Length; i++)
-        {
-            expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * 1.1f);
-        }
+        LearnedMoves.Add(move);
     }
 
-    //INSPECTOR ONLY
-    private void UpdateLevel()
+    public void ForgetMove(int moveIndex)
     {
-        currentExp = 0;
+        LearnedMoves.Remove(LearnedMoves[moveIndex]);
     }
 
-    public void ResetMonster()
-    {
-        //reset the monster to it's default state, usually on death
-    }
 }

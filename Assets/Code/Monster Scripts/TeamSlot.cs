@@ -34,7 +34,7 @@ public class TeamSlot : MonoBehaviour
             monsterName.text = unit.stats.monsterName;
         }
 
-        monsterImage.sprite = unit.stats.monsterProfile;
+        monsterImage.sprite = unit.stats.monsterPortrait;
         setup = true;
     }
 
