@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1723,7 +1723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452894546}
   - component: {fileID: 452894547}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2392,7 +2392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54.2, y: 24.3}
+  m_AnchoredPosition: {x: 54.2, y: 22.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630473866
@@ -4405,7 +4405,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5036,7 +5036,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -5163,11 +5163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.b
-      value: 0.37686443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.g
-      value: 0.35500002
+      value: 0.35910958
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.r
@@ -6973,7 +6973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049963098263156009, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 10.5
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 3049963098263156009, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7142,7 +7142,7 @@ PrefabInstance:
     - target: {fileID: 3205627363787582736, guid: 4842f76a46e444e9ba835b454cb906fa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7dbe58d2877bddf4f850a456a3db59f4, type: 3}
+      objectReference: {fileID: 21300000, guid: 354a0d3739c3c481ca1bf8b065bd1987, type: 3}
     - target: {fileID: 3205627363787582736, guid: 4842f76a46e444e9ba835b454cb906fa, type: 3}
       propertyPath: m_Color.b
       value: 1
