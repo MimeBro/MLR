@@ -136,7 +136,7 @@ MonoBehaviour:
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
-  guidedProjectile: {fileID: 1862132493319607633, guid: dd6a647cf94df420497a3ed25a76e650, type: 3}
+  guidedProjectile: {fileID: -5638577309416526223, guid: 15ca6138b9fa4411cb287998167d1301, type: 3}
   guidedProjectileSpeed: 30
   gapBetweenSpawn: 0.01
   useAttackersShootPoint: 1

@@ -11,7 +11,7 @@ public class SimpleProjectile : Attacks
     public Transform shootPoint;
     private new void Start()
     {
-        var yOffset = Random.Range(0f, 1f);
+        var yOffset = Random.Range(-0.5f, 0.5f);
 
         var position = shootPoint.position;
         transform.position = new Vector3(position.x, position.y + yOffset);

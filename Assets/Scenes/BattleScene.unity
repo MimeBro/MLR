@@ -5163,11 +5163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.g
-      value: 0.35910958
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3049963097263498234, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_Color.r
@@ -5390,6 +5390,22 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3049963098772785964, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -928686549, guid: 45e788794427749d8b1c11fa24b5c30b, type: 3}
+    - target: {fileID: 3049963098772785964, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
+      propertyPath: m_Color.b
+      value: 0.25044498
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049963098772785964, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25044498
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049963098772785964, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049963098772785964, guid: d9fa5dfdd7e454d62841a657daa80080, type: 3}
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
@@ -5602,7 +5618,7 @@ MonoBehaviour:
   BumpOnDecrease: 0
   BumpDuration: 0.2
   ChangeColorWhenBumping: 1
-  BumpColor: {r: 1, g: 1, b: 1, a: 1}
+  BumpColor: {r: 1, g: 0.6367924, b: 0.6367924, a: 1}
   BumpScaleAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -7047,6 +7063,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 238929948}
     m_Modifications:
+    - target: {fileID: 3205627362578586585, guid: 4842f76a46e444e9ba835b454cb906fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3205627362578586585, guid: 4842f76a46e444e9ba835b454cb906fa, type: 3}
       propertyPath: simpleProjectile
       value: 

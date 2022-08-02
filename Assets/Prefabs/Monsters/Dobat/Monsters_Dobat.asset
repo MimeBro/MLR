@@ -24,7 +24,7 @@ MonoBehaviour:
   evolution: {fileID: 0}
   Behaviour: 1
   primaryType: 3
-  currentHp: 0
+  currentHp: 6
   maxHp: 20
   maxEnergy: 5
   energyRegenerationRate: 0
@@ -33,7 +33,8 @@ MonoBehaviour:
   defense: 0
   specialDefense: 0
   speed: 0
-  MonsterPrefab: {fileID: 0}
+  monsterPrefab: {fileID: 0}
   LearnedMoves:
   - {fileID: 11400000, guid: e0abfd34f84234d8f8271b621d72c58b, type: 2}
+  - {fileID: 11400000, guid: beb0f125f88a64d1996d0652c5f4b4aa, type: 2}
   CompatibleMoves: []

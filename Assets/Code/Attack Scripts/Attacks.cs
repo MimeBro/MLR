@@ -1,5 +1,6 @@
 using System;
 using Sirenix.OdinInspector;
+using Unity.Mathematics;
 using UnityEngine;
 
 public enum ContactType{Physical, Special}
@@ -14,8 +15,11 @@ public class Attacks : MonoBehaviour
     public Unit attacker;
     
     public int baseDamage;
+
+    public GameObject hitVfx;
     
     public bool destroySelf,destroyParent,pierceThrough,dodgeable;
+    
 
 
     public virtual void Start()
@@ -54,6 +58,13 @@ public class Attacks : MonoBehaviour
             }
 
             unit.TakeDamage(FinalDamage(), contactType, element);
+            
+            if (hitVfx != null)
+            {
+                var vfx = Instantiate(hitVfx, unit.transform.position, quaternion.identity);
+                Destroy(vfx,3);
+            }
+
             if(!pierceThrough) Destroy(gameObject);
         }
     }

@@ -79,19 +79,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
   attackDirection: 0
-  baseDamage: 1
+  baseDamage: 2
   moveType: 0
   howManyPanelsInFront: 1
   hitAllPanelsInTheWay: 0
-  moveDuration: 0.2
+  moveDuration: 0.5
   startDelay: 0
   panels: []
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
   projectile: {fileID: 3326084506678436642, guid: 040985a21062e4af1ab466421e93ee8c, type: 3}
-  amountOfShots: 2
-  gapBetweenShot: 0.1
+  amountOfShots: 3
+  gapBetweenShot: 0.13
   useAttackersShootPoint: 1
   projectileSpeed: 40
 --- !u!1 &5466720059499296658
