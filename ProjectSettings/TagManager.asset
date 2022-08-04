@@ -3,31 +3,36 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LevelBounds
+  - FX
+  - Enemy
+  - World
+  - NoMask
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - HUD
+  - 
   - Water
   - UI
-  - Panels
-  - STAGE
-  - Units
-  - ACTORS
-  - MANAGERS
-  - CAMERAS
-  - LIGHTS
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacles
+  - Ground
+  - Player
+  - ObstaclesDoors
+  - NoPathfinding
+  - Enemies
+  - NoCollisions
+  - Hole
+  - MovingPlatform
+  - FallingPlatform
+  - Projectile
+  - Camera1
+  - Camera2
+  - Camera3
+  - Camera4
   - 
   - 
   - 
@@ -41,21 +46,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Tiles
-    uniqueID: 3343187963
+  - name: Background
+    uniqueID: 1798043625
     locked: 0
-  - name: Environment
-    uniqueID: 3078182397
+  - name: Ground
+    uniqueID: 2296623839
+    locked: 0
+  - name: Foreground
+    uniqueID: 1603220759
     locked: 0
   - name: Characters
-    uniqueID: 717135977
+    uniqueID: 47421343
     locked: 0
-  - name: Attacks
-    uniqueID: 878451061
-    locked: 0
-  - name: Notifications
-    uniqueID: 2896531181
-    locked: 0
-  - name: UI
-    uniqueID: 2291414691
+  - name: Above
+    uniqueID: 961700441
     locked: 0
