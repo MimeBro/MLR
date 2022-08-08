@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5944643672176437134}
   - component: {fileID: 5562863379383128655}
   - component: {fileID: 6169035740075429967}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -951779333
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2031463182, guid: c6548bc3a3950451fafa5d96e41aec04, type: 3}
   m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.39607844}
