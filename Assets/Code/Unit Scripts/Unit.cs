@@ -88,7 +88,6 @@ public class Unit : MonoBehaviour
     //Deals damage to the unit without any modifiers applied
     public void TakeDamage(int damage)
     {
-        DamageFeedback?.PlayFeedbacks(transform.position, damage);
 
         stats.currentHp -= damage;
         takeDamageEvent?.Raise();
@@ -99,7 +98,6 @@ public class Unit : MonoBehaviour
     {
         var finalDamage = CalculateDamage(damage, contactType, elementalTypes);
         
-        DamageFeedback?.PlayFeedbacks(transform.position, finalDamage);
         if (finalDamage < 1) finalDamage = 1;
         stats.currentHp -= finalDamage;
         takeDamageEvent?.Raise();

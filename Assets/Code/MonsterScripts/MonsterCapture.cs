@@ -10,7 +10,7 @@ public class MonsterCapture : MonoBehaviour
 
     private void Start()
     {
-        playerSet = GameManager.Instance.playerMoveSet;
+        //playerSet = GameManager.Instance.playerMoveSet;
     }
 
     // public void CaptureMonster()

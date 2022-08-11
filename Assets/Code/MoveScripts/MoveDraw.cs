@@ -19,7 +19,7 @@ public class MoveDraw : MonoBehaviour
     {
         DrawnMoves.Moves.Clear();
         UsedMoves.Moves.Clear();
-        playerSet = GameManager.Instance.playerMoveSet;
+        //playerSet = GameManager.Instance.playerMoveSet;
         ShuffleSet();
     }
 

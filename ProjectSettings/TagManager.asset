@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Panels
-  - STAGE
   - Units
-  - ACTORS
-  - MANAGERS
-  - CAMERAS
-  - LIGHTS
+  - Ground
+  - Boundary
+  - 
+  - 
+  - 
   - 
   - 
   - 

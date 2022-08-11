@@ -32,7 +32,7 @@ public enum ElementalTypes
 
 #endregion
 
-public class ElementalInteractions
+public static class ElementalInteractions
 {
     public static float ElementalInteraction(ElementalTypes attacker, ElementalTypes receiver)
     {
