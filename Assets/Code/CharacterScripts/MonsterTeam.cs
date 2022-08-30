@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newTeam.asset", menuName = "Monster/Team")]
 public class MonsterTeam : ScriptableObject
     {
-        public List<Unit> Monsters;
+        public List<OldUnit> Monsters;
 
-        public void AddMove(Unit monster)
+        public void AddMove(OldUnit monster)
         {
             Monsters.Add(monster);
         }

@@ -7,7 +7,7 @@ public class EnergyBar : MonoBehaviour
 {
     public TextMeshProUGUI energyText;
     public MMProgressBar energyBar;
-    private Unit target;
+    private OldUnit target;
 
     public void SetTarget()
     {

@@ -10,7 +10,7 @@ public class Panel : MonoBehaviour
     private Color _startingColor, _innerPanelStartingColor;
 
     public Vector2 boxSize;
-    public Unit occupier;
+    public OldUnit occupier;
     private static readonly int Blink = Animator.StringToHash("Blink");
     
     public void ChangeStatus(PanelStatus status)
@@ -26,7 +26,7 @@ public class Panel : MonoBehaviour
     public void CheckOccupier()
     {
         var box = Physics2D.OverlapBox(transform.position, boxSize, 0, LayerMask.GetMask("Units"));
-        occupier = box?.GetComponent<Unit>();
+        occupier = box?.GetComponent<OldUnit>();
     }
     
     private void OnDrawGizmos()

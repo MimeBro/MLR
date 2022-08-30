@@ -30,37 +30,37 @@ public class UnitMovement : MonoBehaviour
     private bool playerLeft;
     
     private Panel frontPanel,backPanel; 
-    private Unit unit;
+    private OldUnit _oldUnit;
     private Animator animator;
 
     private void Awake()
     {
-        unit = GetComponent<Unit>();
+        _oldUnit = GetComponent<OldUnit>();
         animator = GetComponent<Animator>();
     }
     
     private void Update()
     {
-        yposition = unit.yposition;
+        yposition = _oldUnit.yposition;
         frontPanel = UnitTools.GetPanel(transform.position + rayOrigin, Vector3.right, 
-            rayDistance,unit.side);
+            rayDistance,_oldUnit.side);
         backPanel = UnitTools.GetPanel(transform.position + rayOrigin, -Vector3.right, 
-            rayDistance,unit.side);
+            rayDistance,_oldUnit.side);
     }
 
     public void StartDodge()
     {
-        unit.uState = UnitState.DODGING;
+        _oldUnit.uState = UnitState.DODGING;
     }
 
     public void EndDodge()
     {
-        unit.uState = UnitState.STANDING;
+        _oldUnit.uState = UnitState.STANDING;
     }
 
     public void MoveForward()
     {
-        if(!UnitTools.PanelIsOk(frontPanel, unit.side)) return;
+        if(!UnitTools.PanelIsOk(frontPanel, _oldUnit.side)) return;
         var panelPos = frontPanel.transform.position;
         var destination = new Vector2(panelPos.x, panelPos.y - yposition);
 
@@ -72,7 +72,7 @@ public class UnitMovement : MonoBehaviour
 
     public void MoveBack()
     {
-        if(!UnitTools.PanelIsOk(backPanel, unit.side)) return;
+        if(!UnitTools.PanelIsOk(backPanel, _oldUnit.side)) return;
         var panelPos = backPanel.transform.position;
         var destination = new Vector2(panelPos.x, panelPos.y - yposition);
 
@@ -84,7 +84,7 @@ public class UnitMovement : MonoBehaviour
     
     public void JumpBack(float duration, float jumpPower)
     {
-        if (UnitTools.PanelIsOk(backPanel, unit.side))
+        if (UnitTools.PanelIsOk(backPanel, _oldUnit.side))
         {
             var panelPos = backPanel.transform.position;
             var destination = new Vector2(panelPos.x, panelPos.y - yposition);
@@ -92,7 +92,7 @@ public class UnitMovement : MonoBehaviour
         }
         else
         {
-            var panelPos = unit.currentPanel.transform.position;
+            var panelPos = _oldUnit.currentPanel.transform.position;
             var destination = new Vector2(panelPos.x, panelPos.y - yposition);
             transform.DOJump(destination, jumpPower, 1, duration).SetEase(Ease.Linear);
         }
@@ -100,7 +100,7 @@ public class UnitMovement : MonoBehaviour
     
     public void UnitSummoned ()
     {
-        lastPanel = GetComponent<Unit>().currentPanel;
+        lastPanel = GetComponent<OldUnit>().currentPanel;
         transform.DOJump(TeamManager.Instance.MonsterSpawnPoint.position, leavingJumpPower,1 , leavingDuration)
             .SetEase(leavingEasing).SetUpdate(true);
         playerLeft = true;

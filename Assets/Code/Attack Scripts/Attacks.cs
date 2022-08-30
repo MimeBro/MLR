@@ -12,7 +12,7 @@ public class Attacks : MonoBehaviour
 
     public ElementalTypes element;
     public ContactType contactType;
-    public Unit attacker;
+    public OldUnit attacker;
     
     public int baseDamage;
 
@@ -47,7 +47,7 @@ public class Attacks : MonoBehaviour
     
     public virtual void OnTriggerEnter2D(Collider2D col)
     {
-        var unit = col.GetComponent<Unit>();
+        var unit = col.GetComponent<OldUnit>();
         if (unit != null)
         {
             if(unit.side == side) return;

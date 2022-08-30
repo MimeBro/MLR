@@ -9,7 +9,7 @@ using UnityEngine;
 public enum FacingDirection{RIGHT, LEFT}
 public enum UnitState{STANDING, DODGING}
 
-public class Unit : MonoBehaviour
+public class OldUnit : MonoBehaviour
 {
     [Title("Stats")] public MonsterSO stats;
     [EnumToggleButtons] public Sides side;

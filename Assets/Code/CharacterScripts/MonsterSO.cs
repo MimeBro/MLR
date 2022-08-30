@@ -61,7 +61,7 @@ public class MonsterSO : ScriptableObject
 
     [Title("Capture Prefab")]
     //Monster to add when captured;
-    public Unit monsterPrefab;
+    public OldUnit monsterPrefab;
     
 [Title("Moves")]
     public List<MovesSO> LearnedMoves = new List<MovesSO>(4);

@@ -64,13 +64,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
 
-    public Character MNSTR { get; private set; }
+    public Player MNSTR { get; private set; }
 	#endregion
 
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
-		MNSTR = GetComponent<Character>();
+		MNSTR = GetComponent<Player>();
 	}
 
 	private void Start()

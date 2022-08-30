@@ -12,13 +12,13 @@ public class PlayerAttack : MonoBehaviour
     public Transform shootPoint;
     public GameObject projectile;
     private Animator _animator;
-    private Unit _unit;
+    private OldUnit _oldUnit;
 
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _unit = GetComponent<Unit>();
+        _oldUnit = GetComponent<OldUnit>();
     }
 
     private void Update()
@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
         var shots = bullet.GetComponentsInChildren<Attacks>();
         foreach (var shot in shots)
         {
-            shot.side = _unit.side;
+            shot.side = _oldUnit.side;
             shot.baseDamage = damagePerShot;
         }
     }

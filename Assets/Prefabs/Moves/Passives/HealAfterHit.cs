@@ -8,7 +8,7 @@ public class HealAfterHit : PassiveMove
 
    public void Heal()
    {
-       PlayerController.Instance.unit.Heal(healAmount);
+       PlayerController.Instance.oldUnit.Heal(healAmount);
        callerButton?.ConditionsMet();
        Destroy(gameObject);
    }

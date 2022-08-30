@@ -20,7 +20,7 @@ public class AreaAttack : Attacks
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        var unit = other.GetComponent<Unit>();
+        var unit = other.GetComponent<OldUnit>();
         fireRate = secondsPerHit / 1;
         if (unit != null)
         {
@@ -35,20 +35,20 @@ public class AreaAttack : Attacks
         }
     }
 
-    public void MultiHit(Unit unit)
+    public void MultiHit(OldUnit oldUnit)
     {
         if (Time.time >= nextFire)
         {
-            unit.TakeDamage(damagePerHit);
+            oldUnit.TakeDamage(damagePerHit);
             nextFire = Time.time + fireRate;
         }
     }
 
-    public void SingleHit(Unit unit)
+    public void SingleHit(OldUnit oldUnit)
     {
         if (!alreadyHit)
         {
-            unit.TakeDamage(damagePerHit);
+            oldUnit.TakeDamage(damagePerHit);
             alreadyHit = true;
         }
     }

@@ -13,7 +13,7 @@ public class TeamManager : MonoBehaviour
     public TeamSlotsManager teamSlotsManager;
     
     [HideInInspector]public MonsterTeam enemyTeam;
-    public List<Unit> currentTeam;
+    public List<OldUnit> currentTeam;
     
     [Title("Switch In and Out")] 
     public int memberOnTheField;
@@ -40,14 +40,14 @@ public class TeamManager : MonoBehaviour
         }
         
         teamSlotsManager.SetSlots();
-        PlayerController.Instance.unit = currentTeam[0];
+        PlayerController.Instance.oldUnit = currentTeam[0];
         memberOnTheField = currentTeam.IndexOf(currentTeam[0]);
         currentTeam[0].gameObject.SetActive(true);
         currentTeam[0].SwitchedIn(LastPanel());
         PlayerSwitchEvent?.Raise();
     }
 
-    public Unit GetPlayer()
+    public OldUnit GetPlayer()
     {
         return currentTeam[memberOnTheField];
     }
@@ -62,7 +62,7 @@ public class TeamManager : MonoBehaviour
         return currentTeam[memberOnTheField].stats.LearnedMoves;
     }
 
-    public Unit GetEnemy()
+    public OldUnit GetEnemy()
     {
         return null;
     }
@@ -77,7 +77,7 @@ public class TeamManager : MonoBehaviour
             member.gameObject.SetActive(false);
         }
         memberOnTheField = index;
-        PlayerController.Instance.unit = currentTeam[index];
+        PlayerController.Instance.oldUnit = currentTeam[index];
         currentTeam[index].gameObject.SetActive(true);
         currentTeam[index].transform.position = MonsterSpawnPoint.position;
         currentTeam[index].SwitchedIn(lp);

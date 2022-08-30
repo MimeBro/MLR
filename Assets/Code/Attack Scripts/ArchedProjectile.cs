@@ -14,7 +14,7 @@ public class ArchedProjectile : MonoBehaviour
     public Ease easing;
     public float jumpPower = 5;
     public float duration;
-    public Unit attacker;
+    public OldUnit attacker;
 
     void Update()
     {

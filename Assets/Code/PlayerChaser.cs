@@ -3,6 +3,6 @@ public class PlayerChaser : MonoBehaviour
 {
     private void LateUpdate()
     {
-        transform.position = PlayerController.Instance.unit.currentPanel.transform.position;
+        transform.position = PlayerController.Instance.oldUnit.currentPanel.transform.position;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealthBars : MonoBehaviour
 {
     public MMProgressBar progressBar;
-    public Unit target;
+    public OldUnit target;
     public TextMeshProUGUI hpNumber;
     public TextMeshProUGUI targetName;
     public Image monsterPortrait;

@@ -8,7 +8,7 @@ public class KnockUp : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.TryGetComponent(out Unit unit))
+        if (col.TryGetComponent(out OldUnit unit))
         {
             unit.CastHitEffect(HitEffects.KNOCKUP);
         }

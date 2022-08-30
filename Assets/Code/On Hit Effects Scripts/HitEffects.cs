@@ -10,19 +10,19 @@ public enum HitEffects
 
 public static class OnHitEffects
 {
-    public static void KnockUp(Unit unit)
+    public static void KnockUp(OldUnit oldUnit)
     {
-        var panelPos = unit.lastPanel.transform.position;
-        var destination = new Vector2(panelPos.x, panelPos.y -unit.yposition);
-        unit.transform.DOJump(destination, 4, 1, 0.75f).SetEase(Ease.Linear);
+        var panelPos = oldUnit.lastPanel.transform.position;
+        var destination = new Vector2(panelPos.x, panelPos.y -oldUnit.yposition);
+        oldUnit.transform.DOJump(destination, 4, 1, 0.75f).SetEase(Ease.Linear);
     }
     
-    public static void Knockback(Unit unit, int amount)
+    public static void Knockback(OldUnit oldUnit, int amount)
     {
         
     }
 
-    public static void Pushback(Unit unit)
+    public static void Pushback(OldUnit oldUnit)
     {
         
     }

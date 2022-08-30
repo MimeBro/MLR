@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Stack<Command> commandBuffer = new Stack<Command>();
     private Stack<float> cooldownsBuffer = new Stack<float>();
 
-    public Unit unit;
+    [FormerlySerializedAs("unit")] public OldUnit oldUnit;
     public bool canPerform;
     
     public UnitMovement unitMovement;
@@ -52,9 +53,9 @@ public class PlayerController : MonoBehaviour
     
     public void MovementInput()
     {
-        if (unit == null) return;
+        if (oldUnit == null) return;
 
-        if (unit.gameObject.TryGetComponent(out UnitMovement um))
+        if (oldUnit.gameObject.TryGetComponent(out UnitMovement um))
         {
             unitMovement = um;
         }

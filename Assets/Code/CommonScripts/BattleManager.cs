@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Code.CommonScripts;
 using Code.MonsterScripts;
 using MoreMountains.Feedbacks;
@@ -17,10 +14,10 @@ public class BattleManager : MonoBehaviour
     
     [Title("Feedbacks")]
     public MMFeedbacks PlayerTurnFeedback, EnemyTurnFeedback;
-    private Character _enemiesOnTheField, _playerOnTheField;
+    private Player _playerOnTheField;
 
     public Transform playerPosition;
-    public Transform enemyPosition;
+    public Transform[] enemyPositions;
 
     private void Start()    
     {
@@ -30,24 +27,17 @@ public class BattleManager : MonoBehaviour
     
     public void StartBattle()
     {
-        _playerOnTheField = GameManager.Instance.PlayerCharacter;
-        _enemiesOnTheField = GameManager.Instance.EnemyTeam[0];
+        _playerOnTheField = GameManager.Instance.playerPlayer;
         
         _playerOnTheField.gameObject.SetActive(true);
-        _enemiesOnTheField.gameObject.SetActive(true);
 
         _playerOnTheField.transform.position = playerPosition.position;
-        _enemiesOnTheField.transform.position = enemyPosition.position;
-        
-        if (_playerOnTheField.speed >= _enemiesOnTheField.speed)
-        {
-            PlayerTurn();
-        }
-        else
-        {
-            EnemyTurn();
-        }
 
+        for (int i = 0; i < GameManager.Instance.EnemiesToSpawn.Count; i++)
+        {
+            var enemy = Instantiate(GameManager.Instance.EnemiesToSpawn[i], enemyPositions[i].position, Quaternion.identity);
+        }
+        
         turnNumber = 1;
     }
 
@@ -70,7 +60,6 @@ public class BattleManager : MonoBehaviour
     
     public void PlayerTurn()
     {
-        _enemiesOnTheField?.EndTurn();
         _playerOnTheField?.StartTurn();
         PlayerTurnFeedback?.PlayFeedbacks();
     }
@@ -78,7 +67,6 @@ public class BattleManager : MonoBehaviour
     public void EnemyTurn()
     {
         _playerOnTheField?.EndTurn();
-        _enemiesOnTheField?.EndTurn();
         EnemyTurnFeedback?.PlayFeedbacks();
     }
 

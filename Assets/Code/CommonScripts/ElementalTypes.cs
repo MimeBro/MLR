@@ -19,16 +19,16 @@ public enum ElementalTypes
 
 #region Element Score
 
-//Neutral: 0 advantages 0 resistances 2 weaknesses resisted by 1 = 3 Worst Offensive*
-//Water: 2 advantages 2 resistances 2 weaknesses resisted by 2   = 8
-//Fire: 3 advantages 2 resistances 2 weaknesses resisted by 2    = 9
-//Nature: 2 advantages 3 resistances 3 weaknesses resisted by 3  = 9 
-//Earth: 2 advantages  2 resistances 3 weaknesses resisted by 2  = 10 Worst Defensive*
-//Wind: 2 advantages 2 resistances 2 weakness resisted by 2      = 8
-//Thunder: 3 advantages 1 resistances 1 weakness resisted by 2   = 6
-//Dark: 2 advantages 1 resistances 1 weaknesses resisted by 0    = 5  Best Offensive*
-//Magic: 2 advantages 3 resistances 2 weaknesses resisted by 1   = 9
-//Metal: 2 advantages 5 resistances 2 weakness resisted by 3     = 10  Best Defensive*
+// Neutral: 0 advantages 0 resistances 2 weaknesses resisted by 1 = 3 Worst Offensive*
+// Water: 2 advantages 2 resistances 2 weaknesses resisted by 2   = 8
+// Fire: 3 advantages 2 resistances 2 weaknesses resisted by 2    = 9
+// Nature: 2 advantages 3 resistances 3 weaknesses resisted by 3  = 9 
+// Earth: 2 advantages  2 resistances 3 weaknesses resisted by 2  = 10 Worst Defensive*
+// Wind: 2 advantages 2 resistances 2 weakness resisted by 2      = 8
+// Thunder: 3 advantages 1 resistances 1 weakness resisted by 2   = 6
+// Dark: 2 advantages 1 resistances 1 weaknesses resisted by 0    = 5  Best Offensive*
+// Magic: 2 advantages 3 resistances 2 weaknesses resisted by 1   = 9
+// Metal: 2 advantages 5 resistances 2 weakness resisted by 3     = 10  Best Defensive*
 
 #endregion
 

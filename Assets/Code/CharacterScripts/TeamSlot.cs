@@ -4,6 +4,7 @@ using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TeamSlot : MonoBehaviour
@@ -16,25 +17,25 @@ public class TeamSlot : MonoBehaviour
     public MMProgressBar healthBar;
     public TextMeshProUGUI monsterName;
 
-    public Unit setUnit;
+    [FormerlySerializedAs("setUnit")] public OldUnit setOldUnit;
     public bool setup;
     public bool disabled;
     
-    public void SetButton(Unit unit, int index)
+    public void SetButton(OldUnit oldUnit, int index)
     {
         teamIndex = index;
-        setUnit = unit;
+        setOldUnit = oldUnit;
         
-        if (unit.stats.nickname)
+        if (oldUnit.stats.nickname)
         {
-            monsterName.text = unit.stats.monsterNickname;
+            monsterName.text = oldUnit.stats.monsterNickname;
         }
         else
         {
-            monsterName.text = unit.stats.monsterName;
+            monsterName.text = oldUnit.stats.monsterName;
         }
 
-        monsterImage.sprite = unit.stats.monsterPortrait;
+        monsterImage.sprite = oldUnit.stats.monsterPortrait;
         setup = true;
     }
 
@@ -50,6 +51,6 @@ public class TeamSlot : MonoBehaviour
             }
         }
 
-        if (setUnit != null) healthBar?.UpdateBar(setUnit.hp, 0, setUnit.maxhp);
+        if (setOldUnit != null) healthBar?.UpdateBar(setOldUnit.hp, 0, setOldUnit.maxhp);
     }
 }

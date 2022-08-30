@@ -5,21 +5,19 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Code.CommonScripts
 {
     public class GameManager : MonoBehaviour
     {
         #region VARIABLES
-
         [Title("Player Team")]
         //Monsters in the Player team
-        public Character PlayerCharacter;
-        public Transform playerTeamTransform;
+        public Player playerPlayer;
         
         //Monsters in the Enemy team
-        public List<Character> EnemyTeam = new List<Character>();
-        public Transform enemyTeamTransform;
+        public List<Unit> EnemiesToSpawn = new List<Unit>();
 
         public static GameManager Instance;
         
@@ -31,46 +29,15 @@ namespace Code.CommonScripts
             DontDestroyOnLoad(this.gameObject);
         }
 
+        public void AddEnemy(Enemy enemy)
+        {
+            EnemiesToSpawn.Add(enemy);
+        }
+
         public void EndBattle()
         {
 
             
-            ClearEnemies();
-        }
-
-        #region PLAYER MANAGEMENT
-        
-        #endregion
-
-        #region ENEMY TEAM MANAGEMENT
-        
-        public void AddEnemy(Character character)
-        {
-            var newMember = Instantiate(character, enemyTeamTransform);
-            newMember.gameObject.SetActive(false);
-            EnemyTeam.Add(newMember);
-        }
-
-        public void ClearEnemies()
-        {
-            foreach (var monster in EnemyTeam)
-            {
-                Destroy(monster.gameObject);
-            }
-            
-            EnemyTeam.Clear();
-        }
-
-        #endregion
-
-        private void Start()
-        {
-
-        }
-
-        private void Update()
-        {
-
         }
 
     }

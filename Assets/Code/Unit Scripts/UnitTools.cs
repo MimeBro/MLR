@@ -31,10 +31,10 @@ public static class UnitTools
     }
 
     //Return a list of panels using an unit's position as a reference
-    public static List<Panel> GetPanels(Unit unit, int amount, AttackDirection direction)
+    public static List<Panel> GetPanels(OldUnit oldUnit, int amount, AttackDirection direction)
     {
         var selectedPanels = new List<Panel>();
-        var panelIndex = PanelsManager.Instance.PanelList.IndexOf(unit.currentPanel);
+        var panelIndex = PanelsManager.Instance.PanelList.IndexOf(oldUnit.currentPanel);
         var lastPanel = PanelsManager.Instance.PanelList.Count;
         var frontPanel = panelIndex + 1;
         var backPanel = panelIndex - 1;

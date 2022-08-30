@@ -11,7 +11,7 @@ public enum AttackDirection{Forward, Backward, Both}
 public class AttackController : MonoBehaviour
 {
     [Title("General Attributes")]
-    public Unit attacker;
+    public OldUnit attacker;
     [EnumToggleButtons]
     public AttackDirection attackDirection;
     public int baseDamage;
