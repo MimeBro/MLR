@@ -93,7 +93,9 @@
       <workItem from="1658250735625" duration="13992000" />
       <workItem from="1658849654740" duration="4974000" />
       <workItem from="1659377547242" duration="3440000" />
-      <workItem from="1660146676215" duration="27651000" />
+      <workItem from="1660146676215" duration="28963000" />
+      <workItem from="1661564751460" duration="1804000" />
+      <workItem from="1661827224391" duration="2561000" />
     </task>
     <servers />
   </component>
@@ -110,14 +112,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Code/MonsterScripts/MonsterMovement.cs</url>
+          <url>file://$PROJECT_DIR$/Assets/Code/CharacterScripts/PlayerMovement.cs</url>
           <line>82</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Code/MonsterScripts/MonsterMovement.cs" initialLine="82" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="2814" />
+              <option value="2817" />
             </startOffsets>
             <endOffsets>
-              <option value="2815" />
+              <option value="2818" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />

@@ -17,7 +17,7 @@ public class BattleManager : MonoBehaviour
     
     [Title("Feedbacks")]
     public MMFeedbacks PlayerTurnFeedback, EnemyTurnFeedback;
-    private Monster _enemyOnTheField, _playerOnTheField;
+    private Character _enemiesOnTheField, _playerOnTheField;
 
     public Transform playerPosition;
     public Transform enemyPosition;
@@ -30,16 +30,16 @@ public class BattleManager : MonoBehaviour
     
     public void StartBattle()
     {
-        _playerOnTheField = GameManager.Instance.PlayersTeam[0];
-        _enemyOnTheField = GameManager.Instance.EnemyTeam[0];
+        _playerOnTheField = GameManager.Instance.PlayerCharacter;
+        _enemiesOnTheField = GameManager.Instance.EnemyTeam[0];
         
         _playerOnTheField.gameObject.SetActive(true);
-        _enemyOnTheField.gameObject.SetActive(true);
+        _enemiesOnTheField.gameObject.SetActive(true);
 
         _playerOnTheField.transform.position = playerPosition.position;
-        _enemyOnTheField.transform.position = enemyPosition.position;
+        _enemiesOnTheField.transform.position = enemyPosition.position;
         
-        if (_playerOnTheField.speed >= _enemyOnTheField.speed)
+        if (_playerOnTheField.speed >= _enemiesOnTheField.speed)
         {
             PlayerTurn();
         }
@@ -70,7 +70,7 @@ public class BattleManager : MonoBehaviour
     
     public void PlayerTurn()
     {
-        _enemyOnTheField?.EndTurn();
+        _enemiesOnTheField?.EndTurn();
         _playerOnTheField?.StartTurn();
         PlayerTurnFeedback?.PlayFeedbacks();
     }
@@ -78,7 +78,7 @@ public class BattleManager : MonoBehaviour
     public void EnemyTurn()
     {
         _playerOnTheField?.EndTurn();
-        _enemyOnTheField?.EndTurn();
+        _enemiesOnTheField?.EndTurn();
         EnemyTurnFeedback?.PlayFeedbacks();
     }
 

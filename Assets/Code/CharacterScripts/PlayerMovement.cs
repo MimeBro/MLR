@@ -12,7 +12,7 @@ namespace Code.MonsterScripts
 using System.Collections;
 using UnityEngine;
 
-public class MonsterMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manually change all references in this script
@@ -64,13 +64,13 @@ public class MonsterMovement : MonoBehaviour
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
 
-    public Monster MNSTR { get; private set; }
+    public Character MNSTR { get; private set; }
 	#endregion
 
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
-		MNSTR = GetComponent<Monster>();
+		MNSTR = GetComponent<Character>();
 	}
 
 	private void Start()

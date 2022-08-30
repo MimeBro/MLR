@@ -11,14 +11,14 @@ namespace Code.CommonScripts
     public class GameManager : MonoBehaviour
     {
         #region VARIABLES
-        
-        [Title("Player Team")] 
+
+        [Title("Player Team")]
         //Monsters in the Player team
-        public List<Monster> PlayersTeam = new List<Monster>(4);
+        public Character PlayerCharacter;
         public Transform playerTeamTransform;
         
         //Monsters in the Enemy team
-        public List<Monster> EnemyTeam = new List<Monster>();
+        public List<Character> EnemyTeam = new List<Character>();
         public Transform enemyTeamTransform;
 
         public static GameManager Instance;
@@ -33,50 +33,20 @@ namespace Code.CommonScripts
 
         public void EndBattle()
         {
-            foreach (var monster in PlayersTeam)
-            {
-                monster.gameObject.SetActive(false);
-            }
+
             
             ClearEnemies();
         }
 
-        #region PLAYER TEAM MANAGEMENT
-        
-        //Capture a wild Monster
-        public void CaptureMonster(Monster monster)
-        {
-            if (PlayersTeam.Count < 4)
-            {
-                var newMember = Instantiate(monster, playerTeamTransform);
-                newMember.gameObject.SetActive(false);
-                PlayersTeam.Add(newMember);
-            }
-        }
-
-        public void RemoveMonster(int id)
-        {
-            Destroy(PlayersTeam[id].gameObject);
-            PlayersTeam.Remove(PlayersTeam[id]);
-        }
-        
-        public void ClearTeam()
-        {
-            foreach (var monster in PlayersTeam)
-            {
-                Destroy(monster.gameObject);
-            }
-            
-            PlayersTeam.Clear();
-        }
+        #region PLAYER MANAGEMENT
         
         #endregion
 
         #region ENEMY TEAM MANAGEMENT
         
-        public void AddEnemy(Monster monster)
+        public void AddEnemy(Character character)
         {
-            var newMember = Instantiate(monster, enemyTeamTransform);
+            var newMember = Instantiate(character, enemyTeamTransform);
             newMember.gameObject.SetActive(false);
             EnemyTeam.Add(newMember);
         }

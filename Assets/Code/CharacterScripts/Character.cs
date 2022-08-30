@@ -10,12 +10,11 @@ using UnityEngine.Serialization;
 
 namespace Code.MonsterScripts
 {
-    public class Monster : MonoBehaviour
+    public class Character : MonoBehaviour
     {
         #region VARIABLES
 
         [Title("Monster Info")] 
-        //Id of this monster for the Game Manager
         public int ID;
         
         public string monstersName;
@@ -33,7 +32,7 @@ namespace Code.MonsterScripts
         public EvolutionStage evolutionStage;
         //The monster this monster evolves into
         [ShowIf("evolves")]
-        public Monster evolution;
+        public Character evolution;
         
         [Title("Monster Stats")]
         [EnumPaging] public ElementalTypes elementalType;
@@ -116,13 +115,5 @@ namespace Code.MonsterScripts
 
         #endregion
 
-        #region CAPTURE
-
-        public void CaptureMe()
-        {
-            GameManager.Instance.CaptureMonster(this);
-        }
-        
-        #endregion
     }
 }
