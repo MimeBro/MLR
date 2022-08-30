@@ -21,7 +21,11 @@ namespace Code.CommonScripts
         public int addedAttack;
         public int addedDefense;
         
+        [Title("Other")]
+        //Feedback to play when the unit takes damage.
         public MMFeedbacks takeDamageFeedback;
+        //Position where the unit has to return to in case it's moved.
+        public Transform returnPosition;
 
         public void TakeDamage(int dmg)
         {
