@@ -10,7 +10,8 @@ namespace Code.MonsterScripts
     public class Player : Unit
     {
         #region VARIABLES
-
+    
+        [Title("Energy")]
         public float currentEnergy;
         public int maxEnergy;
         
@@ -19,9 +20,6 @@ namespace Code.MonsterScripts
         public List<Moves> LearnedMoves = new List<Moves>();
         //List of moves the monster can learn
         public List<Moves> CompatibleMoves = new List<Moves>();
-
-        [Title("Feedbacks")]
-        public MMFeedbacks takeDamageFeedback;
         
         [HideInInspector]public bool myTurn;
 

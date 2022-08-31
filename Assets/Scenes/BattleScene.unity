@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,12 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d6c3ae8e2564921b119822211f2028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 1611055472}
-  target: {fileID: 0}
-  hpNumber: {fileID: 263982125}
-  targetName: {fileID: 630473866}
-  monsterPortrait: {fileID: 1932431888}
-  side: 2
 --- !u!114 &24792453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5019,7 +5013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989cb40ba81d446b6a2009f1080e40c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPlayer: {fileID: 1415143102680709130}
+  playerCharacter: {fileID: 1415143102680709130}
   EnemiesToSpawn:
   - {fileID: -7700169498311650925, guid: a94529d3ff3e56740855976489ec6fec, type: 3}
 --- !u!1 &2058221867
@@ -5484,6 +5478,7 @@ MonoBehaviour:
   addedAttack: 0
   addedDefense: 0
   takeDamageFeedback: {fileID: 0}
+  returnPosition: {fileID: 0}
   currentEnergy: 0
   maxEnergy: 3
   LearnedMoves: []
@@ -5504,7 +5499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 75fd99958c5924542a829f704d00096e, type: 2}
   _groundCheckPoint: {fileID: 435478782}
-  _groundCheckSize: {x: 0.49, y: 0.07}
+  _groundCheckSize: {x: 0.49, y: 0.37}
   _frontWallCheckPoint: {fileID: 230065943}
   _backWallCheckPoint: {fileID: 2004936388}
   _wallCheckSize: {x: 0.18, y: 1}
