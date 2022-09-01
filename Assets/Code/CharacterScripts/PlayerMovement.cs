@@ -1,3 +1,4 @@
+using Code.CharacterScripts;
 using UnityEngine;
 
 namespace Code.MonsterScripts

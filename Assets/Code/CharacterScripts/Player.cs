@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Code.CommonScripts;
 using Code.MoveScripts;
-using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Code.MonsterScripts
+namespace Code.CharacterScripts
 {
     public class Player : Unit
     {
@@ -19,7 +19,7 @@ namespace Code.MonsterScripts
         //List of moves the monster has already learned, maximum 4
         public List<Moves> LearnedMoves = new List<Moves>();
         //List of moves the monster can learn
-        public List<Moves> CompatibleMoves = new List<Moves>();
+        public List<Moves> StartingMoves = new List<Moves>();
         
         [HideInInspector]public bool myTurn;
 
@@ -32,16 +32,6 @@ namespace Code.MonsterScripts
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
-        public void StartTurn()
-        {
-            myTurn = true;
-        }
-
-        public void EndTurn()
-        {
-            myTurn = false;
         }
 
         #endregion

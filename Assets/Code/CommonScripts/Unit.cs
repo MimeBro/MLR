@@ -39,9 +39,19 @@ namespace Code.CommonScripts
             currentHp = Mathf.Clamp(currentHp,0, maxHp);
         }
 
-        public void Die()
+        public virtual void StartMyTurn()
         {
-            
+            //Start Turn logic
+        }
+
+        public virtual void EndMyTurn()
+        {
+            //End Turn Logic
+        }
+
+        public virtual void Die()
+        {
+            //Die event
         }
     }
 }
