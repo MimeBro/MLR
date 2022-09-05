@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 
 public class GuidedProjectile : Attacks
 {
-    [Title("Guided Projectile")] public Transform target;
+    [Title("Guided Projectile")] 
+    public Transform target;
     public float speed;
 
     private Vector3 destination;
@@ -38,7 +39,7 @@ public class GuidedProjectile : Attacks
         if (other.TryGetComponent(out Panel panel))
         {
             var component = GetComponent<Collider2D>();
-            component.enabled = false;
+            //component.enabled = false;
         }
     }
 }

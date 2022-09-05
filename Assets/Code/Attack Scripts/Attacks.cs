@@ -1,4 +1,5 @@
 using System;
+using Code.CommonScripts;
 using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
@@ -10,9 +11,7 @@ public class Attacks : MonoBehaviour
     [EnumToggleButtons]
     public Sides side;
 
-    public ElementalTypes element;
-    public ContactType contactType;
-    public OldUnit attacker;
+    public Unit attacker;
     
     public int baseDamage;
 
@@ -24,40 +23,20 @@ public class Attacks : MonoBehaviour
 
     public virtual void Start()
     {
-        if (destroySelf)
-        {
-            Destroy(gameObject, 5);
-        }
-
-        if (destroyParent)
-        {
-            Destroy(transform.parent.gameObject, 5);
-        }
+        
     }
 
     public int FinalDamage()
     {
-        return contactType switch
-        {
-            ContactType.Physical => baseDamage + attacker.stats.attack,
-            ContactType.Special => baseDamage + attacker.stats.specialAttack,
-            _ => baseDamage
-        };
+        return 0;
     }
     
     public virtual void OnTriggerEnter2D(Collider2D col)
     {
-        var unit = col.GetComponent<OldUnit>();
+        var unit = col.GetComponent<Unit>();
         if (unit != null)
         {
-            if(unit.side == side) return;
-
-            if (unit.uState == UnitState.DODGING && dodgeable)
-            {
-                return;
-            }
-
-            unit.TakeDamage(FinalDamage(), contactType, element);
+            unit.TakeDamage(FinalDamage());
             
             if (hitVfx != null)
             {

@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3575291817792993958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7918156857754975561}
+  - component: {fileID: 3012665182513562018}
+  m_Layer: 0
+  m_Name: FireBallAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7918156857754975561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575291817792993958}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.753, y: 0.52, z: 0}
+  m_LocalScale: {x: -0.5681495, y: 0.5681495, z: 0.5681495}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8339838535810692437}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3012665182513562018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575291817792993958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32473f9e4fd94961939afab7fe2a6b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
+  attackDirection: 0
+  baseDamage: 0
+  moveType: 0
+  howManyPanelsInFront: 1
+  hitAllPanelsInTheWay: 0
+  moveDuration: 0
+  startDelay: 0
+  shootPositions: []
+  stopTimeToAttack: 0
+  timeStopDuration: 0
+  guidedProjectile: {fileID: 4445751027788462357, guid: 8a5144a9cc9934c15a326597d919c410, type: 3}
+  guidedProjectileSpeed: 30
+  gapBetweenSpawn: 0
+  useAttackersShootPoint: 0
+  amountOfShots: 0
+  target: {fileID: 0}
 --- !u!1 &8339838534859145037
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +178,7 @@ Transform:
   m_Children:
   - {fileID: 8339838534859145038}
   - {fileID: 8339838536806866697}
+  - {fileID: 7918156857754975561}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -190,6 +252,7 @@ MonoBehaviour:
   returnPosition: {fileID: 0}
   alreadyAttacked: 0
   assistants: []
+  fireballAttack: {fileID: 3012665182513562018}
 --- !u!1 &8339838536806866696
 GameObject:
   m_ObjectHideFlags: 0

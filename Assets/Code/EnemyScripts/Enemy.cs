@@ -6,7 +6,8 @@ namespace Code.MonsterScripts
     public class Enemy : Unit
     {
         public bool alreadyAttacked;
-
+        //public AttackController attack;
+        
         public override void StartMyTurn()
         {
             Attack();
@@ -19,7 +20,7 @@ namespace Code.MonsterScripts
             EndMyTurn();
         }
 
-        public virtual void JoinAttack()
+        public virtual void JoinAttack(Enemy leader)
         {
             //Do something
             Debug.Log(gameObject.name + " Joined another's attack");

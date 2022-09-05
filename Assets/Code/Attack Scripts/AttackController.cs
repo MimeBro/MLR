@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Code.CommonScripts;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,7 +12,7 @@ public enum AttackDirection{Forward, Backward, Both}
 public class AttackController : MonoBehaviour
 {
     [Title("General Attributes")]
-    public OldUnit attacker;
+    public Unit attacker;
     [EnumToggleButtons]
     public AttackDirection attackDirection;
     public int baseDamage;
@@ -23,24 +24,14 @@ public class AttackController : MonoBehaviour
     public bool hitAllPanelsInTheWay;
     public float moveDuration;
     public float startDelay;
-
-    public List<Panel> panels;
-
+    
     [Space]
     public List<Transform> shootPositions = new List<Transform>();
 
     public bool stopTimeToAttack;
     public float timeStopDuration;
 
-    public virtual void CastAttack()
-    {
-        //If there's no attacker, assume the attacker is the player
-        panels = UnitTools.GetPanels(attacker != null ? attacker : TeamManager.Instance.GetPlayer(),
-            howManyPanelsInFront, attackDirection);
-    }
-    
-
-    public void ArchedProjectile()
+    public virtual async Task CastAttack()
     {
         
     }

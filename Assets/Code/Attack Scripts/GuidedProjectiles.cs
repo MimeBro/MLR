@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,10 +10,10 @@ public class GuidedProjectiles : AttackController
     public float gapBetweenSpawn;
     public bool useAttackersShootPoint;
     public int amountOfShots;
-
-    public override async void CastAttack()
+    public Transform target;
+    public override async Task CastAttack()
     {
-        base.CastAttack();
+        Debug.Log("Cast Attack called");
         var end = Time.time + startDelay;
         while (Time.time < end)await Task.Yield();
 
@@ -23,52 +24,33 @@ public class GuidedProjectiles : AttackController
 
     private async Task GuidedProjectile()
     {
+        Debug.Log("Guided Projectile called");
         for (int j = 0; j < amountOfShots; j++)
         {
-            if (hitAllPanelsInTheWay)
-            {
-                for (int i = 0; i < panels.Count; i++)
-                {
-                    await InstantiateGuidedProjectile(i);
-                }
-
-                return;
-            }
-
-            await InstantiateGuidedProjectile(panels.Count - 1);
-
-            if (attackDirection == AttackDirection.Both)
-            {
-                await InstantiateGuidedProjectile(0);
-            }
+            await InstantiateGuidedProjectile();
         }
     }
 
-    private async Task InstantiateGuidedProjectile(int panelIndex)
+    private async Task InstantiateGuidedProjectile()
     {
-
-        if (useAttackersShootPoint)
+        if (!shootPositions.Any())
         {
-            var gp = Instantiate(guidedProjectile, attacker.shootPoint.position,
-                Quaternion.identity);
-            gp.target = panels[panelIndex].transform;
+            Debug.Log("InstantiateGuidedProjectile called with no shootpoints");
+            var gp = Instantiate(guidedProjectile, transform.position, Quaternion.identity);
             gp.speed = guidedProjectileSpeed;
             gp.baseDamage = baseDamage;
-            gp.attacker = attacker;
-            gp.side = attacker.side;
-            gp.element = moveType;
+            gp.target = target;
         }
         else
         {
             for (int i = 0; i < shootPositions.Count; i++)
             {
+                Debug.Log("InstantiateGuidedProjectile called with shootpoints");
+
                 var gp = Instantiate(guidedProjectile, shootPositions[i].position, Quaternion.identity);
-                gp.target = panels[panelIndex].transform;
                 gp.speed = guidedProjectileSpeed;
                 gp.baseDamage = baseDamage;
-                gp.attacker = attacker;
-                gp.side = attacker.side;
-                gp.element = moveType;
+                gp.target = target;
             }
         }
         

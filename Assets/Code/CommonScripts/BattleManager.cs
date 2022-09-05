@@ -9,20 +9,30 @@ using UnityEngine;
 public enum Turn {PLAYER, ENEMY}
 public class BattleManager : MonoBehaviour
 {
+    #region Variables
     public Turn turn;
     public int turnNumber;
+    public bool ambush;
+    
+    private int _enemyTurn;
 
     public static BattleManager Instance;
     
     [Title("Feedbacks")]
-    public MMFeedbacks PlayerTurnFeedback, EnemyTurnFeedback, BattleStartFeedback;
+    public MMFeedbacks PlayerTurnFeedback;
+    public MMFeedbacks EnemyTurnFeedback;
+    public MMFeedbacks BattleStartFeedback;
+    
     private Player _playerOnTheField;
+    
+    [Title("Character Positioning")]
     public Transform playerPosition;
     public Transform[] enemyPositions;
     
-    [SerializeField] private List<Enemy> _enemiesOnTheField = new List<Enemy>();
+    [SerializeField] 
+    private List<Enemy> _enemiesOnTheField = new List<Enemy>();
 
-    public bool ambush;
+    #endregion
 
     private void Start()    
     {
@@ -47,10 +57,23 @@ public class BattleManager : MonoBehaviour
             _enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
         }
         
+        _enemyTurn = 0;
         turnNumber = 0;
+        
+        if (ambush)
+        {
+            turn = Turn.ENEMY;
+            EnemyTurn(0);
+        }
+        else
+        {
+            turn = Turn.PLAYER;
+            PlayerTurn();
+        }
+
     }
 
-    //Switches the Player turn to the enemy's and otherwise
+    //Switches the Player turn to the enemy's and vice-versa
     public void SwitchTurn()
     {
         if (turn == Turn.PLAYER)
@@ -59,7 +82,7 @@ public class BattleManager : MonoBehaviour
             EnemyTurn(0);
         }
 
-        if (turn == Turn.ENEMY)
+        else
         {
             turn = Turn.PLAYER;
             PlayerTurn();
@@ -73,20 +96,22 @@ public class BattleManager : MonoBehaviour
     //Makes the next enemy in line attack
     public void NextTurn()
     {
-        turnNumber++;
-        if (turnNumber < _enemiesOnTheField.Count)
+        _enemyTurn++;
+        if (_enemyTurn < _enemiesOnTheField.Count)
         {
-            EnemyTurn(turnNumber);
+            EnemyTurn(_enemyTurn);
         }
         else
         {
             SwitchTurn();
-            turnNumber = 0;
+            turnNumber++;
+            _enemyTurn = 0;
         }
     }
     
     public void PlayerTurn()
     {
+        Debug.Log("Player's Turn");
         PlayerTurnFeedback?.PlayFeedbacks();
     }
 
@@ -114,5 +139,4 @@ public class BattleManager : MonoBehaviour
     {
         
     }
-    
 }

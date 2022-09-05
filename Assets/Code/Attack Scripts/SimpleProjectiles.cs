@@ -13,7 +13,7 @@ public class SimpleProjectiles : AttackController
 
     public float projectileSpeed;
     
-    public override async void CastAttack()
+    public override async Task CastAttack()
     {
         base.CastAttack();
         var end = Time.time + startDelay;
@@ -38,11 +38,8 @@ public class SimpleProjectiles : AttackController
 
         if (useAttackersShootPoint)
         {
-            var sP = Instantiate(projectile, attacker.shootPoint.position, Quaternion.identity);
+            var sP = Instantiate(projectile, transform.position, Quaternion.identity);
             sP.projectileSpeed = projectileSpeed;
-            sP.attacker = attacker;
-            sP.side = attacker.side;
-            sP.shootPoint = attacker.shootPoint;
             sP.baseDamage = baseDamage;
             sP.attackDirection = attackDirection;
         }
@@ -50,11 +47,8 @@ public class SimpleProjectiles : AttackController
         {
             for (int i = 0; i < amountOfShots; i++)
             {
-                var sP = Instantiate(projectile, attacker.shootPoint.position, Quaternion.identity);
+                var sP = Instantiate(projectile, transform.position, Quaternion.identity);
                 sP.projectileSpeed = projectileSpeed;
-                sP.attacker = attacker;
-                sP.side = attacker.side;
-                sP.shootPoint = attacker.shootPoint;
                 sP.baseDamage = baseDamage;
                 sP.attackDirection = attackDirection;
             }

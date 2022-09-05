@@ -9,7 +9,7 @@
         public float hitsPerSecond;
         public float areaDuration;
 
-        public override async void CastAttack()
+        public override async Task CastAttack()
         {
             base.CastAttack();
             var end = Time.time + startDelay;
@@ -24,8 +24,6 @@
             var aA = Instantiate(areaAttack, shootPositions[0].position, Quaternion.identity);
             aA.damagePerHit = baseDamage;
             aA.secondsPerHit = hitsPerSecond;
-            aA.attacker = attacker;
-            aA.side = attacker.side;
             Destroy(aA.gameObject,areaDuration);
             return Task.CompletedTask;
         }

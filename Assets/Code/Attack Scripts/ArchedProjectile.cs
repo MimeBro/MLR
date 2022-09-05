@@ -27,7 +27,6 @@ public class ArchedProjectile : MonoBehaviour
             shot.shootPoint = transform;
             shot.projectileSpeed = 0;
             shot.baseDamage = 5;
-            shot.attacker = attacker;
             shot.transform.DOJump(targetPanel.transform.position, jumpPower, 1, duration).SetEase(easing);
             _nextfire = Time.time + firerate;
         }

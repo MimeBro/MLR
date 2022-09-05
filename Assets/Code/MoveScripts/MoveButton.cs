@@ -27,7 +27,6 @@ public class MoveButton : MonoBehaviour
         buttonIcon.sprite = newMove.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
         activeMove = (Instantiate(move.attackController));
-        activeMove.attacker = TeamManager.Instance.GetPlayer();
         activeMove.moveType = move.moveType;
         activeMove.gameObject.SetActive(false);
     }

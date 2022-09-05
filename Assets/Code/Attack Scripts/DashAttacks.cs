@@ -10,7 +10,7 @@ public class DashAttacks : AttackController
     public float dashSpeed;
     public float dashDuration;
 
-    public override async void CastAttack()
+    public override async Task CastAttack()
     {
         base.CastAttack();
         var end = Time.time + startDelay;
@@ -27,13 +27,10 @@ public class DashAttacks : AttackController
     private Task DashAttack()
     {
         var dA = Instantiate(dashAttack);
-        dA.attacker = attacker;
-        dA.targetPanel = panels[panels.Count - 1];
         dA.backAndForth = backAndForth;
         dA.direction = attackDirection;
         dA.dashSpeed = dashSpeed;
         dA.dashDuration = dashDuration;
-        dA.side = attacker.side;
         dA.StartDash();
         return Task.CompletedTask;
     }
