@@ -53,12 +53,10 @@ namespace Code.EnemyScripts
             Debug.Log("Fireball Called");
             if (fireballAttack == null) return;
             
-            fireballAttack.amountOfShots = 3;
-            fireballAttack.gapBetweenSpawn = 1;
             fireballAttack.target = GameManager.Instance.playerCharacter.transform;
             
-            await fireballAttack.CastAttack();
-            transform.DOMoveX(returnPosition.position.x, 0.5f);
+            await fireballAttack.CastAttack(this);
+            transform.DOMoveX(returnPosition.position.x, 0.5f).OnComplete(EndMyTurn);
         }
         
 

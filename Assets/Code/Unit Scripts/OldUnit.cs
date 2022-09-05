@@ -94,7 +94,7 @@ public class OldUnit : MonoBehaviour
     }
 
     //Deals damage to the unit based on stats, contact type and element
-    public void TakeDamage(int damage, ContactType contactType, ElementalTypes elementalTypes)
+    /*public void TakeDamage(int damage, ContactType contactType, ElementalTypes elementalTypes)
     {
         var finalDamage = CalculateDamage(damage, contactType, elementalTypes);
         
@@ -115,7 +115,7 @@ public class OldUnit : MonoBehaviour
             _ => Mathf.FloorToInt(
                 damage * ElementalInteractions.ElementalInteraction(elementalTypes, stats.primaryType))
         };
-    }
+    }*/
     
     //Makes the unit receive on hit effects
     public void CastHitEffect(HitEffects onHitEffect)

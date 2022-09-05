@@ -27,7 +27,7 @@ public class MoveButton : MonoBehaviour
         buttonIcon.sprite = newMove.moveIcon;
         transform.DOLocalMove(Vector3.zero, 0.2f);
         activeMove = (Instantiate(move.attackController));
-        activeMove.moveType = move.moveType;
+        //activeMove.moveType = move.moveType;
         activeMove.gameObject.SetActive(false);
     }
 
@@ -67,7 +67,7 @@ public class MoveButton : MonoBehaviour
     {
         TeamManager.Instance.GetPlayer().UseEnergy(move.energyCost);
         activeMove.gameObject.SetActive(true);
-        activeMove.CastAttack();
+        //activeMove.CastAttack();
         GoOnCooldown();
     }
 

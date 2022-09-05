@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6028991734364929897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.54, y: 1.03, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,13 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febccf7f0c5824462a0ef4ebf3abe6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 1
   attacker: {fileID: 0}
   baseDamage: 0
-  hitVfx: {fileID: 0}
-  destroySelf: 1
-  destroyParent: 1
+  hitVfx: {fileID: 639549253649890842, guid: 2900351bbd47a450eaa9539078889cc0, type: 3}
   pierceThrough: 0
-  dodgeable: 0
   target: {fileID: 0}
   speed: 0

@@ -8,7 +8,6 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 public enum AttackDirection{Forward, Backward, Both}
-//public enum TypeOfAttack{SimpleProjectile, GuidedProjectile, ArchedProjectile,AreaAttack,DashAttack,Summon}
 public class AttackController : MonoBehaviour
 {
     [Title("General Attributes")]
@@ -17,11 +16,6 @@ public class AttackController : MonoBehaviour
     public AttackDirection attackDirection;
     public int baseDamage;
     
-    [HideInInspector]
-    public ElementalTypes moveType;
-
-    [Range(1,5)] public int howManyPanelsInFront;
-    public bool hitAllPanelsInTheWay;
     public float moveDuration;
     public float startDelay;
     
@@ -31,9 +25,9 @@ public class AttackController : MonoBehaviour
     public bool stopTimeToAttack;
     public float timeStopDuration;
 
-    public virtual async Task CastAttack()
+    public virtual async Task CastAttack(Unit attacker)
     {
-        
+        this.attacker = attacker;
     }
     
     public IEnumerator StopTime()

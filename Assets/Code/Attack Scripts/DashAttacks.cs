@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Code.CommonScripts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -10,9 +11,9 @@ public class DashAttacks : AttackController
     public float dashSpeed;
     public float dashDuration;
 
-    public override async Task CastAttack()
+    public override async Task CastAttack(Unit attacker)
     {
-        base.CastAttack();
+        base.CastAttack(attacker);
         var end = Time.time + startDelay;
         
         while (Time.time < end)

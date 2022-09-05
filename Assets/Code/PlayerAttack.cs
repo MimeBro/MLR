@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
         var shots = bullet.GetComponentsInChildren<Attacks>();
         foreach (var shot in shots)
         {
-            shot.side = _oldUnit.side;
+            //shot.side = _oldUnit.side;
             shot.baseDamage = damagePerShot;
         }
     }

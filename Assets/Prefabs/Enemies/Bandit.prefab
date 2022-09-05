@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3575291817792993958}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.753, y: 0.52, z: 0}
-  m_LocalScale: {x: -0.5681495, y: 0.5681495, z: 0.5681495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8339838535810692437}
@@ -46,20 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 0}
   attackDirection: 0
-  baseDamage: 0
-  moveType: 0
-  howManyPanelsInFront: 1
-  hitAllPanelsInTheWay: 0
+  baseDamage: 1
   moveDuration: 0
   startDelay: 0
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
   guidedProjectile: {fileID: 4445751027788462357, guid: 8a5144a9cc9934c15a326597d919c410, type: 3}
-  guidedProjectileSpeed: 30
-  gapBetweenSpawn: 0
-  useAttackersShootPoint: 0
-  amountOfShots: 0
+  guidedProjectileSpeed: 20
+  gapBetweenSpawn: 1
+  amountOfShots: 3
   target: {fileID: 0}
 --- !u!1 &8339838534859145037
 GameObject:

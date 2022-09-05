@@ -1,22 +1,23 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Code.CommonScripts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class GuidedProjectiles : AttackController
 {
-    [Title("Guided Projectiles")] public GuidedProjectile guidedProjectile;
+    [Title("Guided Projectiles")] 
+    public GuidedProjectile guidedProjectile;
     public float guidedProjectileSpeed;
     public float gapBetweenSpawn;
-    public bool useAttackersShootPoint;
     public int amountOfShots;
     public Transform target;
-    public override async Task CastAttack()
+    public override async Task CastAttack(Unit attacker)
     {
-        Debug.Log("Cast Attack called");
+        base.CastAttack(attacker);
+        base.attacker = attacker;
         var end = Time.time + startDelay;
-        while (Time.time < end)await Task.Yield();
-
+        while (Time.time < end) await Task.Yield();
         
         await GuidedProjectile();
         gameObject.SetActive(false);
@@ -24,7 +25,6 @@ public class GuidedProjectiles : AttackController
 
     private async Task GuidedProjectile()
     {
-        Debug.Log("Guided Projectile called");
         for (int j = 0; j < amountOfShots; j++)
         {
             await InstantiateGuidedProjectile();
@@ -35,22 +35,21 @@ public class GuidedProjectiles : AttackController
     {
         if (!shootPositions.Any())
         {
-            Debug.Log("InstantiateGuidedProjectile called with no shootpoints");
             var gp = Instantiate(guidedProjectile, transform.position, Quaternion.identity);
             gp.speed = guidedProjectileSpeed;
             gp.baseDamage = baseDamage;
             gp.target = target;
+            gp.attacker = attacker;
         }
         else
         {
             for (int i = 0; i < shootPositions.Count; i++)
             {
-                Debug.Log("InstantiateGuidedProjectile called with shootpoints");
-
                 var gp = Instantiate(guidedProjectile, shootPositions[i].position, Quaternion.identity);
                 gp.speed = guidedProjectileSpeed;
                 gp.baseDamage = baseDamage;
                 gp.target = target;
+                gp.attacker = attacker;
             }
         }
         

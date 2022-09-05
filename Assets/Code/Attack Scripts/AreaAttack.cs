@@ -24,8 +24,6 @@ public class AreaAttack : Attacks
         fireRate = secondsPerHit / 1;
         if (unit != null)
         {
-            if (unit.side == side) return;
-            
             if (singleHit)
             {
                 SingleHit(unit);
