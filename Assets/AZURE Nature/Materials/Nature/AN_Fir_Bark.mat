@@ -13,6 +13,7 @@ Material:
   - _BLENDNORMALS_ON
   - _COVERAGEOVERLAYTYPE_VERTEX_POSITION
   - _COVERAGE_ON
+  - _SNOW_ON
   m_InvalidKeywords:
   - _BLENDNORMALS1_ON
   - _BOTTOMCOVERAGE_ON
@@ -162,12 +163,12 @@ Material:
     - _NormalFromCoverage: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SNOW: 0
+    - _SNOW: 1
     - _Smoothness: 0.35
     - _SmoothnessTextureChannel: 0
     - _Snow: 0
-    - _SnowAmount: 0.7
-    - _SnowFade: 0.3
+    - _SnowAmount: 0.599
+    - _SnowFade: 0.923
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SurfaceSmoothness: 0
