@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8339838534859145038}
   - component: {fileID: 8339838534859145039}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8339838535810692435}
   - component: {fileID: 8339838535810692434}
   - component: {fileID: -7700169498311650925}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: EnemyTest
   m_TagString: Enemy
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -187,6 +187,8 @@ MonoBehaviour:
   addedAttack: 0
   addedDefense: 0
   takeDamageFeedback: {fileID: 0}
+  returnPosition: {fileID: 0}
+  alreadyAttacked: 0
 --- !u!1 &8339838536806866696
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ GameObject:
   - component: {fileID: 8339838536806866697}
   - component: {fileID: 8339838536806866699}
   - component: {fileID: 8339838536806866698}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: TakeDamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}

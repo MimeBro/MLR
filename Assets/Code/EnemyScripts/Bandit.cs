@@ -42,6 +42,7 @@ namespace Code.EnemyScripts
                 transform.DOMoveX(0, 0.5f).OnComplete(FireballAttack);
                
             }
+            
             else
             {
                FireballAttack();

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7918156857754975561}
   - component: {fileID: 3012665182513562018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FireBallAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8339838534859145038}
   - component: {fileID: 8339838534859145039}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 8339838535810692435}
   - component: {fileID: 8339838535810692434}
   - component: {fileID: 3043527784983700698}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Bandit
   m_TagString: Enemy
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -186,7 +186,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8339838535810692433}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -209,7 +209,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.06, y: 0.6}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 8339838536806866697}
   - component: {fileID: 8339838536806866699}
   - component: {fileID: 8339838536806866698}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: TakeDamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
