@@ -84,14 +84,14 @@ Material:
     - _Translucency: 0
     - _UDepthDistance: 0.3
     - _UDistancePower: 0.1
-    - _WavesNormalIntensity: 0.3
+    - _WavesNormalIntensity: 0.167
     - _WavesSpeed: 0.2
-    - _WavesTile: -0.07
+    - _WavesTile: -0.02
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
-    - _Color1: {r: 0.49056602, g: 0.47436807, b: 0.47436807, a: 0}
-    - _Color2: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 0}
+    - _Color1: {r: 0.5887772, g: 0.7708037, b: 0.9528302, a: 0}
+    - _Color2: {r: 0.35257208, g: 0.42076913, b: 0.5377358, a: 0}
     - _DepthColor: {r: 0, g: 1, b: 0.9725489, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _NormalScale: {r: 2, g: 2, b: 0, a: 0}
