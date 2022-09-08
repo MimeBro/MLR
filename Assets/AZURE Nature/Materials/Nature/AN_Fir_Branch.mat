@@ -115,7 +115,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0.732
+    - _AlphaCutoff: 0.7
     - _BumpScale: 1
     - _COLOR2: 0
     - _Color2: 0
@@ -192,7 +192,7 @@ Material:
     - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 1, g: 0.7154719, b: 0.36900002, a: 0}
+    - _Color1: {r: 0.95, g: 0.75562274, b: 0.52345, a: 0}
     - _Color2: {r: 0.9056604, g: 0.36287978, b: 0.26059094, a: 0}
     - _Color3: {r: 0, g: 0, b: 0, a: 0}
     - _CoverageColor: {r: 1, g: 1, b: 1, a: 0}

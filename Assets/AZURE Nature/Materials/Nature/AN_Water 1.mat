@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AN_Water
+  m_Name: AN_Water 1
   m_Shader: {fileID: 4800000, guid: faaeb4a0622f3594095e9e1327bca9e2, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -90,7 +90,7 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0}
-    - _Color1: {r: 0.49056602, g: 0.47436807, b: 0.47436807, a: 0}
+    - _Color1: {r: 0, g: 0, b: 0, a: 0}
     - _Color2: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 0}
     - _DepthColor: {r: 0, g: 1, b: 0.9725489, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

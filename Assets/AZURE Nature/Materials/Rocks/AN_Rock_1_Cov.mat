@@ -12,7 +12,6 @@ Material:
   m_ValidKeywords:
   - _BLENDNORMALS_ON
   - _COVERAGEOVERLAYTYPE_WORLD_NORMAL
-  - _COVERAGE_ON
   - _SNOW_ON
   m_InvalidKeywords:
   - _COVERAGETHICKNESS_ON
@@ -119,7 +118,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _BlendNormals: 1
     - _BumpScale: 1
-    - _COVERAGE: 1
+    - _COVERAGE: 0
     - _Coverage: 0
     - _CoverageContrast: 0.7
     - _CoverageFade: 0.35
@@ -147,8 +146,8 @@ Material:
     - _Smoothness: 0.4
     - _SmoothnessTextureChannel: 0
     - _Snow: 0
-    - _SnowAmount: 0.537
-    - _SnowFade: 0.345
+    - _SnowAmount: 0.772
+    - _SnowFade: 0.294
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SurfaceSmoothness: 0
@@ -160,5 +159,5 @@ Material:
     - _Color: {r: 0.76557493, g: 0.8363022, b: 0.8679245, a: 1}
     - _CoverageColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SurfaceColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    - _SurfaceColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
