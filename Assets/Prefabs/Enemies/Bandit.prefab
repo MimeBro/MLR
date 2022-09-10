@@ -55,7 +55,7 @@ MonoBehaviour:
   guidedProjectile: {fileID: 4445751027788462357, guid: 8a5144a9cc9934c15a326597d919c410, type: 3}
   guidedProjectileSpeed: 20
   gapBetweenSpawn: 1
-  amountOfShots: 3
+  amountOfShots: 1
   target: {fileID: 0}
 --- !u!1 &8339838534859145037
 GameObject:

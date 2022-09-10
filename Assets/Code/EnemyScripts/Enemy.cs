@@ -8,7 +8,7 @@ namespace Code.MonsterScripts
         public bool alreadyAttacked;
         //public AttackController attack;
         
-        public override void StartMyTurn()
+        public override void StartTurn()
         {
             Attack();
         }

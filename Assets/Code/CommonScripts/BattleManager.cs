@@ -47,6 +47,7 @@ public class BattleManager : MonoBehaviour
         _playerOnTheField = GameManager.Instance.playerCharacter;
         _playerOnTheField.gameObject.SetActive(true);
         _playerOnTheField.transform.position = playerPosition.position;
+        _playerOnTheField.returnPosition = playerPosition;
 
         for (int i = 0; i < GameManager.Instance.EnemiesToSpawn.Count; i++)
         {
@@ -70,7 +71,6 @@ public class BattleManager : MonoBehaviour
             turn = Turn.PLAYER;
             PlayerTurn();
         }
-
     }
 
     //Switches the Player turn to the enemy's and vice-versa
@@ -78,6 +78,7 @@ public class BattleManager : MonoBehaviour
     {
         if (turn == Turn.PLAYER)
         {
+            _playerOnTheField.EndTurn();
             turn = Turn.ENEMY;
             EnemyTurn(0);
         }
@@ -112,6 +113,7 @@ public class BattleManager : MonoBehaviour
     public void PlayerTurn()
     {
         Debug.Log("Player's Turn");
+        _playerOnTheField.StartTurn();
         PlayerTurnFeedback?.PlayFeedbacks();
     }
 
@@ -121,13 +123,34 @@ public class BattleManager : MonoBehaviour
         
         if (!enemy.alreadyAttacked)
         {
-            enemy.StartMyTurn();
+            enemy.StartTurn();
             EnemyTurnFeedback?.PlayFeedbacks();
         }
         else
         {
             NextTurn();
         }
+    }
+    
+    //public Getters
+    public Player GetPlayer()
+    {
+        return _playerOnTheField;
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return _playerOnTheField.transform.position;
+    }
+
+    public Enemy GetEnemy()
+    {
+        return _enemiesOnTheField[0];
+    }
+
+    public Enemy GetEnemy(int index)
+    {
+        return _enemiesOnTheField[index];
     }
     
     public void Victory()

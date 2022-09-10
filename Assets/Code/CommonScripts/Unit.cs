@@ -39,7 +39,7 @@ namespace Code.CommonScripts
             currentHp = Mathf.Clamp(currentHp,0, maxHp);
         }
 
-        public virtual void StartMyTurn()
+        public virtual void StartTurn()
         {
             //Start Turn logic
         }

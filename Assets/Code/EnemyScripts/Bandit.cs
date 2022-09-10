@@ -14,7 +14,7 @@ namespace Code.EnemyScripts
         public List<Enemy> assistants = new List<Enemy>();
         public GuidedProjectiles fireballAttack;
         
-        public override void StartMyTurn()
+        public override void StartTurn()
         {
             Bandit[] foundAsisstants;
             foundAsisstants = FindObjectsOfType<Bandit>();
@@ -36,7 +36,8 @@ namespace Code.EnemyScripts
                 {
                     assistant.JoinAttack(this);
                 }
-                transform.DOMoveX(0, 0.5f).OnComplete(FireballAttack);
+                //transform.DOMoveX(0, 0.5f).OnComplete(FireballAttack);
+                FireballAttack();
                
             }
             
@@ -54,7 +55,8 @@ namespace Code.EnemyScripts
             fireballAttack.target = GameManager.Instance.playerCharacter.transform;
             
             await fireballAttack.CastAttack(this);
-            transform.DOMoveX(returnPosition.position.x, 0.5f).OnComplete(EndMyTurn);
+            //transform.DOMoveX(returnPosition.position.x, 0.5f).OnComplete(EndMyTurn);
+            EndMyTurn();
         }
         
 

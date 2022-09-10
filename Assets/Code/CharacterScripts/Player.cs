@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Code.CommonScripts;
 using Code.MoveScripts;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -24,14 +26,27 @@ namespace Code.CharacterScripts
         [HideInInspector]public bool myTurn;
 
         private Rigidbody2D _rigidbody2D;
-
+        private PlayerMovement _playerMovement;
+        
         #endregion
 
         #region TURN MECHANICS
 
-        private void Start()
+        private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _playerMovement = GetComponent<PlayerMovement>();
+
+        }
+
+        public override void StartTurn()
+        {
+            _playerMovement.CanMove = false;
+        }
+
+        public void EndTurn()
+        {
+            _playerMovement.CanMove = true;
         }
 
         #endregion
