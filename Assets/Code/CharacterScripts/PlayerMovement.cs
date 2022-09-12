@@ -122,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
 			
 			_moveInput = Vector2.zero;
 			
+			
 				//Return the player to it's battle position
 			if (Vector3.Distance(transform.position, destination) > 1f)
 			{

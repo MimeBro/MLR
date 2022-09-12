@@ -2881,9 +2881,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 618456194}
-        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: SwitchTurn
+      - m_Target: {fileID: 2073716855}
+        m_TargetAssemblyTypeName: Code.WeaponScripts.Weapon, Assembly-CSharp
+        m_MethodName: CastAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4801,6 +4801,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  _reached: 0
 --- !u!114 &1439356560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,7 +5868,7 @@ GameObject:
   - component: {fileID: 1867228380}
   - component: {fileID: 1867228381}
   m_Layer: 0
-  m_Name: Damage text Spawner
+  m_Name: Damage text spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6635,6 +6636,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
   m_PrefabInstance: {fileID: 2056744221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2073716853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073716854}
+  - component: {fileID: 2073716855}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073716854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073716853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 609.6365, y: 7.7154827, z: 94.20232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073716855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073716853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df49a02e7bb444fe9c31730182757c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  weaponRarity: 0
+  durability: {x: 15, y: 15}
+  damage: {x: 7, y: 10}
+  weaponName: 
+  weaponDescription: 
+  specialAttack: 
+  specialAttackDescription: 
+  attackDuration: 3
+  attackTimings: {x: 1, y: 2.5}
 --- !u!1 &2075777517
 GameObject:
   m_ObjectHideFlags: 0
