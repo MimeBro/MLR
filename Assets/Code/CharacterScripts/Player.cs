@@ -18,7 +18,7 @@ namespace Code.CharacterScripts
         [EnumToggleButtons]
         [Title("Compatible Weapons", Bold = false)]
         [HideLabel]
-        public WeaponType CompatibleWeapons;
+        public WeaponType compatibleWeapons;
 
         public Weapon defaultWeapon;
         public List<Weapon> acquiredWeapons = new List<Weapon>(3);
@@ -40,6 +40,7 @@ namespace Code.CharacterScripts
             if (defaultWeapon != null)
             {
                 var dweapon = Instantiate(defaultWeapon, weaponsTransform);
+                dweapon.player = this;
                 acquiredWeapons.Add(dweapon);
             }
         }
@@ -48,7 +49,9 @@ namespace Code.CharacterScripts
         {
             if (acquiredWeapons.Count < 4)
             {
-                acquiredWeapons.Add(weapon);
+                var newWeapon = Instantiate(weapon, weaponsTransform);
+                newWeapon.player = this;
+                acquiredWeapons.Add(newWeapon);
             }
             else
             {
@@ -61,7 +64,12 @@ namespace Code.CharacterScripts
             _playerMovement.CanMove = false;
         }
 
-        public void EndTurn()
+        public void EndAttack()
+        {
+            BattleManager.Instance.SwitchTurn();
+        }
+
+        public override void EndMyTurn()
         {
             _playerMovement.CanMove = true;
         }

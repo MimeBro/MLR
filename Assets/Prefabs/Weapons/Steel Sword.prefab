@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   weaponRarity: 0
-  durability: {x: 12, y: 12}
+  durability: {x: 10, y: 12}
   damage: {x: 7, y: 10, z: 15}
   weaponName: Steel Blade
   weaponDescription: 
-  attackTimings: {x: 1, y: 2.5, z: 0}
+  attackTimings: {x: 1, y: 2.5, z: 3}
   attackDuraCost: 2

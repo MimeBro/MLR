@@ -36,7 +36,7 @@ namespace Code.WeaponScripts
 
         public int attackDuraCost;
         
-        private Player _player;
+        public Player player;
         private bool _attackStarted, _attackEnded;
         private float timer = 0.0f;
 
@@ -55,7 +55,6 @@ namespace Code.WeaponScripts
             if (_attackStarted)
             {
                 timer += Time.deltaTime;
-                Debug.Log(timer);
                 if (Input.GetKeyDown(KeyCode.A))
                 {
                     Attack(timer);
@@ -65,6 +64,7 @@ namespace Code.WeaponScripts
                 {
                     Debug.Log("Attack missed");
                     _attackStarted = false;
+                    player.EndAttack();
                 }
             }
         }
@@ -83,16 +83,19 @@ namespace Code.WeaponScripts
             if (timing < attackTimings.x)
             {
                 Debug.Log("Ok Hit");
+                player.EndAttack();
             }
             
             else if (timing >= attackTimings.x && timing < attackTimings.y)
             {
                 Debug.Log("Good Hit");
+                player.EndAttack();
             }
             
             else if (timing >= attackTimings.y)
             {
                 Debug.Log("Perfect Hit");
+                player.EndAttack();
             }
         }
 

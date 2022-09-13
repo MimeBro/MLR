@@ -3,6 +3,7 @@ using Code.CharacterScripts;
 using Code.CommonScripts;
 using Code.MonsterScripts;
 using MoreMountains.Feedbacks;
+using RoboRyanTron.Unite2017.Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class BattleManager : MonoBehaviour
     public MMFeedbacks PlayerTurnFeedback;
     public MMFeedbacks EnemyTurnFeedback;
     public MMFeedbacks BattleStartFeedback;
+    public GameEvent playersTurnEvent;
     
     private Player _playerOnTheField;
     
@@ -78,7 +80,7 @@ public class BattleManager : MonoBehaviour
     {
         if (turn == Turn.PLAYER)
         {
-            _playerOnTheField.EndTurn();
+            _playerOnTheField.EndMyTurn();
             turn = Turn.ENEMY;
             EnemyTurn(0);
         }
@@ -113,8 +115,8 @@ public class BattleManager : MonoBehaviour
     public void PlayerTurn()
     {
         Debug.Log("Player's Turn");
+        playersTurnEvent.Raise();
         _playerOnTheField.StartTurn();
-        PlayerTurnFeedback?.PlayFeedbacks();
     }
 
     public void EnemyTurn(int index)
@@ -124,7 +126,6 @@ public class BattleManager : MonoBehaviour
         if (!enemy.alreadyAttacked)
         {
             enemy.StartTurn();
-            EnemyTurnFeedback?.PlayFeedbacks();
         }
         else
         {
