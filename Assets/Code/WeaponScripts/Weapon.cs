@@ -10,7 +10,7 @@ namespace Code.WeaponScripts
 {
     public class Weapon : MonoBehaviour
     {
-        public enum WeaponType{Sword, GreatSword, Axe, Hammer, Spear, Bow, Staff, Book}
+       
         public enum WeaponRarity {Common, Rare, Epic, Legendary, Mythic}
         
         [Title("Stats")] 
@@ -19,7 +19,8 @@ namespace Code.WeaponScripts
         
         [MinMaxSlider(0,100, true)]
         public Vector2 durability;
-   
+        
+        [InfoBox("X is the OK hit damage, Y the Good hit dmg and Z the Perfect Dmg")]
         public Vector3 damage;
 
         [Title("Description")] 
@@ -29,15 +30,11 @@ namespace Code.WeaponScripts
         [Multiline(5)]
         public string weaponDescription;
         
-        public string specialAttack;
-        [Title("Special Description: ", bold:false)]
-        [HideLabel]
-        [Multiline(5)]
-        public string specialAttackDescription;
-        
         [Title("Normal Attack Values")]
-        public float attackDuration;
-        public Vector2 attackTimings;
+        [InfoBox("X is the Good hit timing, Y the Perfect hit timing and Z the attack duration")]
+        public Vector3 attackTimings;
+
+        public int attackDuraCost;
         
         private Player _player;
         private bool _attackStarted, _attackEnded;
@@ -64,7 +61,7 @@ namespace Code.WeaponScripts
                     Attack(timer);
                 }
 
-                if (timer >= attackDuration)
+                if (timer >= attackTimings.z)
                 {
                     Debug.Log("Attack missed");
                     _attackStarted = false;
@@ -75,6 +72,7 @@ namespace Code.WeaponScripts
         public virtual async void CastAttack()
         {
             timer = 0.0f;
+            durability.x -= attackDuraCost;
             _attackStarted = true;
         }
 

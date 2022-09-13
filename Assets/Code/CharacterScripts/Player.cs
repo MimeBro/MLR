@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Code.CommonScripts;
 using Code.MoveScripts;
+using Code.WeaponScripts;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -12,20 +13,17 @@ namespace Code.CharacterScripts
     public class Player : Unit
     {
         #region VARIABLES
-    
-        [Title("Energy")]
-        public float currentEnergy;
-        public int maxEnergy;
         
-        [Title("Moves")]
-        //List of moves the monster has already learned, maximum 4
-        public List<Moves> LearnedMoves = new List<Moves>();
-        //List of moves the monster can learn
-        public List<Moves> StartingMoves = new List<Moves>();
-        
-        [HideInInspector]public bool myTurn;
+        [Title("Weapons")]
+        [EnumToggleButtons]
+        [Title("Compatible Weapons", Bold = false)]
+        [HideLabel]
+        public WeaponType CompatibleWeapons;
 
-        private Rigidbody2D _rigidbody2D;
+        public Weapon defaultWeapon;
+        public List<Weapon> acquiredWeapons = new List<Weapon>(3);
+
+        public Transform weaponsTransform;
         private PlayerMovement _playerMovement;
         
         #endregion
@@ -34,9 +32,28 @@ namespace Code.CharacterScripts
 
         private void Awake()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
             _playerMovement = GetComponent<PlayerMovement>();
+        }
 
+        private void Start()
+        {
+            if (defaultWeapon != null)
+            {
+                var dweapon = Instantiate(defaultWeapon, weaponsTransform);
+                acquiredWeapons.Add(dweapon);
+            }
+        }
+
+        public void GetWeapon(Weapon weapon)
+        {
+            if (acquiredWeapons.Count < 4)
+            {
+                acquiredWeapons.Add(weapon);
+            }
+            else
+            {
+                //Replace an existing weapon for the new one
+            }
         }
 
         public override void StartTurn()
@@ -50,22 +67,5 @@ namespace Code.CharacterScripts
         }
 
         #endregion
-        
-        #region MOVES
-        
-        //Learn a new Move
-        public void LearnMove(Moves move)
-        {
-            LearnedMoves.Add(move);
-        }
-        
-        //Remove a learned move
-        public void ForgetMove(int moveIndex)
-        {
-            LearnedMoves.Remove(LearnedMoves[moveIndex]);
-        }
-
-        #endregion
-
     }
 }
