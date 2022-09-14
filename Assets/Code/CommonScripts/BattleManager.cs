@@ -33,6 +33,8 @@ public class BattleManager : MonoBehaviour
 
     public List<Enemy> enemiesOnTheField = new List<Enemy>();
 
+    public RectTransform aimReticle;
+
     #endregion
 
     private void Start()    
@@ -44,6 +46,7 @@ public class BattleManager : MonoBehaviour
     public void StartBattle()
     {
         BattleStartFeedback?.PlayFeedbacks();
+        aimReticle.gameObject.SetActive(false);
         
         _playerOnTheField = GameManager.Instance.playerCharacter;
         _playerOnTheField.gameObject.SetActive(true);

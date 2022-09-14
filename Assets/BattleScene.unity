@@ -1455,9 +1455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 903486200}
-  assignedWeaponIndex: 0
   _selectEnemyIndex: 0
+  _playerActions: {fileID: 0}
 --- !u!1001 &306466349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2319,6 +2320,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2390,9 +2392,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 35
+  near clip plane: 0.001
+  far clip plane: 3000
+  field of view: 32.038395
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2417,14 +2419,48 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.027962767, y: -0, z: -0, w: 0.999609}
-  m_LocalPosition: {x: 14.2, y: 3.59, z: -47.7}
+  m_LocalRotation: {x: 0.030459186, y: -0, z: -0, w: 0.99953604}
+  m_LocalPosition: {x: 15.679993, y: 7.4, z: -63.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1006207166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 3.205, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &559866599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2889,7 @@ MonoBehaviour:
   - {fileID: 273038397}
   - {fileID: 467883819}
   enemiesOnTheField: []
+  aimReticle: {fileID: 879096079}
 --- !u!1 &623684440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,6 +3648,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
   m_PrefabInstance: {fileID: 878643012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &879096078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879096079}
+  - component: {fileID: 879096081}
+  - component: {fileID: 879096080}
+  m_Layer: 5
+  m_Name: AimReticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &879096079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879096078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1316166979}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &879096080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879096078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.9019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -970488182351979515, guid: fe42c8b526e77e54ab91d0590272d9e8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &879096081
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879096078}
+  m_CullTransparentMesh: 1
 --- !u!1 &885749346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,6 +4058,77 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.585583, y: 1.3586006}
   m_EdgeRadius: 0
+--- !u!1 &922032713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922032715}
+  - component: {fileID: 922032714}
+  m_Layer: 0
+  m_Name: CM vcam1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &922032714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922032713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 32.038395
+    OrthographicSize: 5
+    NearClipPlane: 0.001
+    FarClipPlane: 3000
+    Dutch: 0
+    ModeOverride: 0
+    LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7785124, y: 1}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 1502848703}
+--- !u!4 &922032715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922032713}
+  m_LocalRotation: {x: 0.030459186, y: -0, z: -0, w: 0.99953604}
+  m_LocalPosition: {x: 615, y: 9, z: 45.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1502848703}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 3.491, y: 0, z: 0}
 --- !u!1001 &923413923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4240,9 +4424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1143405263}
-  assignedWeaponIndex: 0
   _selectEnemyIndex: 0
+  _playerActions: {fileID: 0}
 --- !u!114 &983296185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4290,30 +4475,6 @@ MonoBehaviour:
       - m_Target: {fileID: 983296184}
         m_TargetAssemblyTypeName: Code.UI_scripts.WeaponButton, Assembly-CSharp
         m_MethodName: UseWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideActions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideWeapons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4435,9 +4596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1208917422}
-  assignedWeaponIndex: 0
   _selectEnemyIndex: 0
+  _playerActions: {fileID: 0}
 --- !u!114 &993848047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4482,33 +4644,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 993848046}
+      - m_Target: {fileID: 983296184}
         m_TargetAssemblyTypeName: Code.UI_scripts.WeaponButton, Assembly-CSharp
         m_MethodName: UseWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideActions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideWeapons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5835,6 +5973,7 @@ RectTransform:
   - {fileID: 839404354}
   - {fileID: 54532088}
   - {fileID: 712963747}
+  - {fileID: 879096079}
   m_Father: {fileID: 1439680806}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6327,8 +6466,8 @@ MonoBehaviour:
   addedDefense: 0
   takeDamageFeedback: {fileID: 0}
   returnPosition: {fileID: 0}
-  compatibleWeapons: 0
-  defaultWeapon: {fileID: 488275344773248808, guid: e1f2ab4215f5f40d0b901d0001194e1b, type: 3}
+  compatibleWeapons: 46
+  defaultWeapon: {fileID: 8601576892762724435, guid: 1176b194b06c477479bdf585e3459989, type: 3}
   acquiredWeapons: []
   weaponsTransform: {fileID: 441422963}
 --- !u!95 &1439356561
@@ -6635,6 +6774,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6266571256023399258, guid: b1894ccb6f4594f4c96c3cb106bf0a2b, type: 3}
   m_PrefabInstance: {fileID: 1483073375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502848702
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502848703}
+  - component: {fileID: 1502848706}
+  - component: {fileID: 1502848705}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502848703
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502848702}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -613.4269, y: -4.6676636, z: 0.110849135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 922032715}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502848705
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502848702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+--- !u!114 &1502848706
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502848702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525878811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,9 +6878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 105177526}
-  assignedWeaponIndex: 0
   _selectEnemyIndex: 0
+  _playerActions: {fileID: 0}
 --- !u!114 &1525878813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6714,33 +6926,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1525878812}
+      - m_Target: {fileID: 983296184}
         m_TargetAssemblyTypeName: Code.UI_scripts.WeaponButton, Assembly-CSharp
         m_MethodName: UseWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideActions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideWeapons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

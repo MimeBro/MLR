@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 488275344773248809}
-  - component: {fileID: 488275344773248808}
+  - component: {fileID: 8601576892762724435}
   m_Layer: 0
-  m_Name: Steel Sword
+  m_Name: Stell Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &488275344773248808
+--- !u!114 &8601576892762724435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,21 +41,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 488275344773248810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df49a02e7bb444fe9c31730182757c23, type: 3}
+  m_Script: {fileID: 11500000, guid: 26be42ef15404c43b49ade017de2e8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  weaponType: 1
+  weaponType: 32
   weaponRarity: 0
   durability: {x: 10, y: 12}
-  weaponName: Steel Blade
+  weaponName: Bow
   weaponDescription: 
-  targeted: 1
+  targeted: 0
   damage:
-  - {x: 7, y: 10, z: 15}
-  - {x: 7, y: 10, z: 15}
+  - {x: 10, y: 10, z: 10}
   attackTimings:
-  - {x: 1, y: 2.5, z: 3}
-  - {x: 1, y: 1.7, z: 2}
-  attackDuraCost: 2
+  - {x: 1, y: 1, z: 2}
+  attackDuraCost: 1
   infiniteDurability: 0
+  reticleSpeed: 300

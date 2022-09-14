@@ -45,20 +45,20 @@ namespace Code.WeaponScripts
         [InfoBox("X is the Good hit timing, Y the Perfect hit timing and Z the attack duration")]
         public List<Vector3> attackTimings;
 
-        private int _currentAttack = 0;
+        protected int _currentAttack = 0;
 
         public int attackDuraCost;
         public bool infiniteDurability;
 
-        private bool _attackStarted, _attackEnded;
-        private float timer = 0.0f;
+        protected bool _attackStarted;
+        protected float timer = 0.0f;
         
         public virtual void Update()
         {
             AttackTimer();
         }
 
-        private void AttackTimer()
+        public virtual void AttackTimer()
         {
             if (_attackStarted)
             {
@@ -70,15 +70,21 @@ namespace Code.WeaponScripts
 
                 if (timer >= attackTimings[_currentAttack].z)
                 {
-                    Debug.Log("Attack missed");
-                    _attackStarted = false;
-                    player.EndAttack();
+                    EndAttack();
                 }
             }
         }
 
+        public virtual void EndAttack()
+        {
+            Debug.Log("Attack missed");
+            _attackStarted = false;
+            player.EndAttack();
+        }
+
         public virtual void CastAttack()
         {
+            Debug.Log("Attack Casted");
             timer = 0.0f;
             _currentAttack = 0;
             if(!infiniteDurability) durability.x -= attackDuraCost;
