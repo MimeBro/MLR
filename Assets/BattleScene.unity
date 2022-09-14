@@ -1405,30 +1405,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideActions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 712963750}
-        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
-        m_MethodName: HideWeapons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &306146123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,9 +1455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 903486200}
   assignedWeaponIndex: 0
+  _selectEnemyIndex: 0
 --- !u!1001 &306466349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2876,7 +2852,7 @@ MonoBehaviour:
   - {fileID: 1721086139}
   - {fileID: 273038397}
   - {fileID: 467883819}
-  _enemiesOnTheField: []
+  enemiesOnTheField: []
 --- !u!1 &623684440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4264,9 +4240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1143405263}
   assignedWeaponIndex: 0
+  _selectEnemyIndex: 0
 --- !u!114 &983296185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4459,9 +4435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1208917422}
   assignedWeaponIndex: 0
+  _selectEnemyIndex: 0
 --- !u!114 &993848047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6351,7 +6327,7 @@ MonoBehaviour:
   addedDefense: 0
   takeDamageFeedback: {fileID: 0}
   returnPosition: {fileID: 0}
-  CompatibleWeapons: 78
+  compatibleWeapons: 0
   defaultWeapon: {fileID: 488275344773248808, guid: e1f2ab4215f5f40d0b901d0001194e1b, type: 3}
   acquiredWeapons: []
   weaponsTransform: {fileID: 441422963}
@@ -6691,9 +6667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb06bcef414e08928f4db349ec75eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedWeapon: {fileID: 0}
   buttonText: {fileID: 105177526}
   assignedWeaponIndex: 0
+  _selectEnemyIndex: 0
 --- !u!114 &1525878813
 MonoBehaviour:
   m_ObjectHideFlags: 0

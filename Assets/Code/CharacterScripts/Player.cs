@@ -39,9 +39,12 @@ namespace Code.CharacterScripts
         {
             if (defaultWeapon != null)
             {
-                var dweapon = Instantiate(defaultWeapon, weaponsTransform);
-                dweapon.player = this;
-                acquiredWeapons.Add(dweapon);
+                if (!acquiredWeapons.Contains(defaultWeapon))
+                {
+                    var dweapon = Instantiate(defaultWeapon, weaponsTransform);
+                    dweapon.player = this;
+                    acquiredWeapons.Add(dweapon);
+                }
             }
         }
 

@@ -44,11 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df49a02e7bb444fe9c31730182757c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   weaponType: 1
   weaponRarity: 0
   durability: {x: 10, y: 12}
-  damage: {x: 7, y: 10, z: 15}
   weaponName: Steel Blade
   weaponDescription: 
-  attackTimings: {x: 1, y: 2.5, z: 3}
+  targeted: 1
+  damage:
+  - {x: 7, y: 10, z: 15}
+  - {x: 7, y: 10, z: 15}
+  attackTimings:
+  - {x: 1, y: 2.5, z: 3}
+  - {x: 1, y: 1.7, z: 2}
   attackDuraCost: 2
+  infiniteDurability: 0

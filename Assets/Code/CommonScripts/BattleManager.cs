@@ -30,9 +30,8 @@ public class BattleManager : MonoBehaviour
     [Title("Character Positioning")]
     public Transform playerPosition;
     public Transform[] enemyPositions;
-    
-    [SerializeField] 
-    private List<Enemy> _enemiesOnTheField = new List<Enemy>();
+
+    public List<Enemy> enemiesOnTheField = new List<Enemy>();
 
     #endregion
 
@@ -57,7 +56,7 @@ public class BattleManager : MonoBehaviour
                 Quaternion.identity);
             
             enemy.returnPosition = enemyPositions[i];
-            _enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
+            enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
         }
         
         _enemyTurn = 0;
@@ -89,7 +88,7 @@ public class BattleManager : MonoBehaviour
         {
             turn = Turn.PLAYER;
             PlayerTurn();
-            foreach (var enemy in _enemiesOnTheField)
+            foreach (var enemy in enemiesOnTheField)
             {
               enemy.ResetAttackingStatus();  
             }
@@ -100,7 +99,7 @@ public class BattleManager : MonoBehaviour
     public void NextTurn()
     {
         _enemyTurn++;
-        if (_enemyTurn < _enemiesOnTheField.Count)
+        if (_enemyTurn < enemiesOnTheField.Count)
         {
             EnemyTurn(_enemyTurn);
         }
@@ -121,7 +120,7 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyTurn(int index)
     {
-        var enemy = _enemiesOnTheField[index];
+        var enemy = enemiesOnTheField[index];
         
         if (!enemy.alreadyAttacked)
         {
@@ -146,12 +145,12 @@ public class BattleManager : MonoBehaviour
 
     public Enemy GetEnemy()
     {
-        return _enemiesOnTheField[0];
+        return enemiesOnTheField[0];
     }
 
     public Enemy GetEnemy(int index)
     {
-        return _enemiesOnTheField[index];
+        return enemiesOnTheField[index];
     }
     
     public void Victory()
