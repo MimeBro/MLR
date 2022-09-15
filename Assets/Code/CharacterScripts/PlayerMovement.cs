@@ -95,7 +95,8 @@ public class PlayerMovement : MonoBehaviour
 		#region INPUT HANDLER
 
 		var grounded = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _groundedOffset), _groundedRadius, _ground, _groundLayer) > 0;
-		
+
+		Transform target;
 		if (CanMove)
 		{
 			_moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -116,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else if(!CanMove && grounded)
 		{
-			var target = BattleManager.Instance.GetPlayer().returnPosition;
+			target = BattleManager.Instance.GetPlayer().returnPosition;
 			var destination = new Vector3(target.position.x, transform.position.y,target.position.z);
 			var step = Data.runMaxSpeed * Time.deltaTime;
 			
@@ -134,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 				CheckDirectionToFace(true);
 			}
 		}
-
+		
 		#endregion
 
 		#region COLLISION CHECKS

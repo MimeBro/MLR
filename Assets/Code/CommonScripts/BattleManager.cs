@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine;
 using Code.CharacterScripts;
 using Code.CommonScripts;
 using Code.MonsterScripts;
@@ -33,7 +34,10 @@ public class BattleManager : MonoBehaviour
 
     public List<Enemy> enemiesOnTheField = new List<Enemy>();
 
+    [Title("Camera Positioning")]
     public RectTransform aimReticle;
+
+    public CinemachineVirtualCamera waitingCam, attackingCam, dodgingCam, aimingCam;
 
     #endregion
 
@@ -80,15 +84,18 @@ public class BattleManager : MonoBehaviour
     //Switches the Player turn to the enemy's and vice-versa
     public void SwitchTurn()
     {
+        //Switch to Enemy turn
         if (turn == Turn.PLAYER)
         {
+            CameraDodgingPosition();
             _playerOnTheField.EndMyTurn();
             turn = Turn.ENEMY;
             EnemyTurn(0);
         }
-
+        //Switch to Player turn
         else
         {
+            CameraWaitingPosition();
             turn = Turn.PLAYER;
             PlayerTurn();
             foreach (var enemy in enemiesOnTheField)
@@ -134,8 +141,9 @@ public class BattleManager : MonoBehaviour
             NextTurn();
         }
     }
-    
-    //public Getters
+
+    #region Public Getters
+
     public Player GetPlayer()
     {
         return _playerOnTheField;
@@ -155,6 +163,44 @@ public class BattleManager : MonoBehaviour
     {
         return enemiesOnTheField[index];
     }
+    
+    #endregion
+
+    #region Cameras
+
+    public void CameraWaitingPosition()
+    {
+        attackingCam.gameObject.SetActive(false);
+        dodgingCam.gameObject.SetActive(false);
+        aimingCam.gameObject.SetActive(false);
+        waitingCam.gameObject.SetActive(true);
+    }
+    
+    public void CameraAttackingPosition()
+    {
+        attackingCam.gameObject.SetActive(true);
+        dodgingCam.gameObject.SetActive(false);
+        aimingCam.gameObject.SetActive(false);
+        waitingCam.gameObject.SetActive(false);
+    }
+    
+    public void CameraDodgingPosition()
+    {
+        attackingCam.gameObject.SetActive(false);
+        dodgingCam.gameObject.SetActive(true);
+        aimingCam.gameObject.SetActive(false);
+        waitingCam.gameObject.SetActive(false);
+    }
+    
+    public void CameraAimingPosition()
+    {
+        attackingCam.gameObject.SetActive(false);
+        dodgingCam.gameObject.SetActive(false);
+        aimingCam.gameObject.SetActive(true);
+        waitingCam.gameObject.SetActive(false);
+    }
+    
+    #endregion
     
     public void Victory()
     {

@@ -7,12 +7,12 @@ namespace Code.WeaponScripts
     public class Bow : Weapon
     {
         private RectTransform _aimReticle;
-        public float reticleSpeed;
+        public float aimingSpeed = 10f;
         private bool _aiming;
+
         public void OnEnable()
         {
             _aimReticle = BattleManager.Instance.aimReticle;
-            
         }
 
         public override void Update()
@@ -23,8 +23,14 @@ namespace Code.WeaponScripts
                 var vertical = Input.GetAxisRaw("Vertical");
 
                 var movementDirection = new Vector2(horizontal, vertical);
+                var aimingCam = BattleManager.Instance.aimingCam.transform;
                 
-                BattleManager.Instance.aimReticle.Translate(movementDirection * (reticleSpeed * Time.deltaTime));
+                aimingCam.Translate(movementDirection * (aimingSpeed * Time.deltaTime));
+                
+                aimingCam.localPosition = new Vector3(
+                    Mathf.Clamp(aimingCam.localPosition.x, -9f, 35f), 
+                    Mathf.Clamp(aimingCam.localPosition.y, 1f, 13f), 
+                    aimingCam.localPosition.z);
             }
             base.Update();
         }
@@ -32,16 +38,19 @@ namespace Code.WeaponScripts
         public override void CastAttack()
         {
             base.CastAttack();
+            BattleManager.Instance.aimingCam.transform.position = BattleManager.Instance.waitingCam.transform.position;
             BattleManager.Instance.aimReticle.gameObject.SetActive(true);
+            BattleManager.Instance.CameraAimingPosition();
             _aimReticle.anchoredPosition = Vector3.zero;
             _aiming = true;
         }
 
         public override void EndAttack()
         {
+            BattleManager.Instance.aimReticle.gameObject.SetActive(false);
+            BattleManager.Instance.CameraWaitingPosition();
             base.EndAttack();
             _aiming = false;
-            BattleManager.Instance.aimReticle.gameObject.SetActive(false);
         }
 
         public override void Attack(float timing)

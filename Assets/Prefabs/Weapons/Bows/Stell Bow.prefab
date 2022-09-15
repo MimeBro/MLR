@@ -57,4 +57,4 @@ MonoBehaviour:
   - {x: 1, y: 1, z: 2}
   attackDuraCost: 1
   infiniteDurability: 0
-  reticleSpeed: 300
+  reticleSpeed: 10

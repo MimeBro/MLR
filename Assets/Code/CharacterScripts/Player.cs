@@ -49,6 +49,14 @@ namespace Code.CharacterScripts
             }
         }
 
+        private void Update()
+        {
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, returnPosition.position.x - 12f, returnPosition.position.x + 12f),
+                Mathf.Clamp(transform.position.y, returnPosition.position.y - 12f, returnPosition.position.y + 12f),
+                transform.position.z);
+        }
+
         public void GetWeapon(Weapon weapon)
         {
             if (acquiredWeapons.Count < 4)
