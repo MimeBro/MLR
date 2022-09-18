@@ -11,6 +11,7 @@ namespace Code.UI_scripts
     {
         public Weapon assignedWeapon;
         public TextMeshProUGUI buttonText;
+        [SerializeField]private WeaponAttack _weaponAttack;
 
         private bool _selectingEnemies;
         [SerializeField]private int _selectEnemyIndex;
@@ -24,13 +25,14 @@ namespace Code.UI_scripts
 
         public void UseWeapon()
         {
-            Debug.Log(assignedWeapon.name + " selected");
+            _weaponAttack = BattleManager.Instance.GetPlayer().weaponAttack;
+            _weaponAttack.weapon = assignedWeapon;
             if (assignedWeapon.targeted && !_selectingEnemies)
             {
                 _selectingEnemies = true;
                 return;
             }
-            assignedWeapon.CastAttack();
+            _weaponAttack.CastAttack();
             _playerActions.HideActions();
             _playerActions.HideWeapons();
         }
@@ -64,7 +66,7 @@ namespace Code.UI_scripts
         {
             if (Input.GetKeyDown(KeyCode.E) && _selectingEnemies)
             {
-                assignedWeapon.CastAttack(BattleManager.Instance.GetEnemy(_selectEnemyIndex));
+                _weaponAttack.CastAttack(BattleManager.Instance.GetEnemy(_selectEnemyIndex));
                 _playerActions.HideActions();
                 _playerActions.HideWeapons();
                 _selectingEnemies = false;

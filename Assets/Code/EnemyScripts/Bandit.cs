@@ -49,7 +49,6 @@ namespace Code.EnemyScripts
 
         private async void FireballAttack()
         {
-            Debug.Log("Fireball Called");
             if (fireballAttack == null) return;
             
             fireballAttack.target = GameManager.Instance.playerCharacter.transform;

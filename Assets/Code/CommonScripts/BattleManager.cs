@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour
     public List<Enemy> enemiesOnTheField = new List<Enemy>();
 
     [Title("Camera Positioning")]
-    public RectTransform aimReticle;
+    public RectTransform crosshair;
 
     public CinemachineVirtualCamera waitingCam, attackingCam, dodgingCam, aimingCam;
 
@@ -50,7 +50,7 @@ public class BattleManager : MonoBehaviour
     public void StartBattle()
     {
         BattleStartFeedback?.PlayFeedbacks();
-        aimReticle.gameObject.SetActive(false);
+        crosshair.gameObject.SetActive(false);
         
         _playerOnTheField = GameManager.Instance.playerCharacter;
         _playerOnTheField.gameObject.SetActive(true);

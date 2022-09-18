@@ -52,7 +52,7 @@ MonoBehaviour:
   shootPositions: []
   stopTimeToAttack: 0
   timeStopDuration: 0
-  guidedProjectile: {fileID: 4445751027788462357, guid: 8a5144a9cc9934c15a326597d919c410, type: 3}
+  guidedProjectile: {fileID: 4445751027788462357, guid: ae993c460acab4964a50d58298e38fd7, type: 3}
   guidedProjectileSpeed: 20
   gapBetweenSpawn: 1
   amountOfShots: 1
@@ -130,7 +130,7 @@ SpriteRenderer:
   m_SortingLayerID: 717135977
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 354a0d3739c3c481ca1bf8b065bd1987, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c935a7891a1743ef999349f3e4cdd5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

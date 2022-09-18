@@ -191,37 +191,6 @@ Transform:
   m_Father: {fileID: 362862023}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &32176424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 32176425}
-  m_Layer: 7
-  m_Name: RightWallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &32176425
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32176424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.187, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 54484092}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &54484091
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,9 +221,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1269515362}
-  - {fileID: 1791672752}
-  - {fileID: 32176425}
-  - {fileID: 1118916019}
   m_Father: {fileID: 1439356558}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,12 +265,12 @@ SpriteRenderer:
   m_SortingLayerID: 717135977
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98b6083dd011641eb97970bdc39d5d3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c15a207a894f745aeada46bf01588978, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1457,6 +1423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 903486200}
+  _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
 --- !u!1001 &306466349
@@ -2132,8 +2099,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441422963}
+  - component: {fileID: 441422964}
   m_Layer: 7
-  m_Name: Weapons Transform
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2154,6 +2122,24 @@ Transform:
   m_Father: {fileID: 1439356558}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441422964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441422962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df49a02e7bb444fe9c31730182757c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  _damage: []
+  _attackTimings: []
+  infiniteDurability: 0
+  weapon: {fileID: 0}
+  specialAttack: {fileID: 0}
 --- !u!1001 &442234762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2889,7 +2875,7 @@ MonoBehaviour:
   - {fileID: 273038397}
   - {fileID: 467883819}
   enemiesOnTheField: []
-  aimReticle: {fileID: 879096079}
+  crosshair: {fileID: 879096079}
   waitingCam: {fileID: 922032714}
   attackingCam: {fileID: 1368121720}
   dodgingCam: {fileID: 943604261}
@@ -3735,7 +3721,7 @@ GameObject:
   - component: {fileID: 879096081}
   - component: {fileID: 879096080}
   m_Layer: 5
-  m_Name: AimReticle
+  m_Name: CrossHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4572,6 +4558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1143405263}
+  _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
 --- !u!114 &983296185
@@ -4744,6 +4731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1208917422}
+  _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
 --- !u!114 &993848047
@@ -4790,7 +4778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 983296184}
+      - m_Target: {fileID: 993848046}
         m_TargetAssemblyTypeName: Code.UI_scripts.WeaponButton, Assembly-CSharp
         m_MethodName: UseWeapon
         m_Mode: 1
@@ -4905,11 +4893,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 571
+      value: 560.8
       objectReference: {fileID: 0}
     - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5232,37 +5220,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
   m_PrefabInstance: {fileID: 1088358864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1118916018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1118916019}
-  m_Layer: 7
-  m_Name: LeftWallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1118916019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118916018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.075, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 54484092}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1130659255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6732,9 +6689,10 @@ MonoBehaviour:
   takeDamageFeedback: {fileID: 0}
   returnPosition: {fileID: 0}
   compatibleWeapons: 46
-  defaultWeapon: {fileID: 8601576892762724435, guid: 1176b194b06c477479bdf585e3459989, type: 3}
-  acquiredWeapons: []
-  weaponsTransform: {fileID: 441422963}
+  weaponAttack: {fileID: 441422964}
+  acquiredWeapons:
+  - {fileID: 11400000, guid: 95f875fbea1ef4fc58faa90200854819, type: 2}
+  - {fileID: 11400000, guid: cf232e18f403f486e83e99ffa998a78a, type: 2}
 --- !u!95 &1439356561
 Animator:
   serializedVersion: 4
@@ -7117,6 +7075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 105177526}
+  _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
 --- !u!114 &1525878813
@@ -7163,7 +7122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 983296184}
+      - m_Target: {fileID: 1525878812}
         m_TargetAssemblyTypeName: Code.UI_scripts.WeaponButton, Assembly-CSharp
         m_MethodName: UseWeapon
         m_Mode: 1
@@ -7822,37 +7781,6 @@ Transform:
   m_Children:
   - {fileID: 1439356558}
   m_Father: {fileID: 2034907337}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1791672751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1791672752}
-  m_Layer: 7
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1791672752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791672751}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.901, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 54484092}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1813134387

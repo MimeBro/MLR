@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.CommonScripts;
-using Code.MoveScripts;
 using Code.WeaponScripts;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -21,10 +20,8 @@ namespace Code.CharacterScripts
         [HideLabel]
         public WeaponType compatibleWeapons;
 
-        public Weapon defaultWeapon;
+        public WeaponAttack weaponAttack;
         public List<Weapon> acquiredWeapons = new List<Weapon>(3);
-
-        public Transform weaponsTransform;
         private PlayerMovement _playerMovement;
         
         #endregion
@@ -38,15 +35,7 @@ namespace Code.CharacterScripts
 
         private void Start()
         {
-            if (defaultWeapon != null)
-            {
-                if (!acquiredWeapons.Contains(defaultWeapon))
-                {
-                    var dweapon = Instantiate(defaultWeapon, weaponsTransform);
-                    dweapon.player = this;
-                    acquiredWeapons.Add(dweapon);
-                }
-            }
+
         }
 
         private void Update()
@@ -57,12 +46,11 @@ namespace Code.CharacterScripts
                 transform.position.z);
         }
 
-        public void GetWeapon(Weapon weapon)
+        public void GetWeapon(Weapon newWeapon)
         {
             if (acquiredWeapons.Count < 4)
             {
-                var newWeapon = Instantiate(weapon, weaponsTransform);
-                newWeapon.player = this;
+
                 acquiredWeapons.Add(newWeapon);
             }
             else
