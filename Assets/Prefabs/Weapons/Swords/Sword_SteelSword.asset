@@ -22,7 +22,7 @@ MonoBehaviour:
   durabilityCost: 0
   targeted: 1
   aimed: 0
-  melee: 0
+  melee: 1
   canHitWeakPoints: 0
   infiniteDurability: 0
   damage:

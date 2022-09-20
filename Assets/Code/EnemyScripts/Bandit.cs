@@ -55,7 +55,7 @@ namespace Code.EnemyScripts
             
             await fireballAttack.CastAttack(this);
             //transform.DOMoveX(returnPosition.position.x, 0.5f).OnComplete(EndMyTurn);
-            EndMyTurn();
+            EndTurn();
         }
         
 
@@ -64,9 +64,9 @@ namespace Code.EnemyScripts
             
         }
 
-        public override void EndMyTurn()
+        public override void EndTurn()
         {
-            base.EndMyTurn();
+            base.EndTurn();
             
             if (assistants.Any())
             {

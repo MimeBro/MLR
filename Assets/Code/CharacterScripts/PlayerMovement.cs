@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
-using MoreMountains.FeedbacksForThirdParty;
+using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 	private readonly Collider[] _rightWall = new Collider[1];
 	
 	private bool _isAgainstLeftWall, _isAgainstRightWall, _pushingLeftWall, _pushingRightWall;
+	private bool grounded;
 	
 	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
 	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
@@ -64,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
-
-	[SerializeField]private bool _reached;
 	
 	#endregion
 
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
 		#region INPUT HANDLER
 
-		var grounded = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _groundedOffset), _groundedRadius, _ground, _groundLayer) > 0;
+		grounded = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, _groundedOffset), _groundedRadius, _ground, _groundLayer) > 0;
 
 		Transform target;
 		if (CanMove)
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 				OnJumpUpInput();
 			}
 		}
-		else if(!CanMove && grounded)
+		/*else if(!CanMove && grounded)
 		{
 			target = BattleManager.Instance.GetPlayer().returnPosition;
 			var destination = new Vector3(target.position.x, transform.position.y,target.position.z);
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 			_moveInput = Vector2.zero;
 			
 			
-				//Return the player to it's battle position
+			//Return the player to it's battle position
 			if (Vector3.Distance(transform.position, destination) > 1f)
 			{
 				transform.position = Vector3.MoveTowards(transform.position, destination, step * 1.5f);
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				CheckDirectionToFace(true);
 			}
-		}
+		}*/
 		
 		#endregion
 
@@ -252,6 +252,26 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
     }
+
+	public async Task MoveToPosition(Vector3 position)
+	{
+		Debug.Log("Moving");
+		_moveInput = Vector2.zero;
+		CanMove = false;
+
+		//Wait for the player to land.
+		while (!grounded)
+		{
+			await Task.Yield();
+		}
+		
+		var destination = new Vector3(position.x, transform.position.y, position.z);
+		CheckDirectionToFace(destination.x > transform.position.x);
+		RB.DOMove(destination, 1).SetEase(Ease.Linear).OnComplete(()=>
+			CheckDirectionToFace(true)
+		);
+
+	}
 	
 	private void DrawGroundedGizmos()
 	{

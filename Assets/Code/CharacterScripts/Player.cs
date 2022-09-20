@@ -22,7 +22,7 @@ namespace Code.CharacterScripts
 
         public WeaponAttack weaponAttack;
         public List<Weapon> acquiredWeapons = new List<Weapon>(3);
-        private PlayerMovement _playerMovement;
+        public PlayerMovement _playerMovement;
         
         #endregion
 
@@ -32,17 +32,13 @@ namespace Code.CharacterScripts
         {
             _playerMovement = GetComponent<PlayerMovement>();
         }
-
-        private void Start()
-        {
-
-        }
-
+        
         private void Update()
         {
+            if (!_playerMovement.CanMove) return;
             transform.position = new Vector3(
-                Mathf.Clamp(transform.position.x, returnPosition.position.x - 12f, returnPosition.position.x + 12f),
-                Mathf.Clamp(transform.position.y, returnPosition.position.y - 12f, returnPosition.position.y + 12f),
+                Mathf.Clamp(transform.position.x, battlePosition.position.x - 12f, battlePosition.position.x + 12f),
+                Mathf.Clamp(transform.position.y, battlePosition.position.y - 12f, battlePosition.position.y + 12f),
                 transform.position.z);
         }
 
@@ -59,17 +55,18 @@ namespace Code.CharacterScripts
             }
         }
 
-        public override void StartTurn()
+        public async void StartMyTurn()
         {
-            _playerMovement.CanMove = false;
+            await _playerMovement.MoveToPosition(battlePosition.position);
         }
 
-        public void EndAttack()
+        public async void EndAttack()
         {
+            await _playerMovement.MoveToPosition(battlePosition.position);
             BattleManager.Instance.SwitchTurn();
         }
 
-        public override void EndMyTurn()
+        public async void EndMyTurn()
         {
             _playerMovement.CanMove = true;
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cinemachine;
 using Code.CharacterScripts;
 using Code.CommonScripts;
@@ -55,14 +56,13 @@ public class BattleManager : MonoBehaviour
         _playerOnTheField = GameManager.Instance.playerCharacter;
         _playerOnTheField.gameObject.SetActive(true);
         _playerOnTheField.transform.position = playerPosition.position;
-        _playerOnTheField.returnPosition = playerPosition;
+        _playerOnTheField.battlePosition = playerPosition;
 
         for (int i = 0; i < GameManager.Instance.EnemiesToSpawn.Count; i++)
         {
-            var enemy = Instantiate(GameManager.Instance.EnemiesToSpawn[i], enemyPositions[i].position,
-                Quaternion.identity);
-            
-            enemy.returnPosition = enemyPositions[i];
+            var enemy = Instantiate(GameManager.Instance.EnemiesToSpawn[i], enemyPositions[i]);
+            enemy.transform.position = enemyPositions[i].position;
+            enemy.battlePosition = enemyPositions[i];
             enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
         }
         
@@ -77,19 +77,30 @@ public class BattleManager : MonoBehaviour
         else
         {
             turn = Turn.PLAYER;
-            PlayerTurn();
+            playersTurnEvent.Raise();
+        }
+    }
+
+    public async Task Wait(float seconds)
+    {
+        var end = Time.time + seconds;
+        while (Time.time < end)
+        {
+            await Task.Yield();
         }
     }
 
     //Switches the Player turn to the enemy's and vice-versa
-    public void SwitchTurn()
+    public async Task SwitchTurn()
     {
         //Switch to Enemy turn
         if (turn == Turn.PLAYER)
         {
+            CameraWaitingPosition();
+            turn = Turn.ENEMY;
+            await Wait(1);
             CameraDodgingPosition();
             _playerOnTheField.EndMyTurn();
-            turn = Turn.ENEMY;
             EnemyTurn(0);
         }
         //Switch to Player turn
@@ -125,7 +136,7 @@ public class BattleManager : MonoBehaviour
     {
         Debug.Log("Player's Turn");
         playersTurnEvent.Raise();
-        _playerOnTheField.StartTurn();
+        _playerOnTheField.StartMyTurn();
     }
 
     public void EnemyTurn(int index)

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using MoreMountains.Feedbacks;
 using RoboRyanTron.Unite2017.Events;
 using Sirenix.OdinInspector;
@@ -25,7 +26,7 @@ namespace Code.CommonScripts
         //Feedback to play when the unit takes damage.
         public MMFeedbacks takeDamageFeedback;
         //Position where the unit has to return to in case it's moved.
-        public Transform returnPosition;
+        public Transform battlePosition;
 
         public void TakeDamage(int dmg)
         {
@@ -44,7 +45,7 @@ namespace Code.CommonScripts
             //Start Turn logic
         }
 
-        public virtual void EndMyTurn()
+        public virtual void EndTurn()
         {
             //End Turn Logic
         }

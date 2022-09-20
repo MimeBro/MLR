@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Code.CommonScripts;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Code.MonsterScripts
         {
             //Do something
             Debug.Log(gameObject.name + " is attacking");
-            EndMyTurn();
+            EndTurn();
         }
 
         public virtual void JoinAttack(Enemy leader)
@@ -27,7 +28,7 @@ namespace Code.MonsterScripts
             alreadyAttacked = true;
         }
 
-        public override void EndMyTurn()
+        public override void EndTurn()
         {
             alreadyAttacked = true;
             //Turn end logic

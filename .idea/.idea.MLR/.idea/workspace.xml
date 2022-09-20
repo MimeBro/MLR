@@ -21,6 +21,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Users\ALBERTO\Documents\Misael\2021.3.1f1\Editor\Unity.exe" />
@@ -97,6 +103,7 @@
       <workItem from="1662923589168" duration="19182000" />
       <workItem from="1663081560540" duration="10118000" />
       <workItem from="1663166107954" duration="11874000" />
+      <workItem from="1663617482550" duration="14200000" />
     </task>
     <servers />
   </component>

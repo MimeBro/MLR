@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Code.CharacterScripts;
 using Code.CommonScripts;
 using Code.MonsterScripts;
+using DG.Tweening;
 using MoreMountains.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -71,17 +72,7 @@ namespace Code.WeaponScripts
             }
         }
 
-        public virtual void EndAttack()
-        {
-            if(_aiming)
-            { 
-                BattleManager.Instance.crosshair.gameObject.SetActive(false);
-                BattleManager.Instance.CameraWaitingPosition();
-                _aiming = false;
-            }
-            _attackStarted = false;
-            player.EndAttack();
-        }
+
 
         public virtual void CastAttack()
         {
@@ -108,7 +99,14 @@ namespace Code.WeaponScripts
             _durabilityCost = weapon.durabilityCost;
             _targeted = weapon.targeted;
             if(!infiniteDurability) weapon.durability.x -= _durabilityCost;
-            _attackStarted = true;
+            if (weapon.melee)
+            {
+                MeleeAttack(target);
+            }
+            else
+            {
+                _attackStarted = true;
+            }
         }
 
         public virtual void CastSpecialAttack()
@@ -137,7 +135,14 @@ namespace Code.WeaponScripts
             _durabilityCost = specialAttack.durabilityCost;
             _targeted = specialAttack.targeted;
             if(!infiniteDurability) weapon.durability.x -= _durabilityCost;
-            _attackStarted = true;
+            if (specialAttack.melee)
+            {
+                MeleeAttack(target);
+            }
+            else
+            {
+                _attackStarted = true;
+            }
         }
 
         public void AimAttack()
@@ -170,9 +175,13 @@ namespace Code.WeaponScripts
             }
         }
 
-        public void MeleeAttack()
+        public async void MeleeAttack(Enemy target)
         {
-            
+            var position = target.transform.position;
+            var destination = new Vector3(position.x - 5, player.transform.position.y, position.z);
+            await BattleManager.Instance.Wait(0.5f);
+            player.transform.DOJump(destination, 1,1,0.4f).SetEase(Ease.Linear).OnComplete(()=>
+                _attackStarted = true);
         }
 
 
@@ -213,9 +222,20 @@ namespace Code.WeaponScripts
                 _currentAttack = 0;
             }
         }
-        #endregion
 
+        public virtual void EndAttack()
+        {
+            if(_aiming)
+            { 
+                BattleManager.Instance.crosshair.gameObject.SetActive(false);
+                BattleManager.Instance.CameraWaitingPosition();
+                _aiming = false;
+            }
+            _attackStarted = false;
+            player.EndAttack();
+        }
         
-        
+        #endregion
+  
     }
 }
