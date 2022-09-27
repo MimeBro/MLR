@@ -167,35 +167,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   mode:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   gaussianStart:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 149.4
   gaussianEnd:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 300
   gaussianMaxRadius:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1.5
   highQualitySampling:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   focusDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 10
   aperture:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 32
   focalLength:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 270
   bladeCount:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 3
   bladeCurvature:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.989
   bladeRotation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: -180
