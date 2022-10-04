@@ -32,8 +32,9 @@ public class BattleManager : MonoBehaviour
     [Title("Character Positioning")]
     public Transform playerPosition;
     public Transform[] enemyPositions;
-
-    public List<Enemy> enemiesOnTheField = new List<Enemy>();
+    
+    [SerializeField] 
+    private List<Enemy> _enemiesOnTheField = new List<Enemy>();
 
     [Title("Camera Positioning")]
     public RectTransform crosshair;
@@ -60,10 +61,18 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < GameManager.Instance.EnemiesToSpawn.Count; i++)
         {
+<<<<<<< HEAD
             var enemy = Instantiate(GameManager.Instance.EnemiesToSpawn[i], enemyPositions[i]);
             enemy.transform.position = enemyPositions[i].position;
             enemy.battlePosition = enemyPositions[i];
             enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
+=======
+            var enemy = Instantiate(GameManager.Instance.EnemiesToSpawn[i], enemyPositions[i].position,
+                Quaternion.identity);
+            
+            enemy.returnPosition = enemyPositions[i];
+            _enemiesOnTheField.Add(enemy.GetComponent<Enemy>());
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
         }
         
         _enemyTurn = 0;
@@ -109,7 +118,7 @@ public class BattleManager : MonoBehaviour
             CameraWaitingPosition();
             turn = Turn.PLAYER;
             PlayerTurn();
-            foreach (var enemy in enemiesOnTheField)
+            foreach (var enemy in _enemiesOnTheField)
             {
               enemy.ResetAttackingStatus();  
             }
@@ -120,7 +129,7 @@ public class BattleManager : MonoBehaviour
     public void NextTurn()
     {
         _enemyTurn++;
-        if (_enemyTurn < enemiesOnTheField.Count)
+        if (_enemyTurn < _enemiesOnTheField.Count)
         {
             EnemyTurn(_enemyTurn);
         }
@@ -141,7 +150,7 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyTurn(int index)
     {
-        var enemy = enemiesOnTheField[index];
+        var enemy = _enemiesOnTheField[index];
         
         if (!enemy.alreadyAttacked)
         {
@@ -167,12 +176,12 @@ public class BattleManager : MonoBehaviour
 
     public Enemy GetEnemy()
     {
-        return enemiesOnTheField[0];
+        return _enemiesOnTheField[0];
     }
 
     public Enemy GetEnemy(int index)
     {
-        return enemiesOnTheField[index];
+        return _enemiesOnTheField[index];
     }
     
     #endregion

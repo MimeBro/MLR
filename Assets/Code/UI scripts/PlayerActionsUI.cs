@@ -13,7 +13,7 @@ public class PlayerActionsUI : MonoBehaviour
     public Transform weaponsContainer;
     public List<WeaponButton> weaponButtons;
 
-    public void Awake()
+    public void Start()
     {
         HideActions();
         HideWeapons();
@@ -37,9 +37,8 @@ public class PlayerActionsUI : MonoBehaviour
         
         for (int i = 0; i < playerWpns.Count; i++)
         {
-            weaponButtons[i]._playerActions = this;
             weaponButtons[i].assignedWeapon = playerWpns[i];
-            weaponButtons[i].buttonText.text = playerWpns[i].weaponName + " " + playerWpns[i].durability.x;
+            weaponButtons[i].assignedWeaponIndex = i;
             weaponButtons[i].gameObject.SetActive(true);
         }
     }

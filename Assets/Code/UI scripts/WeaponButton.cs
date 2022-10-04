@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Code.MonsterScripts;
 using Code.WeaponScripts;
 using TMPro;
 using UnityEngine;
@@ -11,20 +9,20 @@ namespace Code.UI_scripts
     {
         public Weapon assignedWeapon;
         public TextMeshProUGUI buttonText;
+<<<<<<< HEAD
         [SerializeField]private WeaponAttack _weaponAttack;
+=======
+        public int assignedWeaponIndex;
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 
-        private bool _selectingEnemies;
-        [SerializeField]private int _selectEnemyIndex;
-        [HideInInspector] public PlayerActionsUI _playerActions;
-        
-        private void Update()
+        private void OnEnable()
         {
-            EnemySelection();
-            SelectedEnemy();
+            if (assignedWeapon != null) buttonText.text = assignedWeapon.weaponName;
         }
 
         public void UseWeapon()
         {
+<<<<<<< HEAD
             _weaponAttack = BattleManager.Instance.GetPlayer().weaponAttack;
             _weaponAttack.weapon = assignedWeapon;
             if (assignedWeapon.targeted && !_selectingEnemies)
@@ -72,6 +70,10 @@ namespace Code.UI_scripts
                 _selectingEnemies = false;
                 
             }
+=======
+            Debug.Log(assignedWeapon.name + " selected");
+            BattleManager.Instance.GetPlayer().acquiredWeapons[assignedWeaponIndex].CastAttack();
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
         }
     }
 }

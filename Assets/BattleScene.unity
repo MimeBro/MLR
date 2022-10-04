@@ -663,6 +663,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 712963750}
+        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
+        m_MethodName: HideActions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 712963750}
+        m_TargetAssemblyTypeName: PlayerActionsUI, Assembly-CSharp
+        m_MethodName: HideWeapons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &306146123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,9 +739,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 903486200}
+<<<<<<< HEAD
   _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
+=======
+  assignedWeaponIndex: 0
+--- !u!1001 &306466349
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 10619353}
+    m_Modifications:
+    - target: {fileID: 4813678203532645376, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_Name
+      value: AN_Fir_5 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.4838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.4838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.4838
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 668.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 105.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 647.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+--- !u!4 &306466350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8401121003204011539, guid: f00df208b62c11f44a29d76be3c78ac9, type: 3}
+  m_PrefabInstance: {fileID: 306466349}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!1 &340177119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1669,7 @@ MonoBehaviour:
   playersTurnEvent: {fileID: 11400000, guid: 8fee47d380537264cbe3d3cf61faaa33, type: 2}
   playerPosition: {fileID: 781598405}
   enemyPositions:
+<<<<<<< HEAD
   - {fileID: 581268458}
   enemiesOnTheField: []
   crosshair: {fileID: 879096079}
@@ -1574,6 +1677,13 @@ MonoBehaviour:
   attackingCam: {fileID: 1368121720}
   dodgingCam: {fileID: 943604261}
   aimingCam: {fileID: 788224772}
+=======
+  - {fileID: 152073763}
+  - {fileID: 1721086139}
+  - {fileID: 273038397}
+  - {fileID: 467883819}
+  _enemiesOnTheField: []
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!1 &623684440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,9 +2720,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1143405263}
+<<<<<<< HEAD
   _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
+=======
+  assignedWeaponIndex: 0
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!114 &983296185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2783,9 +2897,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 1208917422}
+<<<<<<< HEAD
   _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
+=======
+  assignedWeaponIndex: 0
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!114 &993848047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3684,6 +3802,7 @@ MonoBehaviour:
   addedAttack: 0
   addedDefense: 0
   takeDamageFeedback: {fileID: 0}
+<<<<<<< HEAD
   battlePosition: {fileID: 0}
   compatibleWeapons: 46
   weaponAttack: {fileID: 441422964}
@@ -3691,6 +3810,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95f875fbea1ef4fc58faa90200854819, type: 2}
   - {fileID: 11400000, guid: cf232e18f403f486e83e99ffa998a78a, type: 2}
   _playerMovement: {fileID: 0}
+=======
+  returnPosition: {fileID: 0}
+  CompatibleWeapons: 78
+  defaultWeapon: {fileID: 488275344773248808, guid: e1f2ab4215f5f40d0b901d0001194e1b, type: 3}
+  acquiredWeapons: []
+  weaponsTransform: {fileID: 441422963}
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!95 &1439356561
 Animator:
   serializedVersion: 4
@@ -3851,9 +3977,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedWeapon: {fileID: 0}
   buttonText: {fileID: 105177526}
+<<<<<<< HEAD
   _weaponAttack: {fileID: 0}
   _selectEnemyIndex: 0
   _playerActions: {fileID: 0}
+=======
+  assignedWeaponIndex: 0
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
 --- !u!114 &1525878813
 MonoBehaviour:
   m_ObjectHideFlags: 0

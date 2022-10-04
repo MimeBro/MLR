@@ -35,11 +35,20 @@ namespace Code.CharacterScripts
         
         private void Update()
         {
+<<<<<<< HEAD
             if (!_playerMovement.CanMove) return;
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, battlePosition.position.x - 12f, battlePosition.position.x + 12f),
                 Mathf.Clamp(transform.position.y, battlePosition.position.y - 12f, battlePosition.position.y + 12f),
                 transform.position.z);
+=======
+            if (defaultWeapon != null)
+            {
+                var dweapon = Instantiate(defaultWeapon, weaponsTransform);
+                dweapon.player = this;
+                acquiredWeapons.Add(dweapon);
+            }
+>>>>>>> parent of 5dace37 (Enemy Selection During Battle)
         }
 
         public void GetWeapon(Weapon newWeapon)
